@@ -8,7 +8,7 @@ The add-on has been developed by E. Demetrescu at CNR-ISPC (Rome, former CNR-ITA
 
 
 Check out the :doc:`usage` section for information about the installation of the add-on.
-For the description of every panel of EMtools, see :doc:`nodes`
+For the description of every panel of EMtools, see :doc:`EMstructure`
 
 .. note::
 
@@ -20,9 +20,4 @@ Contents
 .. toctree::
 
    usage
-   nodes
-   properties
-   geometry
-   placement
-   material
-   color
+   EMstructure
