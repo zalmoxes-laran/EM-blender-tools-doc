@@ -1,13 +1,14 @@
-Welcome to Extended Matrix documentation!
-=========================================
+Welcome to the documentation page of the EMtools add-on
+=======================================================
 
-**Extended Matrix** is a formal language with which to keep track of virtual reconstruction processes. It is intended to be used by archaeologists and heritage specialists to document in a robust way their scientific activities. The EM allows to record the sources used and the processes of analysis and synthesis that have led from scientific evidence to virtual reconstruction. It organises 3D archaeological record so that the 3D modelling steps are smoother, transparent and scientifically complete. It has been developed by E. Demetrescu at CNR-ISPC (Rome, former CNR-ITABC). EM is at its 1.3 version (a 1.4 version is currently under development).
+**EMtools** is an add-on of Blender that, as a bridge, creates a connection between the Extended Matrix (.graphml file) and the 3D environment of Blender (proxy files). 
+With EMtools users can import, manage, visualize, modify, represent and export all the information (geometries, data and paradata) concerning micro and macro scale contexts, single objects or collection of objects. 
 
-In a wider perspective and due to its abstract approach, the Extended Matrix can be used as a human readable metaphor to ingest and present liquid semantic data. In other words, the nodes that compone the paradata section can be used to track and annotate in a simple but effective way several data provenance path exceeding the traditional reconstruction process it was firstly applied to.
+The add-on has been developed by E. Demetrescu at CNR-ISPC (Rome, former CNR-ITABC).
 
-Check out the :doc:`usage` section for further information, including how to :ref:`installation` the project.
-For the description of the nodes, see :ref:`nodes`
-For the properties, see :ref:`properties`
+
+Check out the :doc:`usage` section for information about the installation of the add-on.
+For the description of every panel of EMtools, see :ref:`nodes`
 
 .. note::
 
