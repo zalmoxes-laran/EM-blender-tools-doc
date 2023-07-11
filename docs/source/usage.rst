@@ -8,11 +8,11 @@ Download the installation folder
 
 The installation folder of the EMtools add-on are available at the following links:
 
-- LTS version: https://github.com/zalmoxes-laran/EM-blender-tools;
+- `LTS version <https://github.com/zalmoxes-laran/EM-blender-tools>`_;
 
-- DEV version: https://github.com/zalmoxes-laran/EM-blender-tools/tree/EMtools_v.1.4_dev.
+- `DEV version <https://github.com/zalmoxes-laran/EM-blender-tools/tree/EMtools_v.1.4_dev>`_.
 
-The two version of the EMtools add-on are also available at the download section of the Extended Matrix website: https://www.extendedmatrix.org/download.
+The two version of the EMtools add-on are also available at the `Download <https://www.extendedmatrix.org/downloadv>`_ section of the Extended Matrix website: .
 
 
 
