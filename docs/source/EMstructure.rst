@@ -1,9 +1,9 @@
 EMtools Structure
 =================
 
-The addon is divided in independent panels that can be easily moved within the dedicated space on the sidebar of Blender. 
+The addon is divided into several independent panels that can be easily moved within the dedicated space on the sidebar of Blender. 
 
-After the installation panels are organized as follows: 
+After the installation, panels are organized as follows: 
 
 - EM setup; 
 
@@ -24,14 +24,17 @@ After the installation panels are organized as follows:
 .. _EMsetup:
 
 EM setup
---------------------------
+--------
 
-.. image:: img/EMsetup.png
-    :width: 400
-    :align: center
+.. _EMsetupFIG:
 
+.. figure:: img/EMsetup.png
+   :width: 400
+   :align: center
 
-This panel allows to create the first connection between Blender and the Extended Matrix (.graphml file). 
+   EM setup Panel
+
+This panel :numref:`Fig. <EMsetupFIG>`  allows to create the first connection between Blender and the Extended Matrix (.graphml file). 
 To establish the link EMTools needs to locate the graphml file (NB: before closing the path windows remember to uncheck *relative path* within the settings. 
 Alternatively, it is possible to paste the entire path within the empty line). 
 After this step, click on the *Reload* button to establish the connection. 
@@ -49,7 +52,7 @@ For this step users must also follow the suggestions that have already been intr
 .. _Visual_Manager:
 
 Visual Manager
---------------------------
+--------------
 
 .. image:: img/Visual_Manager.png
   :width: 400
@@ -72,10 +75,10 @@ It’s important to understand that labels will be placed within the camera fiel
 Once automatically generated, labels can be easily modified by applying the grab, scale and rotate commands of Blender. Labels will appear on the viewport of Blender and on the rendered images. 
 
 
-.. _US/USV Manager:
+.. _US/USV_Manager:
 
 US/USV Manager
---------------------------
+--------------
 
 .. image:: img/US_USV_Manager.png
   :width: 400
@@ -94,3 +97,102 @@ In the second case, after selecting a proxy on the scene it will be possible to 
 A search option is also available after clicking of the white arrow presents at the bottom of the list. 
 
 It’s important to note that between the search section of the list and the three buttons, two text lines allow to read extensively both the name of the selected proxy and its description. 
+
+
+
+.. _Paradata_Manager:
+
+Paradata Manager
+----------------
+
+.. image:: img/Paradata_Manager.png
+  :width: 400
+  :align: center 
+
+This panel consent to have access to all the information linked with the subject of the study.  
+
+The *paradata streaming* button on the right corner of the US/USV panel, if active, enables to explore paradata connection (from properties to documents, passing through combiner nodes, if indicated, and extractor nodes) contained in the EM. 
+In this specific case, if the button is active, within the rounded brackets on the right side of the nodes visualized (Properties, Extractors, Combiners, and Docs) a number will indicate only nodes related with that precise proxy. 
+If *paradata streaming* button is inactive users will visualize all the EM nodes without a connection between them. In this specific case, within the rounded brackets on the right side of the nodes (Properties, Extractors, Combiners, and Docs) a number will indicate all the nodes presented in the EM.
+
+**NB**: to follow the streaming of information user should activate this button. 
+
+Every section (*Properties*, *Extractors*, *Combiners*, and *Docs*) contained a list of nodes. 
+As already explained for the *US/USV Manager*, under every list a search box and two lines, that allow to read extensively name and description values, are available. 
+*Extractors*, *Combiners* and *Docs* nodes also presented a third lines that allow to reach the repository where the information is located.
+
+(DEV version features..)
+
+
+.. _Periods_Manager:
+
+Periods Manager
+---------------
+
+.. image:: img/Periods_Manager.png
+  :width: 400
+  :align: center 
+
+
+This panel lists all the chronological periods of the EM and allows to interact with all the Proxy models using Periods as filter. 
+Within the list of Periods, on the right side, different button allow user to:
+
+- change the color of each period;
+  
+- select all the proxy models associated to one or more periods;
+  
+- activate or deactivate the ability to select a proxies associated to a specific period;
+  
+- activate or deactivate the visibility of each period;
+  
+- activate or deactivate the possibility to visualize the objects attributed to a specific period;
+
+- activate or deactivate the possibility to soloing periods.
+
+As already explained for the previous lists of items, under every list there is a search box. 
+
+The lower part of the panel is dedicated to Representation Models (RMs). 
+This section allows user to manually attribute one or more RM to one or more periods (in some cases, especially for structure that has been used for more than one period, it is necessary to associate a RM to multiple periods). 
+To attribute an RM to a period user must select one or more geometries and then click on the *+* button. 
+On the contrary, to remove an RM from a specific period user must select one or more geometries and then click on the *-* button. 
+The third button, the *RM selection* button, allows to select ONLY the RMs that belong to a precise period (**NB**: this option does not work if RMs have not been associated to a specific period). When a RM will be associated to a period a list of epochs will automatically appear under the line *Active object:*. 
+In this case a list of epochs it has been necessary since an RM can be attributed to multiple periods. 
+This list of epochs is also provided with a search box in the lower part of the panel. 
+
+
+.. _EMdb:
+
+EMdb
+----
+
+.. image:: img/EMdb.png
+  :width: 400
+  :align: center 
+
+
+This panel consents to establish a connection between EMTools and an external database. 
+
+
+.. _Export_Manager:
+
+Export Manager
+--------------
+
+.. image:: img/Export_Manager.png
+  :width: 400
+  :align: center 
+
+This panel is divided in two different sections: *tables export* and *EMviq (data) export*. 
+The first section allows to automatically export EM data in csv files. 
+By pressing one button user can export the entire EM (*EM (csv)* button) or groups of nodes (*US/USV* button, *Sources* button, *Extractors* button). 
+The second part of the panel allows to export geometries from Blender to EMviq, that is the 3Dweb app, based on the Aton Framework, that allow to share online, within the same 3D scene, both 3D models (Proxies, Representation models and Source models) and the EM, with all its paradata. 
+
+To export correctly all the data, first it is necessary to control that every geometry (Representation Models and Source models) has been associated with the correct epoch/s.
+
+Second, 3D objects have to be associated to the correct collection of Blender (Representation Models - *RM*; Reality Based - *RB*; *Proxy*).
+
+Third, in order to visualize all the data, user must install Aton [link].
+
+Fourth, before exporting geometries, user must compile all the 5 text boxes corresponding to *Project’s name*, *Model’s name*, *ATON user’s name*, *ATON user’s password* and the *Path to ATON* (where the ATON folder has been stored) and then decide the *file format* (gltf, obj, fbx) and the *texture data* (compression, resolution and quality size). 
+
+Finally, by pressing the *Generate full EMviq Project* button EMTools will create two different folders with both the collection and scenes folder presented in the data folder of ATON. 
