@@ -54,11 +54,15 @@ For this step users must also follow the suggestions that have already been intr
 Visual Manager
 --------------
 
-.. image:: img/Visual_Manager.png
-  :width: 400
-  :align: center 
+.. _Visual_ManagerFIG:
 
-This panel consents to manage the visual aspect of the information in the 3D space of Blender. 
+.. figure:: img/Visual_Manager.png
+   :width: 400
+   :align: center 
+
+   Visual Manager panel
+
+This panel :numref:`Fig. %s <Visual_ManagerFIG>` consents to manage the visual aspect of the information in the 3D space of Blender. 
 Within the *display mode* section, users can filter the visualization of the geometries (the so-called Proxy Models or Proxies) by using *EM* or *Periods*. 
 On one hand, using *EM* option, user will visualize Proxies with a monochromatic material that will match their specific type of node (US, USV/s, USV/n, SF, etc..). 
 On the other, using *Periods* option, Proxies’ materials will be changed in relation to the chronological period to which proxy models will belong. 
@@ -80,11 +84,15 @@ Once automatically generated, labels can be easily modified by applying the grab
 US/USV Manager
 --------------
 
-.. image:: img/US_USV_Manager.png
-  :width: 400
-  :align: center 
+.. _US/USV_ManagerFIG:
 
-This panel allows to: control the connection between the EM graph and the 3D environment, visualize a complete list of US/USV; automatically select proxy models within the scene. 
+.. figure:: img/US_USV_Manager.png
+   :width: 400
+   :align: center
+
+   US/USV Manager panel
+
+This panel :numref:`Fig. %s <US/USV_ManagerFIG>` allows to: control the connection between the EM graph and the 3D environment, visualize a complete list of US/USV; automatically select proxy models within the scene. 
 
 First, user can control the *connection status*. 
 A *chain not connected* will be the signal of an issue within the EM graph or within the 3D scene (a frequent issue is due to a mismatch between the node name within the EM and the Proxy name in Blender). 
@@ -105,11 +113,15 @@ It’s important to note that between the search section of the list and the thr
 Paradata Manager
 ----------------
 
-.. image:: img/Paradata_Manager.png
-  :width: 400
-  :align: center 
+.. _Paradata_ManagerFIG:
 
-This panel consent to have access to all the information linked with the subject of the study.  
+.. figure:: img/Paradata_Manager.png
+   :width: 400
+   :align: center 
+
+   Paradata Manager panel
+
+This panel :numref:`Fig. %s <Paradata_ManagerFIG>` consent to have access to all the information linked with the subject of the study.  
 
 The *paradata streaming* button on the right corner of the US/USV panel, if active, enables to explore paradata connection (from properties to documents, passing through combiner nodes, if indicated, and extractor nodes) contained in the EM. 
 In this specific case, if the button is active, within the rounded brackets on the right side of the nodes visualized (Properties, Extractors, Combiners, and Docs) a number will indicate only nodes related with that precise proxy. 
@@ -129,12 +141,16 @@ As already explained for the *US/USV Manager*, under every list a search box and
 Periods Manager
 ---------------
 
-.. image:: img/Periods_Manager.png
-  :width: 400
-  :align: center 
+.. _Periods_ManagerFIG:
+
+.. figure:: img/Periods_Manager.png
+   :width: 400
+   :align: center 
+
+   Periods Manager panel
 
 
-This panel lists all the chronological periods of the EM and allows to interact with all the Proxy models using Periods as filter. 
+This panel :numref:`Fig. %s <Periods_ManagerFIG>` lists all the chronological periods of the EM and allows to interact with all the Proxy models using Periods as filter. 
 Within the list of Periods, on the right side, different button allow user to:
 
 - change the color of each period;
@@ -165,12 +181,16 @@ This list of epochs is also provided with a search box in the lower part of the 
 EMdb
 ----
 
-.. image:: img/EMdb.png
-  :width: 400
-  :align: center 
+.. _EMdbFIG:
+
+.. figure:: img/EMdb.png
+   :width: 400
+   :align: center 
+
+   EMdb panel
 
 
-This panel consents to establish a connection between EMTools and an external database. 
+This panel :numref:`Fig. %s <EMdbFIG>` consents to establish a connection between EMTools and an external database. 
 
 
 .. _Export_Manager:
@@ -178,11 +198,15 @@ This panel consents to establish a connection between EMTools and an external da
 Export Manager
 --------------
 
-.. image:: img/Export_Manager.png
-  :width: 400
-  :align: center 
+.. _Export_ManagerFIG:
 
-This panel is divided in two different sections: *tables export* and *EMviq (data) export*. 
+.. figure:: img/Export_Manager.png
+   :width: 400
+   :align: center 
+
+   Export Manager panel
+
+This panel :numref:`Fig. %s <Export_ManagerFIG>` is divided in two different sections: *tables export* and *EMviq (data) export*. 
 The first section allows to automatically export EM data in csv files. 
 By pressing one button user can export the entire EM (*EM (csv)* button) or groups of nodes (*US/USV* button, *Sources* button, *Extractors* button). 
 The second part of the panel allows to export geometries from Blender to EMviq, that is the 3Dweb app, based on the Aton Framework, that allow to share online, within the same 3D scene, both 3D models (Proxies, Representation models and Source models) and the EM, with all its paradata. 
