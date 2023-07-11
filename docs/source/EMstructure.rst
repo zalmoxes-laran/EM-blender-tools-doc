@@ -34,7 +34,7 @@ EM setup
 
    EM setup Panel
 
-This panel :numref:`Fig. <EMsetupFIG>`  allows to create the first connection between Blender and the Extended Matrix (.graphml file). 
+This panel :numref:`Fig. %s <EMsetupFIG>`  allows to create the first connection between Blender and the Extended Matrix (.graphml file). 
 To establish the link EMTools needs to locate the graphml file (NB: before closing the path windows remember to uncheck *relative path* within the settings. 
 Alternatively, it is possible to paste the entire path within the empty line). 
 After this step, click on the *Reload* button to establish the connection. 
