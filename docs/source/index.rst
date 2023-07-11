@@ -18,7 +18,8 @@ Contents
 --------
 
 .. toctree::
-   :numbered:
+   :numbered: 5
 
    usage
    EMstructure
+   
