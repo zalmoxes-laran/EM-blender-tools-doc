@@ -17,7 +17,9 @@ After the installation, panels are organized as follows:
  
 - EMdb; 
 
-- Export Manager. 
+- Export Manager;
+
+- EMviq. 
 
 
 
