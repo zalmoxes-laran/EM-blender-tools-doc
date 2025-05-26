@@ -86,7 +86,7 @@ On the upper part of the panel the *Switch to 3D GIS* button allows to instantly
 .. _EMsetup_04abcFIG:
 
 .. figure:: img/EMsetup_04abc.jpg
-   :width: 400
+   :width: 700
    :align: center
 
    3D GIS mode
