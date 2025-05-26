@@ -8,17 +8,22 @@ Panels are organized as follows:
 - EM setup; 
 
 - Visual manager; 
- 
-- US/USV Manager; 
- 
-- Paradata Manager; 
- 
-- Periods Manager; 
- 
-- EMdb; 
 
-- Export Manager. 
+- Activity Manager;
 
+- Stratigraphy Manager;
+
+- Epochs Manager;
+
+- Paradata Manager;
+
+- Anastylosis Manager;
+
+- RM Manager;
+
+- Export Manager;
+
+- Export statistics.
 
 
 .. _EMsetup:
@@ -28,25 +33,31 @@ EM setup
 
 .. _EMsetupFIG:
 
-.. figure:: img/EMsetup.png
+.. figure:: img/EMsetup.jpg
    :width: 400
    :align: center
 
    EM setup Panel
 
 This panel (:numref:`Fig. %s <EMsetupFIG>`)  allows to create the first connection between Blender and the Extended Matrix (.graphml file). 
-To establish the link EMTools needs to locate the graphml file (NB: before closing the path windows remember to uncheck *relative path* within the settings. 
+To establish the link EMTools needs to locate the graphml file (**NB**: before closing the path window remember to uncheck *relative path* within the settings. 
 Alternatively, it is possible to paste the entire path within the empty line). 
-After this step, click on the *Reload* button to establish the connection. 
-*Refresh* button allows to update the .graphml file, if changes have been applied on the EM graph during the modelling session. 
-Once the connection has been established, EMTools will summarize the most important information (US/USV; Periods; Properties; Sources) within a simple table. 
+Press the *Add GraphML* button to establish the connection.
+When a GraphML is loaded, on the left side of the EM setup window the GraphML ID will appear. 
+On the same line, on the right, a green square will show up.
+The green color cofirms that a connection between the GraphML and EMtools has been established.
+Two buttons complete the right side of the line: the *Update* button allows to refresh the .graphml file, if changes have been applied on the EM graph during the modelling session, the *Activate EM* button consent to explore only the selected GraphML. 
+Once the connection has been established, EMTools will summarize the most important information (US/USV; Epochs; Properties; Sources) within a simple table.
+The *Remove GraphML* button allows to remove one or more EMs from the EM setup list.
 
-In this panel users can also link the path to the *DosCo* folder. 
+
+In this panel users can also link the path to the *DosCo* folder, where sources are stored. 
 For this step users must follow the same suggestions introduced for the EM file path. 
 
 If the EM graph presents a connection with and external database, EMTools allows to import databases to maintain data connection also within Blender. 
-To establish the connection, it is necessary to indicate the exact location of the database and then click on the *import* button. 
-For this step users must also follow the suggestions that have already been introduced for the EM file path. 
+To establish the connection with EMtools: expand the *Auxiliry files* section and press *Add*; select the type (Generic Excel, PyArchInit, EMdb Excel); indicate the exact location of the Auxiliary file and click on the *Accept* button. 
+**NB**: when EMdb Excel type is select a Format menu appears, select the correct format from the list.
+
 
 
 .. _Visual_Manager:
