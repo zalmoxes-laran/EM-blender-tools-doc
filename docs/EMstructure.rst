@@ -50,6 +50,8 @@ Press the *Add GraphML* button to establish the connection.
    :width: 400
    :align: center
 
+   GraphML import
+
 When a GraphML is loaded (:numref:`Fig. %s <EMsetup_02FIG>`), on the left side of the EM setup window the GraphML ID will appear. 
 On the same line, on the right, a green square will show up.
 The green color cofirms that a connection between the GraphML and EMtools has been established.
