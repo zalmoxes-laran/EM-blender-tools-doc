@@ -91,6 +91,11 @@ On the upper part of the panel the *Switch to 3D GIS* button allows to instantly
 
    3D GIS mode
 
+The activation of the *3D GIS mode* allows to connect an External database to Blender via EMtools.
+User have three different type of external databases (Generic Excel, PyArchInit, EMdb Excel) to choose from. 
+By pressing the corresponding button a diverse set of options will appear. 
+After setting all the required information the external db will be import within EMtools.
+
 
 .. _Visual_Manager:
 
