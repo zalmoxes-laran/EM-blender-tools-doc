@@ -43,7 +43,14 @@ This panel (:numref:`Fig. %s <EMsetupFIG>`)  allows to create the first connecti
 To establish the link EMTools needs to locate the graphml file (**NB**: before closing the path window remember to uncheck *relative path* within the settings. 
 Alternatively, it is possible to paste the entire path within the empty line). 
 Press the *Add GraphML* button to establish the connection.
-When a GraphML is loaded, on the left side of the EM setup window the GraphML ID will appear. 
+
+.. _EMsetup_02FIG:
+
+.. figure:: img/EMsetup_02.jpg
+   :width: 400
+   :align: center
+
+When a GraphML is loaded (:numref:`Fig. %s <EMsetup_02FIG>`), on the left side of the EM setup window the GraphML ID will appear. 
 On the same line, on the right, a green square will show up.
 The green color cofirms that a connection between the GraphML and EMtools has been established.
 Two buttons complete the right side of the line: the *Update* button allows to refresh the .graphml file, if changes have been applied on the EM graph during the modelling session, the *Activate EM* button consent to explore only the selected GraphML. 
