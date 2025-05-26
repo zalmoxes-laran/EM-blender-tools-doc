@@ -49,8 +49,8 @@ Updating EM Tools
 
 When a new version is available:
 
-1. Download the new ``.blext`` file
-2. Install it using the same process
+1. Download the new ``.blext`` file from the `Download section of the Extended Matrix web site <https://www.extendedmatrix.org/download>` 
+2. Install it using the process previouly described
 3. Blender will automatically update the existing installation
 
 Development Setup
