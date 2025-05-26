@@ -67,6 +67,29 @@ If the EM graph presents a connection with and external database, EMTools allows
 To establish the connection with EMtools: expand the *Auxiliry files* section and press *Add*; select the type (Generic Excel, PyArchInit, EMdb Excel); indicate the exact location of the Auxiliary file and click on the *Accept* button. 
 **NB**: when EMdb Excel type is select a Format menu appears, select the correct format from the list.
 
+A third section, the *Utilities & Settings* one, is included within the EM setup panel.
+Here, users can: convert an EM made with an old version of the formalism, rename Proxies and enable Experimental Features.
+In the first case EMtools will automatically convert US and USV nodes to the latest version of the formalism (**NB**: this function will not affect groups).
+In the second case, by pressing *Manage Proxies' Prefixes* button, EMtools will automatically rename Proxies according to the GraphML ID (**NB**: this step is mandatory to mutually connect GraphML and Proxies. User must select geometries before applying the tool).
+
+.. _EMsetup_03FIG:
+
+.. figure:: img/EMsetup_03.jpg
+   :width: 400
+   :align: center
+
+   Experimental Features enabled
+
+In the third case, by pressing the *Enable Experimental Features* button, a set of Experimental Features will be activated within the sections of the EM setup panel (:numref:`Fig. %s <EMsetup_03FIG>`).
+On the upper part of the panel the *Switch to 3D GIS* button allows to instantly switch from the *EM mode* to a *3D GIS mode* where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
+
+.. _EMsetup_04abcFIG:
+
+.. figure:: img/EMsetup_04abc.jpg
+   :width: 400
+   :align: center
+
+   3D GIS mode
 
 
 .. _Visual_Manager:
