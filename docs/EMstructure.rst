@@ -1,9 +1,9 @@
 EMtools Structure
 =================
 
-The addon is divided into several independent panels that can be easily moved within the dedicated space on the sidebar of Blender. 
+The addon is divided into several independent panels that can be easily moved within the dedicated space on the sidebar of Blender (left side of the Viewport). 
 
-After the installation, panels are organized as follows: 
+Panels are organized as follows: 
 
 - EM setup; 
 
