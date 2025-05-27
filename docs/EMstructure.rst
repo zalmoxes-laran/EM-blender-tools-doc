@@ -4,6 +4,7 @@ EMtools Structure
 The addon is divided into several independent panels that can be easily moved within the dedicated space on the sidebar of Blender (left side of the Viewport). 
 
 Panels are organized as follows: 
+
 - EM setup; 
 
 - Visual manager; 
@@ -121,15 +122,15 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
 Visual Manager
 --------------
 
-.. _Visual_ManagerFIG:
+.. _VisualManager_01-03FIG:
 
-.. figure:: img/Visual_Manager.png
-   :width: 400
+.. figure:: img/VisualManager_01-03.jgg
+   :width: 700
    :align: center 
 
-   Visual Manager panel
+   Visual Manager modes
 
-This panel (:numref:`Fig. %s <Visual_ManagerFIG>`) consents to manage the visual aspect of the information in the 3D space of Blender. 
+This panel (:numref:`Fig. %s <VisualManager_01-03FIG>`) consents to manage the visual aspect of the information in the 3D space of Blender. 
 Within the *display mode* section, users can filter the visualization of the geometries (the so-called Proxy Models or Proxies) by using *EM* or *Periods*. 
 On one hand, using *EM* option, user will visualize Proxies with a monochromatic material that will match their specific type of node (US, USV/s, USV/n, SF, etc..). 
 On the other, using *Periods* option, Proxies’ materials will be changed in relation to the chronological period to which proxy models will belong. 
