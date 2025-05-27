@@ -40,9 +40,9 @@ EM setup
    EM setup Panel
 
 This panel (:numref:`Fig. %s <EMsetupFIG>`)  allows to create the first connection between Blender and the Extended Matrix (.graphml file). 
-To establish the link EMTools needs to locate the graphml file (**NB**: before closing the path window remember to uncheck *relative path* within the settings. 
+To establish the link EMTools needs to locate the graphml file (**NB**: before closing the path window remember to uncheck ``relative path`` within the settings. 
 Alternatively, it is possible to paste the entire path within the empty line). 
-Press the *Add GraphML* button to establish the connection.
+Press the ``Add GraphML`` button to establish the connection.
 
 .. _EMsetup_02FIG:
 
@@ -57,20 +57,20 @@ On the same line, on the right, a green square will show up.
 The green color cofirms that a connection between the GraphML and EMtools has been established.
 Two buttons complete the right side of the line: the *Update* button allows to refresh the .graphml file, if changes have been applied on the EM graph during the modelling session, the *Activate EM* button consent to explore only the selected GraphML. 
 Once the connection has been established, EMTools will summarize the most important information (US/USV; Epochs; Properties; Sources) within a simple table.
-The *Remove GraphML* button allows to remove one or more EMs from the EM setup list.
+The ``Remove GraphML`` button allows to remove one or more EMs from the EM setup list.
 
 
 In this panel users can also link the path to the *DosCo* folder, where sources are stored. 
 For this step users must follow the same suggestions introduced for the EM file path. 
 
 If the EM graph presents a connection with and external database, EMTools allows to import databases to maintain data connection also within Blender. 
-To establish the connection with EMtools: expand the *Auxiliry files* section and press *Add*; select the type (Generic Excel, PyArchInit, EMdb Excel); indicate the exact location of the Auxiliary file and click on the *Accept* button. 
+To establish the connection with EMtools: expand the ``Auxiliry files`` section and press ``Add``; select the type (Generic Excel, PyArchInit, EMdb Excel); indicate the exact location of the Auxiliary file and click on the ``Accept`` button. 
 **NB**: when EMdb Excel type is select a Format menu appears, select the correct format from the list.
 
-A third section, the *Utilities & Settings* one, is included within the EM setup panel.
+A third section, the ``Utilities & Settings`` one, is included within the EM setup panel.
 Here, users can: convert an EM made with an old version of the formalism, rename Proxies and enable Experimental Features.
 In the first case EMtools will automatically convert US and USV nodes to the latest version of the formalism (**NB**: this function will not affect groups).
-In the second case, by pressing *Manage Proxies' Prefixes* button, EMtools will automatically rename Proxies according to the GraphML ID (**NB**: this step is mandatory to mutually connect GraphML and Proxies. User must select geometries before applying the tool).
+In the second case, by pressing ``Manage Proxies' Prefixes`` button, EMtools will automatically rename Proxies according to the GraphML ID (**NB**: this step is mandatory to mutually connect GraphML and Proxies. User must select geometries before applying the tool).
 
 .. _EMsetup_03FIG:
 
@@ -80,8 +80,10 @@ In the second case, by pressing *Manage Proxies' Prefixes* button, EMtools will 
 
    Experimental Features enabled
 
-In the third case, by pressing the *Enable Experimental Features* button, a set of Experimental Features will be activated within the sections of the EM setup panel (:numref:`Fig. %s <EMsetup_03FIG>`).
-On the upper part of the panel the *Switch to 3D GIS* button allows to instantly switch from the *EM mode* to a *3D GIS mode* where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
+In the third case, by pressing the ``Enable Experimental Features`` button, a set of Experimental Features will be activated within the sections of the EM setup panel (:numref:`Fig. %s <EMsetup_03FIG>`).
+As highlighted in red, this set of features is experimental and it should not be used within the standard documentation process of the EM.
+
+On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
 
 .. _EMsetup_04abcFIG:
 
@@ -91,7 +93,7 @@ On the upper part of the panel the *Switch to 3D GIS* button allows to instantly
 
    3D GIS mode
 
-The activation of the *3D GIS mode* allows to connect an External database to Blender via EMtools.
+The activation of the ``3D GIS mode`` consents to connect an External database to the 3D environment of Blender via EMtools.
 User have three different type of external databases (Generic Excel, PyArchInit, EMdb Excel) to choose from. 
 By pressing the corresponding button a diverse set of options will appear. 
 After setting all the required information the external db will be import within EMtools.
