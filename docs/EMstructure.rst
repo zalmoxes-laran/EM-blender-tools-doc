@@ -76,7 +76,6 @@ In the second case, by pressing ``Manage Proxies' Prefixes`` button, EMtools wil
 .. note::
    In the third case, by pressing the ``Enable Experimental Features`` button, a set of Experimental Features will be activated within the sections of the EM setup panel.
 
-   .. _EMsetup_03FIG:
 
    .. figure:: img/EMsetup_03.jpg
       :width: 400
@@ -89,7 +88,7 @@ In the second case, by pressing ``Manage Proxies' Prefixes`` button, EMtools wil
 
    On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
 
-   .. _EMsetup_04abcFIG:
+  
 
    .. figure:: img/EMsetup_04abc.jpg
       :width: 700
