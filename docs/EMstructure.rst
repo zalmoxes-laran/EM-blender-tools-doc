@@ -72,31 +72,42 @@ Here, users can: convert an EM made with an old version of the formalism, rename
 In the first case EMtools will automatically convert US and USV nodes to the latest version of the formalism (**NB**: this function will not affect groups).
 In the second case, by pressing ``Manage Proxies' Prefixes`` button, EMtools will automatically rename Proxies according to the GraphML ID (**NB**: this step is mandatory to mutually connect GraphML and Proxies. User must select geometries before applying the tool).
 
+
+.. note::
+
 .. _EMsetup_03FIG:
 
-.. figure:: img/EMsetup_03.jpg
-   :width: 400
-   :align: center
+   .. figure:: img/EMsetup_03.jpg
+      :width: 400
+      :align: center
 
-   Experimental Features enabled
+      Experimental Features enabled
 
-In the third case, by pressing the ``Enable Experimental Features`` button, a set of Experimental Features will be activated within the sections of the EM setup panel (:numref:`Fig. %s <EMsetup_03FIG>`).
-As highlighted in red, this set of features is experimental and it should not be used within the standard documentation process of the EM.
+   In the third case, by pressing the ``Enable Experimental Features`` button, a set of Experimental Features will be activated within the sections of the EM setup panel (:numref:`Fig. %s <EMsetup_03FIG>`).
+   As highlighted in red, this set of features is experimental and it should not be used within the regular documentation process of the EM.
 
-On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
+   On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
 
 .. _EMsetup_04abcFIG:
 
-.. figure:: img/EMsetup_04abc.jpg
-   :width: 700
-   :align: center
+   .. figure:: img/EMsetup_04abc.jpg
+      :width: 700
+      :align: center
 
-   3D GIS mode
+      3D GIS mode
 
-The activation of the ``3D GIS mode`` consents to connect an External database to the 3D environment of Blender via EMtools.
-User have three different type of external databases (Generic Excel, PyArchInit, EMdb Excel) to choose from. 
-By pressing the corresponding button a diverse set of options will appear. 
-After setting all the required information the external db will be import within EMtools.
+   The activation of the ``3D GIS mode`` consents to connect an External database to the 3D environment of Blender via EMtools.
+   User have three different type of external databases (Generic Excel, PyArchInit, EMdb Excel) to choose from. 
+   By pressing the corresponding button a diverse set of options will appear. 
+   After setting all the required information the external db will be import within EMtools.
+
+   Within the ``DosCo Folder`` section the ``More option`` menu appears, this new part of the add-on permits to populate Extractors, documents and Combiners using DosCo files.
+
+   In the ``Utilities & Settings`` the activation of the ``Enable Experimental Features`` button reveals three new buttons: ``Create default Collections``, ``Rebuild Graph Indices`` and ``Benchmark Property Functions``.
+   All these buttons activate experimental functions which are not still under development.
+
+   
+
 
 
 .. _Visual_Manager:
