@@ -75,26 +75,10 @@ In the second case, by pressing ``Manage Proxies' Prefixes`` button, EMtools wil
 
 .. note::
    In the third case, by pressing the ``Enable Experimental Features`` button, a set of Experimental Features will be activated within the sections of the EM setup panel.
-
-
-   .. figure:: img/EMsetup_03.jpg
-      :width: 400
-      :align: center
-
-      Experimental Features enabled
-
    
    As highlighted in red (:numref:`Fig. %s <EMsetup_03FIG>`), this set of features is experimental and it should not be used within the regular documentation process of the EM.
 
    On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
-
-  
-
-   .. figure:: img/EMsetup_04abc.jpg
-      :width: 700
-      :align: center
-
-      3D GIS mode
 
    The activation of the ``3D GIS mode`` consents to connect an External database to the 3D environment of Blender via EMtools.
    User have three different type of external databases (Generic Excel, PyArchInit, EMdb Excel) to choose from. 
@@ -106,7 +90,22 @@ In the second case, by pressing ``Manage Proxies' Prefixes`` button, EMtools wil
    In the ``Utilities & Settings`` the activation of the ``Enable Experimental Features`` button reveals three new buttons: ``Create default Collections``, ``Rebuild Graph Indices`` and ``Benchmark Property Functions``.
    All these buttons activate experimental functions which are not still under development.
 
+.. _EMsetup_03FIG:
 
+.. figure:: img/EMsetup_03.jpg
+   :width: 400
+   :align: center
+
+   Experimental Features enabled
+
+   
+.. _EMsetup_04abcFIG:
+
+.. figure:: img/EMsetup_04abc.jpg
+   :width: 700
+   :align: center
+
+   3D GIS mode
 .. _Visual_Manager:
 
 Visual Manager
