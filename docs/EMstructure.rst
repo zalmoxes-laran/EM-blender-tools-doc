@@ -124,7 +124,7 @@ Visual Manager
 
 .. _VisualManager_01-03FIG:
 
-.. figure:: img/VisualManager_01-03.jgg
+.. figure:: img/VisualManager_01-03.jpg
    :width: 700
    :align: center 
 
