@@ -129,17 +129,18 @@ Visual Manager
 
    Visual Manager modes (EM, Epochs, Properties)
 
-This panel (:numref:`Fig. %s <VisualManager_01-03FIG>`) consents to manage Proxy models representation in the 3D space of Blender.
-Within the ``display mode`` section, users can filter the visualization of the geometries (the so-called Proxy Models or Proxies) by using *EM*, *Epochs*, *Properties*. 
+This panel (:numref:`Fig. %s <VisualManager_01-03FIG>`) consents to manage the aspect of the so-called Proxy models (or Proxies) in the 3D space of Blender.
 
-- Using ``EM`` option, user will visualize Proxies with a monochromatic material that will match their specific type of node (US, USV/s, USV/n, SF, etc..).
+Within the ``Display mode`` section, users can filter the visualization of the geometries by using *EM*, *Epochs*, and *Properties*:
 
-- By selecting ``Epochs`` option, Proxies’ materials will be changed in relation to the chronological period to which proxy models will belong.
-
-- Choosing ``Properties`` a new material will be applied to every Proxy model.
-This section of the panel reads all the properties of the EM.
+- ``EM`` will visualize Proxies with a monochromatic material that will match their node (US, USV/s, USV/n, SF, etc..);
+- ``Epochs`` change Proxies’ materials according to the chronological period to which proxy models belong;
+- ``Properties`` apply a new material to every Proxy model.
+This specific section of the panel reads all the properties of the EM.
 When a specific property is selected the filter visualizes all the related information.
+
 The panel allows to:
+
 - freely attribute a color material
 - select Proxies with the same property
 - save the color schema
@@ -155,9 +156,10 @@ When a color ramp is defined, by pressing the ``Apply Colors to Proxies`` button
 Within the panel (:numref:`Fig. %s <VisualManager_01-03FIG>`) user can also control the ``alpha`` value of the Proxies’ material (0 = completely transparent; 1 = no alpha).
 Other display options allow user to visualize ONLY selected Proxies with different modes (``bounding box``, ``wireframe``, ``solid``, ``solid&wireframe``). 
 
-``Labels`` section allows user to automatically create a label related to the selected proxies.
+The ``Labels`` section allows user to automatically create a label related to the selected proxies.
 
-To label 3D models, users need to:
+To label 3D models, user need to:
+
 - insert a camera within the 3D scene. 
 - once the camera has been oriented (**NB**: in order to easily orient the camera on the desired proxy or Proxies, user has different solution: manual orientation, by using default command of Blender, or using the add-on ``Store View``, which is already in Blender), user has to define the exact place where labels will be created (in this case both pivot point and 3D cursor can be used as target point). 
 - after selecting the desire number of proxies, by clicking the ``Ab`` button labels will be visualized oriented with point of view of the camera.
@@ -166,7 +168,7 @@ To label 3D models, users need to:
 
 The ``Collection`` button permits to create a collection for the labels. 
 
-Once automatically generated, labels can be easily modified by applying the grab, scale and rotate commands of Blender. Labels will appear on the viewport of Blender and on the rendered images. 
+Once automatically generated, labels can be easily modified by applying the ``Grab``, ``Scale``, and ``Rotate`` commands of Blender. Labels will appear on the viewport of Blender and on the rendered images. 
 
 
 .. _US/USV_Manager:
