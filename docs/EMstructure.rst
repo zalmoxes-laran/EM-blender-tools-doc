@@ -89,11 +89,11 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
 
    1. On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
    The activation of the ``3D GIS mode`` consents to connect an External database to the 3D environment of Blender via EMtools.
-   User have three different type of external databases (Generic Excel, PyArchInit, EMdb Excel) to choose from. 
+   User have three different type of external databases (*Generic Excel*, *PyArchInit*, *EMdb Excel*) to choose from. 
    By pressing the corresponding button a diverse set of options will appear. 
    After setting all the required information the external db will be import within EMtools.
 
-   2. Within the ``DosCo Folder`` section the ``More option`` menu appears, this new part of the add-on permits to populate Extractors, documents and Combiners using DosCo files.
+   2. Within the ``DosCo Folder`` section the ``More option`` menu appears, this new part of the add-on permits to populate Extractors, documents and Combiners using DosCo files. 
 
    3. In the ``Utilities & Settings`` the activation of the ``Enable Experimental Features`` button reveals three new buttons: ``Create default Collections``, ``Rebuild Graph Indices`` and ``Benchmark Property Functions``.
    All these buttons activate experimental functions which are still under development.
@@ -127,22 +127,45 @@ Visual Manager
    :width: 700
    :align: center 
 
-   Visual Manager modes
+   Visual Manager modes (EM, Epochs, Properties)
 
-This panel (:numref:`Fig. %s <VisualManager_01-03FIG>`) consents to manage the visual aspect of the information in the 3D space of Blender. 
-Within the *display mode* section, users can filter the visualization of the geometries (the so-called Proxy Models or Proxies) by using *EM* or *Periods*. 
-On one hand, using *EM* option, user will visualize Proxies with a monochromatic material that will match their specific type of node (US, USV/s, USV/n, SF, etc..). 
-On the other, using *Periods* option, Proxies’ materials will be changed in relation to the chronological period to which proxy models will belong. 
+This panel (:numref:`Fig. %s <VisualManager_01-03FIG>`) consents to manage Proxy models representation in the 3D space of Blender.
+Within the ``display mode`` section, users can filter the visualization of the geometries (the so-called Proxy Models or Proxies) by using *EM*, *Epochs*, *Properties*. 
 
-Within the panel user can also control the alpha value of the Proxies’ material (0 = no alpha; 1 = completely transparent).
-Other display options allow user to visualize ONLY selected Proxies with different modes (bounding box, wireframe, solid, solid&wireframe). 
+- Using ``EM`` option, user will visualize Proxies with a monochromatic material that will match their specific type of node (US, USV/s, USV/n, SF, etc..).
 
-*Labels* section allows user to automatically create a label related to the selected proxies. 
-First, to assign label it is necessary to insert a camera within the 3D scene. 
-Second, once the camera has been oriented (NB: in order to easily orient the camera on the desired proxy or Proxies, user has different solution: manual orientation, by using default command of Blender, or using the add-on *Store View*, which is already contained in Blender), user has to define the exact place where labels will be created (in this case both pivot point and 3D cursor can be used as target point). 
-Finally, after selecting the desire number of proxies, by clicking the *Ab* button labels will be visualized oriented with point of view of the camera. 
-It’s important to understand that labels will be placed within the camera field of view, NOT on the top of the Proxies’ 3D surface. 
-*Collection* button permits to create a collection for the labels. 
+- By selecting ``Epochs`` option, Proxies’ materials will be changed in relation to the chronological period to which proxy models will belong.
+
+- Choosing ``Properties`` a new material will be applied to every Proxy model.
+This section of the panel reads all the properties of the EM.
+When a specific property is selected the filter visualizes all the related information.
+The panel allows to:
+- freely attribute a color material
+- select Proxies with the same property
+- save the color schema
+- load a specific color schema
+
+When *Display mode* is set to *Properties* a ``Color Ramp`` appears on the lower part of the *Visual Manager* panel.
+The menu allows to set the ``Scale Type``, with three option (``Sequential``, ``Diverging``, and ``Qualitative``), and the ``Color Ramp`` type (``Viridis``, ``Blues``, ``Heat``).
+Everytime a *Color Ramp* is selected the line ``Selected`` will be automatically updated.
+The ``Apply Color Ramp`` button consents to attribute and visualize the color ramp selected in the Property list.
+When a color ramp is defined, by pressing the ``Apply Colors to Proxies`` button EMtools will automatically transfer colors to Proxies.
+
+
+Within the panel (:numref:`Fig. %s <VisualManager_01-03FIG>`) user can also control the ``alpha`` value of the Proxies’ material (0 = completely transparent; 1 = no alpha).
+Other display options allow user to visualize ONLY selected Proxies with different modes (``bounding box``, ``wireframe``, ``solid``, ``solid&wireframe``). 
+
+``Labels`` section allows user to automatically create a label related to the selected proxies.
+
+To label 3D models, users need to:
+- insert a camera within the 3D scene. 
+- once the camera has been oriented (**NB**: in order to easily orient the camera on the desired proxy or Proxies, user has different solution: manual orientation, by using default command of Blender, or using the add-on ``Store View``, which is already in Blender), user has to define the exact place where labels will be created (in this case both pivot point and 3D cursor can be used as target point). 
+- after selecting the desire number of proxies, by clicking the ``Ab`` button labels will be visualized oriented with point of view of the camera.
+
+**NB**: labels will be placed within the camera field of view, NOT on the top of the Proxies’ 3D surface. 
+
+The ``Collection`` button permits to create a collection for the labels. 
+
 Once automatically generated, labels can be easily modified by applying the grab, scale and rotate commands of Blender. Labels will appear on the viewport of Blender and on the rendered images. 
 
 
