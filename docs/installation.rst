@@ -27,7 +27,7 @@ The recommended way to install EM Tools is through the official Blender extensio
 2. **Install in Blender**
    
    - Open Blender
-   - Navigate to ``Edit → Preferences → Add-ons``
+   - Navigate to ``Edit → Preferences... → Get Extensions``
    - Click the ``Install from Disk...`` button
    - Deactivate the ``Filter files`` button within the ``Blender File View`` window
    - Browse to the downloaded ``.blext`` file and select it
@@ -36,7 +36,7 @@ The recommended way to install EM Tools is through the official Blender extensio
 
 3. **Enable the Extension**
    
-   - Find "EM Tools" in the add-ons list
+   - Find *EM Tools* in the add-ons list
    - Check the box next to it to enable
    - The EM Tools panels will automatically appear in the 3D Viewport sidebar
 
