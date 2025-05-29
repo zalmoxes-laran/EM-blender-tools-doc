@@ -42,7 +42,7 @@ EM setup
 This panel (:numref:`Fig. %s <EMsetupFIG>`)  allows to create the first connection between Blender and the Extended Matrix (.graphml file). 
 To establish the link EMTools needs to locate the ``.graphml`` file (**NB**: before closing the path window remember to uncheck ``relative path`` within the settings. 
 Alternatively, it is possible to paste the entire path within the empty line). 
-Press the ``Add GraphML`` button to establish the connection.
+Press the ::guilabel:`Add GraphML` button to establish the connection.
 
 .. _EMsetup_02FIG:
 
@@ -89,12 +89,10 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
 
    1. On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
    The activation of the ``3D GIS mode`` consents to connect an External database to the 3D environment of Blender via EMtools.
-   User have three different type of external databases (*Generic Excel*, *PyArchInit*, *EMdb Excel*) to choose from. 
-   By pressing the corresponding button a diverse set of options will appear. 
+   User have three different type of external databases (*Generic Excel*, *PyArchInit*, *EMdb Excel*) to choose from.
+   By pressing the corresponding button a diverse set of options will appear.
    After setting all the required information the external db will be import within EMtools.
-
-   2. Within the ``DosCo Folder`` section the ``More option`` menu appears, this new part of the add-on permits to populate Extractors, documents and Combiners using DosCo files. 
-
+   2. Within the ``DosCo Folder`` section the ``More option`` menu appears, this new part of the add-on permits to populate Extractors, documents and Combiners using DosCo files.
    3. In the ``Utilities & Settings`` the activation of the ``Enable Experimental Features`` button reveals three new buttons: ``Create default Collections``, ``Rebuild Graph Indices`` and ``Benchmark Property Functions``.
    All these buttons activate experimental functions which are still under development.
 
