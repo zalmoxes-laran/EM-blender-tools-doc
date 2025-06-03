@@ -56,6 +56,15 @@ When a GraphML is loaded (:numref:`Fig. %s <EMsetup_02FIG>`), on the left side o
 On the same line, on the right side, a green square will show up.
 The green color cofirms that a connection between the GraphML and EMtools has been established.
 
+.. note::
+   To correctly link the ``.graphml`` file with the ``EM setup`` panel it is mandaotry to insert, at least, the GraphML ID on the title of the ``Swimlane node`` (**1.5 dev4 palette**); the first node that needs to be imported in the yEd space to start the creation of an Extended Matrix.
+
+   Example:
+
+   Context name [ID:xx;ORCID:xx;LICENCE:CC-BY-ND]
+
+   Great Temple [ID:GT16;LICENCE:CC-BY-ND]
+
 Two buttons complete the right side of the line: the ``Update`` button allows to refresh the ``.graphml`` file, if changes have been applied on the EM graph during the modelling session; the ``Activate EM`` button consent to explore only the selected GraphML.
 
 Once the connection has been established, EMTools will summarize the most important information (US/USV; Epochs; Properties; Sources) within a simple table.
