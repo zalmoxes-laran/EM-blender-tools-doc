@@ -105,11 +105,12 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
    3. In the ``Utilities & Settings`` the activation of the ``Enable Experimental Features`` button reveals three new buttons: ``Create default Collections``, ``Rebuild Graph Indices`` and ``Benchmark Property Functions``.
    All these buttons activate experimental functions which are still under development.
 
-   .. figure:: img/EMsetup_03_edit.jpg
-      :width: 400
-      :align: center
 
-      Experimental Features enabled (red rectangles with numbers 1-3)
+.. figure:: img/EMsetup_03_edit.jpg
+   :width: 400
+   :align: center
+
+   Experimental Features enabled (red rectangles with numbers 1-3)
    
 .. _EMsetup_03_editFIG:
 
