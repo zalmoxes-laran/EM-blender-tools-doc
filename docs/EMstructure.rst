@@ -251,13 +251,7 @@ Before pressing the *Open on EMviq* button  (:numref:`Fig. %s <EMviq_01FIG>`) us
    `Example <https://aton.ispc.cnr.it/s/sberto/dataset_demo>`_ of a 3D scene shared online with Hathor
 
 
-.. _EMviq_03FIG:
 
-.. figure:: img/EMviq_03.jpg
-   :width: 600
-   :align: center 
-
-   `Example <https://aton.ispc.cnr.it/a/emviq/?s=sberto/dataset_demo>`_ of a 3D scene shared online with EMviq
 
 Some features of the EMviq 3D scene (scene cover, viewpoints, light, panorama etc..) can be customized. 
 To edit and save all the changes user must:
@@ -277,6 +271,15 @@ To edit and save all the changes user must:
 - open the EMviq scene by pressing the *Open on EMviq* button on EMtools
 
 - explore the customized EMviq scene.
+
+
+.. _EMviq_03FIG:
+
+.. figure:: img/EMviq_03.jpg
+   :width: 600
+   :align: center 
+
+   `Example <https://aton.ispc.cnr.it/a/emviq/?s=sberto/dataset_demo>`_ of a 3D scene shared online with EMviq
 
 
 
