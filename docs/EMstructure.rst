@@ -228,3 +228,58 @@ Finally, by pressing the *Generate full EMviq Project* button EMTools will creat
 
 EMviq
 -----
+
+.. _EMviq_01FIG:
+
+.. figure:: img/EMviq_01.jpg
+   :width: 400
+   :align: center 
+
+   Open EMviq scene button
+
+To share the 3D reconstruction project realized in Blender users can use the webapp `EMviq <https://osiris.itabc.cnr.it/scenebaker/index.php/projects/emviq/>`_EMviq (Extended Matrix visual inspector querier) which is a service of the `ATON Framework <https://osiris.itabc.cnr.it/aton/>`_.
+
+Before pressing the *Open on EMviq* button  (:numref:`Fig. %s <EMviq_01FIG>`) users must follow all the instructions on "How to publish a 3D scene with ATON" described in the `Tutorial <https://osiris.itabc.cnr.it/aton/index.php/tutorials/pub-scene/>`_ section of the ATON web page.
+
+
+.. _EMviq_02FIG:
+
+.. figure:: img/EMviq_02.jpg
+   :width: 400
+   :align: center 
+
+   `Example <https://aton.ispc.cnr.it/s/sberto/dataset_demo>` of a 3D scene shared online with Hathor
+
+
+.. _EMviq_03FIG:
+
+.. figure:: img/EMviq_03.jpg
+   :width: 400
+   :align: center 
+
+   `Example <https://aton.ispc.cnr.it/a/emviq/?s=sberto/dataset_demo>` of a 3D scene shared online with EMviq
+
+Some features of the EMviq 3D scene (scene cover, viewpoints, light, panorama etc..) can be customized. 
+To edit and save all the changes user must:
+- create a 3D scene by following the instructions previously mentioned
+- open the 3D scene with Hathor
+- enter on Editor mode (click on the account icon an switch to Editor mode)
+- set up the scene
+- exit from the Editor mode (to save changes)
+- update the Hathor scene (ctrl+R)
+- open the EMviq scene by pressing the *Open on EMviq* button on EMtools
+- explore the customized EMviq scene.
+
+
+
+When users open an EMviq scene by default Proxy models are hidden.
+To display Proxies and their information users must:
+- click on the settings button (on the top left corner of the EMviq scene)
+- select *Always visible* to enhance the visualization of Proxies on top of the Representation models
+- exit from the Settings menu
+- select the correct epoch
+- move the mouse on top of a specific part of a 3D model 
+- if a proxy model exists it will appear
+- press the *X* button of the keyboard to explore the corresponding EM (on the right side of the screen)
+- press again the *X* to exit from the function that allows to explore the EM
+- explore the 3D scene.
