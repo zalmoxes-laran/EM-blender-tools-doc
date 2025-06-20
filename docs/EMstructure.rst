@@ -245,7 +245,7 @@ Before pressing the *Open on EMviq* button  (:numref:`Fig. %s <EMviq_01FIG>`) us
 .. _EMviq_02FIG:
 
 .. figure:: img/EMviq_02.jpg
-   :width: 400
+   :width: 600
    :align: center 
 
    `Example <https://aton.ispc.cnr.it/s/sberto/dataset_demo>`_ of a 3D scene shared online with Hathor
@@ -254,7 +254,7 @@ Before pressing the *Open on EMviq* button  (:numref:`Fig. %s <EMviq_01FIG>`) us
 .. _EMviq_03FIG:
 
 .. figure:: img/EMviq_03.jpg
-   :width: 400
+   :width: 600
    :align: center 
 
    `Example <https://aton.ispc.cnr.it/a/emviq/?s=sberto/dataset_demo>`_ of a 3D scene shared online with EMviq
