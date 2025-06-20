@@ -258,7 +258,7 @@ To edit and save all the changes user must:
 
 - create a 3D scene by following the instructions previously mentioned
 
-- open the 3D scene with Hathor
+- open the 3D scene with Hathor (:numref:`Fig. %s <EMviq_02FIG>`)
 
 - enter on Editor mode (click on the account icon an switch to Editor mode)
 
@@ -284,7 +284,7 @@ To edit and save all the changes user must:
 
 
 When users open an EMviq scene by default Proxy models are hidden.
-To display Proxies and their information users must:
+To display Proxies and their information users must (:numref:`Fig. %s <EMviq_03FIG>`):
 
 - click on the settings button (on the top left corner of the EMviq scene)
 
