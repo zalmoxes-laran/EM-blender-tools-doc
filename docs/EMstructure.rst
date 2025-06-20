@@ -237,7 +237,7 @@ EMviq
 
    Open EMviq scene button
 
-To share the 3D reconstruction project realized in Blender users can use the webapp `EMviq <https://osiris.itabc.cnr.it/scenebaker/index.php/projects/emviq/>`_ EMviq (Extended Matrix visual inspector querier) which is a service of the `ATON Framework <https://osiris.itabc.cnr.it/aton/>`_ .
+To share the 3D reconstruction project realized in Blender users can use the webapp `EMviq <https://osiris.itabc.cnr.it/scenebaker/index.php/projects/emviq/>`_ (Extended Matrix visual inspector querier) which is a service of the `ATON Framework <https://osiris.itabc.cnr.it/aton/>`_ .
 
 Before pressing the *Open on EMviq* button  (:numref:`Fig. %s <EMviq_01FIG>`) users must follow all the instructions on "How to publish a 3D scene with ATON" described in the `Tutorial <https://osiris.itabc.cnr.it/aton/index.php/tutorials/pub-scene/>`_ section of the ATON web page.
 
@@ -279,7 +279,7 @@ To edit and save all the changes user must:
    :width: 600
    :align: center 
 
-   `Example <https://aton.ispc.cnr.it/a/emviq/?s=sberto/dataset_demo>`_ of a 3D scene shared online with EMviq
+   The `dataset demo <https://aton.ispc.cnr.it/a/emviq/?s=sberto/dataset_demo>`_ 3D scene, previously displayed in Hathor, now shared online with EMviq
 
 
 
