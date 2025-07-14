@@ -303,3 +303,25 @@ To display Proxies and their information users must (:numref:`Fig. %s <EMviq_03F
 - press again the *X* to exit from the function that allows to explore the EM
 
 - explore the 3D scene.
+
+
+
+.. figure:: img/EMviq_tips.png
+   :width: 600
+   :align: center 
+
+   Folder tree created by EMtools after pressing the *Generate full EMviq Project* button
+
+After pressing the *Open on Emviq* button, if users encounter some issue with EMviq here are some tips (**NB**. The procedure will be improved in the future versions).
+   
+To ensure a smooth export process, within the *Export Manager* panel of EMtools make sure to fill in at least the following fields: *Project’s name*, *ATON user’s name*, and *path to ATON* (:numref:`Fig. %s <EMviq_01FIG>`).
+   
+As already mentioned in the previous section, to visualize geometries and data in EMviq, the export process from EMtools will create two folders (collections and scene) within the data folder of ATON. Here is some information regarding these two folders: 
+
+- in the collections folder, the user will find as many subfolders as there are epochs created within the EM graph. Each epoch folder will contain all the 3D models (RM, RB) associated with that specific epoch (**NB**. A single 3D model may be associated with multiple epochs);
+    
+- each epoch folder should contain only three files: *.gltf*, *.bin*, and *texture* file.
+    
+- in the scene folder, the user will find at least three files (*em.graphml*, *em.json*, and *scene.json*) and one folder (*proxies*). Both *.json* files contain instructions: *em.json* defines the visualization rules related to the semantic section; *scene.json* defines the scene setup in Hathor and, consequently, in EMviq.
+    
+- By opening the *scene.json* file with a simple text editor, the user can understand how and where ATON retrieves data (for example, 3D models of the scene and the panorama image used as background). A quick check of the file paths listed in the *scene.json* can help prevent issues related to data visualization in Hathor and EMviq.
