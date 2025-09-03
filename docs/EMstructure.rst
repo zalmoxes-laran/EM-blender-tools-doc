@@ -145,7 +145,7 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
 .. _EMsetup_04abcFIG:
 
 .. figure:: img/EMsetup_04abc.jpg
-   :width: 700
+   :width: 400
    :align: center
 
    3D GIS mode
