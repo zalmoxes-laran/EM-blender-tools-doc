@@ -57,6 +57,7 @@ On the same line, on the right side, a green square will show up.
 The green color cofirms that a connection between the GraphML and EMtools has been established.
 
 .. note::
+
    To correctly link the ``.graphml`` file with the ``EM setup`` panel it is mandaotry to insert, at least, the GraphML ID on the title of the ``Swimlane node`` (**1.5 dev4 palette**); the first node that needs to be imported in the yEd space to start the creation of an Extended Matrix (:numref:`Fig. %s <EM_TITLEFIG>`).
 
    Example:
@@ -84,6 +85,7 @@ This version of EMtools allows to activate the ``Multigraph Mode``, this option 
 To upload a new graph and explore its information user can follow the steps already explained.
 
 .. note::
+
   This version of EMtools include **info boxes**. 
   When this button is selected an info box will appears with more information related to that specific part of the tool. 
 
@@ -117,6 +119,7 @@ In the second case, by pressing ``Manage Proxies' Prefixes`` button, EMtools wil
 In the third case, by pressing the ``Enable Experimental Features`` button, a set of Experimental Features will be activated within the sections of the EM setup panel (:numref:`Fig. %s <EMsetup_03_editFIG>`). 
 
 .. note::
+   
    As highlighted in the red warning, this set of features is experimental and it should not be used within the regular documentation process of the EM (:numref:`Fig. %s <EMsetup_03_editFIG>`).
 
    1. On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
