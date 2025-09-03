@@ -65,7 +65,8 @@ The green color cofirms that a connection between the GraphML and EMtools has be
 
    Great Temple [ID:GT16;LICENSE:CC-BY-ND]
 
-   .. EM_TITLE:
+   .. _EM_TITLEFIG:
+
    .. figure:: img/EM_TITLE.png
       :width: 400
       :align: center
