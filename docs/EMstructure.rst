@@ -135,7 +135,7 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
       :width: 400
       :align: center
 
-   Experimental Features enabled (red rectangles with numbers 1-3)
+      Experimental Features enabled (red rectangles with numbers 1-3)
 
    
 
