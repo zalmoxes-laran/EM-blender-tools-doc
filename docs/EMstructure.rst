@@ -137,6 +137,7 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
 .. figure:: img/EMsetup_03_edit.png
    :width: 400
    :align: center
+   
    Experimental Features enabled (red rectangles with numbers 1-3)
 
 
