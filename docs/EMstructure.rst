@@ -116,7 +116,7 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
    All these buttons activate experimental functions which are still under development.
 
 
-.. figure:: img/EMsetup_03_edit.jpg
+.. figure:: img/EMsetup_03_edit.png
    :width: 400
    :align: center
 
