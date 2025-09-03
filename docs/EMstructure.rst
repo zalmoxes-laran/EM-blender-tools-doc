@@ -119,14 +119,6 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
 .. note::
    As highlighted in the red warning, this set of features is experimental and it should not be used within the regular documentation process of the EM (:numref:`Fig. %s <EMsetup_03_editFIG>`).
 
- 
-   .. figure:: img/EMsetup_03_edit.png
-   :width: 400
-   :align: center
-
-   Experimental Features enabled (red rectangles with numbers 1-3)
-   
-
    1. On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
    The activation of the ``3D GIS mode`` consents to connect an External database to the 3D environment of Blender via EMtools.
    User have three different type of external databases (*Generic Excel*, *PyArchInit*, *EMdb Excel*) to choose from.
@@ -137,7 +129,13 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
    All these buttons activate experimental functions which are still under development.
 
 
+   .. _EMsetup_03_editFIG:
 
+   .. figure:: img/EMsetup_03_edit.png
+      :width: 400
+      :align: center
+
+   Experimental Features enabled (red rectangles with numbers 1-3)
 
    
 
