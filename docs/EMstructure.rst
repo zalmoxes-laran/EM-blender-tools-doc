@@ -83,7 +83,7 @@ Three buttons complete the right side of the line: the ``Update`` button allows 
 This version of EMtools allows to activate the ``Multigraph Mode``, this option consent to upload and visualize multiple graphs. 
 To upload a new graph and explore its information user can follow the steps already explained.
 
-..note::
+.. note::
   This version of EMtools include **info boxes**. 
   When this button is selected an info box will appears with more information related to that specific part of the tool. 
 
