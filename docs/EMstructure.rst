@@ -59,11 +59,18 @@ The green color cofirms that a connection between the GraphML and EMtools has be
 .. note::
    To correctly link the ``.graphml`` file with the ``EM setup`` panel it is mandaotry to insert, at least, the GraphML ID on the title of the ``Swimlane node`` (**1.5 dev4 palette**); the first node that needs to be imported in the yEd space to start the creation of an Extended Matrix.
 
+   .. figure:: img/EM_TITLE.png
+      :width: 400
+      :align: center
+      
+      EM graphml file title example
+
+   
    Example:
 
-   Context name [ID:xx;ORCID:xx;LICENCE:CC-BY-ND]
+   Context name [ID:xx;ORCID:xx;LICENSE:CC-BY-ND]
 
-   Great Temple [ID:GT16;LICENCE:CC-BY-ND]
+   Great Temple [ID:GT16;LICENSE:CC-BY-ND]
 
 Three buttons complete the right side of the line: the ``Update`` button allows to refresh the ``.graphml`` file, if changes have been applied on the EM graph during the modelling session; the ``Activate EM`` button consent to explore only the selected GraphML; and the pubblish button when the multigraph mode is active.
 
