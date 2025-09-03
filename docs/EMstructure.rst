@@ -88,6 +88,8 @@ To upload a new graph and explore its information user can follow the steps alre
   When this button is selected an info box will appears with more information related to that specific part of the tool. 
 
 
+
+
 Once the connection has been established, EMTools will summarize the most important information (US/USV; Epochs; Properties; Sources) within a simple table.
 
 The ``Remove GraphML`` button allows to remove one or more EMs from the EM setup list.
