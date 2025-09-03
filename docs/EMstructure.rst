@@ -33,26 +33,26 @@ EM setup
 
 .. _EMsetupFIG:
 
-.. figure:: img/EMsetup.jpg
+.. figure:: img/EMsetup.png
    :width: 400
    :align: center
 
    EM setup Panel
 
 This panel (:numref:`Fig. %s <EMsetupFIG>`)  allows to create the first connection between Blender and the Extended Matrix (.graphml file). 
-To establish the link EMTools needs to locate the ``.graphml`` file (**NB**: before closing the path window remember to uncheck ``relative path`` within the settings. 
+To establish the link, EMTools needs to locate the ``.graphml`` file (**NB**: before closing the path window remember to uncheck ``relative path`` within the settings. 
 Alternatively, it is possible to paste the entire path within the empty line). 
 Press the ``Add GraphML`` button to establish the connection.
 
 .. _EMsetup_02FIG:
 
-.. figure:: img/EMsetup_02.jpg
+.. figure:: img/EMsetup_02.png
    :width: 400
    :align: center
 
    GraphML import
 
-When a GraphML is loaded (:numref:`Fig. %s <EMsetup_02FIG>`), on the left side of the EM setup window the GraphML ID will appear. 
+When a GraphML is loaded (:numref:`Fig. %s <EMsetup_02FIG>`), on the left side of the EM setup window the GraphML ID will appear (for example, the ID: GT16). 
 On the same line, on the right side, a green square will show up.
 The green color cofirms that a connection between the GraphML and EMtools has been established.
 
@@ -65,7 +65,15 @@ The green color cofirms that a connection between the GraphML and EMtools has be
 
    Great Temple [ID:GT16;LICENCE:CC-BY-ND]
 
-Two buttons complete the right side of the line: the ``Update`` button allows to refresh the ``.graphml`` file, if changes have been applied on the EM graph during the modelling session; the ``Activate EM`` button consent to explore only the selected GraphML.
+Three buttons complete the right side of the line: the ``Update`` button allows to refresh the ``.graphml`` file, if changes have been applied on the EM graph during the modelling session; the ``Activate EM`` button consent to explore only the selected GraphML; and the pubblish button when the multigraph mode is active.
+
+This version of EMtools allows to activate the ``Multigraph Mode``, this option consent to upload and visualize multiple graphs. 
+To upload a new graph and explore its information user can follow the steps already explained.
+
+..note::
+  This version of EMtools include **info boxes**. 
+  When this button is selected an info box will appears with more information related to that specific part of the tool. 
+
 
 Once the connection has been established, EMTools will summarize the most important information (US/USV; Epochs; Properties; Sources) within a simple table.
 
@@ -88,6 +96,8 @@ A third section, the ``Utilities & Settings`` one, is included within the EM set
 Here, users can: convert an EM made with an old version of the formalism, rename Proxies and enable Experimental Features.
 
 In the first case EMtools will automatically convert US and USV nodes to the latest version of the formalism (**NB**: this function will not affect groups).
+
+Within this section, EMtools includes also a button, ``Create Standard Collections``, that allows to automatically create the set of default collections (Proxy, RM, CAMS) related to a reconstruction process with Extended Matrix.
 
 In the second case, by pressing ``Manage Proxies' Prefixes`` button, EMtools will automatically rename Proxies according to the GraphML ID (**NB**: this step is mandatory to mutually connect GraphML and Proxies. User must select geometries before applying the tool).
 
