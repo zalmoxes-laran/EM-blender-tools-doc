@@ -119,7 +119,7 @@ In the second case, by pressing ``Manage Proxies' Prefixes`` button, EMtools wil
 In the third case, by pressing the ``Enable Experimental Features`` button, a set of Experimental Features will be activated within the sections of the EM setup panel (:numref:`Fig. %s <EMsetup_03_editFIG>`). 
 
 .. note::
-   
+
    As highlighted in the red warning, this set of features is experimental and it should not be used within the regular documentation process of the EM (:numref:`Fig. %s <EMsetup_03_editFIG>`).
 
    1. On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
@@ -171,6 +171,7 @@ Within the ``Display mode`` section, users can filter the visualization of the g
 - ``EM`` will visualize Proxies with a monochromatic material that will match their node (US, USV/s, USV/n, SF, etc..);
 - ``Epochs`` change Proxies’ materials according to the chronological period to which proxy models belong;
 - ``Properties`` apply a new material to every Proxy model.
+
 This specific section of the panel reads all the properties of the EM.
 When a specific property is selected the filter visualizes all the related information.
 
