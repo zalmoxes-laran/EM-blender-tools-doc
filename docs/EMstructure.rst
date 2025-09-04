@@ -110,12 +110,16 @@ To locate sources, users must follow the same guidelines previously outlined for
 
 If the EM graph presents a connection with and external database, EMTools allows to import databases to maintain data connection also within Blender.
 
-To establish the connection with EMtools: 
+To establish the connection with EMtools:
+
 - expand the ``Auxiliry files`` section and press ``Add``
 - select the type (Generic Excel, PyArchInit, EMdb Excel)
 - indicate the exact location of the Auxiliary file and click on the ``Accept`` button. 
 
-**NB**: when EMdb Excel type is select a Format menu appears, select the correct format from the list.
+
+.. note::
+   When **EMdb Excel** type is selected a ``Format`` menu appears, select the correct format from the list.
+
 
 A third section, the ``Utilities & Settings`` one, is included within the EM setup panel.
 Here, users can: convert an EM made with an old version of the formalism, rename Proxies and enable Experimental Features.
@@ -147,6 +151,7 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
 Here a brief presentation of the Experimental Features, the numebers on the list refer to the numbers specified in :numref:`Fig. %s <EMsetup_04abcFIG>`:
 
 1. On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`). The activation of the ``3D GIS mode`` consents to connect an External database to the 3D environment of Blender via EMtools. User have three different type of external databases (*Generic Excel*, *PyArchInit*, *EMdb Excel*) to choose from. By pressing the corresponding button a diverse set of options will appear. After setting all the required information the external db will be import within EMtools.
+
 
 2. Within the ``DosCo Folder`` section (:numref:`Fig. %s <EMsetup_03_editFIG>`) the ``More option`` menu appears, this new part of the add-on permits to populate Extractors, documents and Combiners using DosCo files.
    
