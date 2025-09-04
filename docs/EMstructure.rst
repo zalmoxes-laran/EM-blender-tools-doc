@@ -221,7 +221,7 @@ Once automatically generated, labels can be easily modified by applying the ``Gr
 
 
 
-.. _EM_VM_EpochsFIG:
+.. _EM_VM_PropertiesFIG:
 
 .. figure:: img/EM_VM_Properties.jpg
    :width: 400
