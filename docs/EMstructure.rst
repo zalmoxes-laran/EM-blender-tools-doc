@@ -39,10 +39,10 @@ EM setup
 
    EM setup Panel
 
-This panel (:numref:`Fig. %s <EMsetupFIG>`)  allows to create the first connection between Blender and the Extended Matrix (.graphml file). 
-To establish the link, EMTools needs to locate the ``.graphml`` file (**NB**: before closing the path window remember to uncheck ``relative path`` within the settings. 
+This panel (:numref:`Fig. %s <EMsetupFIG>`)  allows to create the first connection between Blender and the Extended Matrix (.graphml file).
+Press the ``Add GraphML`` and locate the ``.graphml`` file wiin the ``Path`` section (**NB**: before closing the path window remember to uncheck ``relative path`` within the settings. 
 Alternatively, it is possible to paste the entire path within the empty line). 
-Press the ``Add GraphML`` button to establish the connection.
+
 
 .. _EMsetup_02FIG:
 
@@ -79,24 +79,34 @@ The green color cofirms that a connection between the GraphML and EMtools has be
    
    
 
-Three buttons complete the right side of the line: the ``Update`` button allows to refresh the ``.graphml`` file, if changes have been applied on the EM graph during the modelling session; the ``Activate EM`` button consent to explore only the selected GraphML; and the pubblish button when the multigraph mode is active.
+Next to the green (or red) square, three buttons complete the right side of the line (:numref:`Fig. %s <EMsetup_02FIG>`): the ``Update`` button allows to refresh the ``.graphml`` file, if changes have been applied on the EM graph during the modelling session; the ``Activate EM`` button consent to explore only the selected GraphML; and the ``pubblish`` button appears when the multigraph mode is enabled.
 
 This version of EMtools allows to activate the ``Multigraph Mode``, this option consent to upload and visualize multiple graphs. 
-To upload a new graph and explore its information user can follow the steps already explained.
+To upload a new graph and explore its information user can follow all the steps already explained.
 
 .. note::
 
   This version of EMtools include **info boxes**. 
-  When this button is selected an info box will appears with more information related to that specific part of the tool. 
+  When the info button is selected an info box will appears with more information related to that specific part of the tool. 
 
 
-Once the connection has been established, EMTools will summarize the most important information (US/USV; Epochs; Properties; Sources) within a simple table.
+   .. _EM_info_buttonFIG:
+
+   .. figure:: img/EM_info_button.png
+      :width: 400
+      :align: center
+      
+      Example of EM info box
+
+
+
+Once the connection has been established, EMTools will summarize the most important information (US/USV; Epochs; Properties; Sources) within a simple table under the ``Path`` section (:numref:`Fig. %s <EMsetup_02FIG>`).
 
 The ``Remove GraphML`` button allows to remove one or more EMs from the EM setup list.
 
 
-In this panel users can also link the path to the *DosCo* folder, where sources are stored. 
-For this step users must adhere to the same guidelines previously outlined for the localization of the EM file. 
+In this panel (:numref:`Fig. %s <EMsetup_02FIG>`) users can also link the path to the *DosCo* folder, where sources are stored. 
+To locate sources, users must follow the same guidelines previously outlined for the localization of the EM file. 
 
 If the EM graph presents a connection with and external database, EMTools allows to import databases to maintain data connection also within Blender.
 
@@ -127,7 +137,9 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
    User have three different type of external databases (*Generic Excel*, *PyArchInit*, *EMdb Excel*) to choose from.
    By pressing the corresponding button a diverse set of options will appear.
    After setting all the required information the external db will be import within EMtools.
+
    2. Within the ``DosCo Folder`` section the ``More option`` menu appears, this new part of the add-on permits to populate Extractors, documents and Combiners using DosCo files.
+   
    3. In the ``Utilities & Settings`` the activation of the ``Enable Experimental Features`` button reveals three new buttons: ``Create default Collections``, ``Rebuild Graph Indices`` and ``Benchmark Property Functions``.
    All these buttons activate experimental functions which are still under development.
 
