@@ -128,22 +128,6 @@ In the second case, by pressing ``Manage Proxies' Prefixes`` button, EMtools wil
 
 In the third case, by pressing the ``Enable Experimental Features`` button, a set of Experimental Features will be activated within the sections of the EM setup panel (:numref:`Fig. %s <EMsetup_03_editFIG>`). 
 
-.. note::
-
-   As highlighted in the red warning, this set of features is experimental and it should not be used within the regular documentation process of the EM (:numref:`Fig. %s <EMsetup_03_editFIG>`).
-
-   1. On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`).
-   The activation of the ``3D GIS mode`` consents to connect an External database to the 3D environment of Blender via EMtools.
-   User have three different type of external databases (*Generic Excel*, *PyArchInit*, *EMdb Excel*) to choose from.
-   By pressing the corresponding button a diverse set of options will appear.
-   After setting all the required information the external db will be import within EMtools.
-
-   2. Within the ``DosCo Folder`` section the ``More option`` menu appears, this new part of the add-on permits to populate Extractors, documents and Combiners using DosCo files.
-   
-   3. In the ``Utilities & Settings`` the activation of the ``Enable Experimental Features`` button reveals three new buttons: ``Create default Collections``, ``Rebuild Graph Indices`` and ``Benchmark Property Functions``.
-   All these buttons activate experimental functions which are still under development.
-
-   
 .. _EMsetup_03_editFIG:
 
 .. figure:: img/EMsetup_03_edit.png
@@ -153,6 +137,20 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
    Experimental Features enabled (red rectangles with numbers 1-3)
 
 
+
+.. note::
+
+   As highlighted in the red warning, this set of features is experimental and it should not be used within the regular documentation process of the EM (:numref:`Fig. %s <EMsetup_03_editFIG>`).
+
+
+
+Here a brief presentation of the Experimental Features:
+1. On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`). The activation of the ``3D GIS mode`` consents to connect an External database to the 3D environment of Blender via EMtools. User have three different type of external databases (*Generic Excel*, *PyArchInit*, *EMdb Excel*) to choose from. By pressing the corresponding button a diverse set of options will appear. After setting all the required information the external db will be import within EMtools.
+
+2. Within the ``DosCo Folder`` section the ``More option`` menu appears, this new part of the add-on permits to populate Extractors, documents and Combiners using DosCo files.
+   
+3. In the ``Utilities & Settings`` the activation of the ``Enable Experimental Features`` button reveals three new buttons: ``Create default Collections``, ``Rebuild Graph Indices`` and ``Benchmark Property Functions``.
+All these buttons activate experimental functions which are still under development.
 
 .. _EMsetup_04abcFIG:
 
