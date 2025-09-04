@@ -11,9 +11,9 @@ Panels are organized as follows:
 
 - Activity Manager;
 
-- Stratigraphy Manager;
-
 - Epochs Manager;
+
+- Stratigraphy Manager;
 
 - Paradata Manager;
 
@@ -195,7 +195,7 @@ Within the ``Display mode`` section, users can filter the visualization of the g
 
 ``EM`` will visualize Proxies with a monochromatic material that will match their node (US, USV/s, USV/n, SF, etc..; :numref:`Fig. %s <EM_VM_Proxy_cam_label_01-03FIG>`).
 
-Within the panel (:numref:`Fig. %s <VisualManager_01-03FIG>`) user can also control the ``alpha`` value of the Proxies’ material (0 = completely transparent; 1 = no alpha).
+Within the panel (:numref:`Fig. %s <EM_VM_Proxy_cam_label_01-03FIG>`) user can also control the ``alpha`` value of the Proxies’ material (0 = completely transparent; 1 = no alpha).
 Other display options allow user to visualize ONLY selected Proxies with different modes (``bounding box``, ``wireframe``, ``solid``, ``solid&wireframe``). 
 
 The ``Label Tools`` section allows user to automatically create a label related to the selected proxies.
@@ -246,6 +246,54 @@ The menu allows to set the ``Scale Type``, with three option (``Sequential``, ``
 Everytime a *Color Ramp* is selected the line ``Selected`` will be automatically updated.
 The ``Apply Color Ramp`` button consents to attribute and visualize the color ramp selected in the Property list.
 When a color ramp is defined, by pressing the ``Apply Colors to Proxies`` button EMtools will automatically transfer colors to Proxies.
+
+.. _Activity_Manager:
+
+Activity Maager
+---------------
+
+
+.. _EM_Act_ManagerFIG:
+
+.. figure:: img/EM_Act_Manager.jpg
+   :width: 400
+   :align: center
+
+   Activity Manager panel
+
+This panel (:numref:`Fig. %s <EM_Act_ManagerFIG>`) list all the activities groups included in the EM graph file.
+
+
+
+.. _Epochs_Manager:
+
+Epochs Manager
+--------------
+
+.. _EM_Stratig-Epoch_ManagerFIG:
+
+.. figure:: img/EM_Stratig-Epoch_Manager.png
+   :width: 400
+   :align: center
+
+   Epochs Manager panel
+
+
+Within this panel epochs are listed following the order indicated in the EM graph.
+For every epoch the tool automatically shows the corresponding colors, when an epoch is selected within the ``Epoch details`` panel time-span data appears (``start`` and ``end`` values are displayed).
+To visualize this time values, user **must indicate** the time-span for every row of the EM within the first cell (example: II A.D. [start:100;end:199]).
+Epochs can be **selected**, **unselected** and **hide** by pressing the three symbols located on the right side of the Epochs list, after the color preview icon.
+The selections made within both the **Activity Manager** and the **Epochs Manager** are useful to enable the Stratigraphy filter, in the **Stratigraphy Manager** panel (:numref:`Fig. %s <EM_Act_ManagerFIG>`).
+
+
+
+.. _Stratigraphy_Manager:
+
+Stratigraphy Manager
+--------------------
+
+
+
 
 
 .. _US/USV_Manager:
