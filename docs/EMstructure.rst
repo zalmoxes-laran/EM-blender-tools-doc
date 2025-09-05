@@ -112,8 +112,8 @@ If the EM graph presents a connection with and external database, EMTools allows
 
 To establish the connection with EMtools:
 
-- expand the ``Auxiliry files`` section and press ``Add``
-- select the type (Generic Excel, PyArchInit, EMdb Excel)
+- expand the ``Auxiliry files`` section and press ``Add``;
+- select the type (Generic Excel, PyArchInit, EMdb Excel);
 - indicate the exact location of the Auxiliary file and click on the ``Accept`` button. 
 
 
@@ -151,7 +151,6 @@ In the third case, by pressing the ``Enable Experimental Features`` button, a se
 Here a brief presentation of the Experimental Features, the numebers on the list refer to the numbers specified in :numref:`Fig. %s <EMsetup_04abcFIG>`:
 
 1. On the upper part of the panel the ``Switch to 3D GIS`` button allows to instantly switch from the ``EM mode`` to a ``3D GIS mode`` where users can link an external database to EMtools (:numref:`Fig. %s <EMsetup_04abcFIG>`). The activation of the ``3D GIS mode`` consents to connect an External database to the 3D environment of Blender via EMtools. User have three different type of external databases (*Generic Excel*, *PyArchInit*, *EMdb Excel*) to choose from. By pressing the corresponding button a diverse set of options will appear. After setting all the required information the external db will be import within EMtools.
-
 
 2. Within the ``DosCo Folder`` section (:numref:`Fig. %s <EMsetup_03_editFIG>`) the ``More option`` menu appears, this new part of the add-on permits to populate Extractors, documents and Combiners using DosCo files.
    
@@ -201,9 +200,12 @@ Other display options allow user to visualize ONLY selected Proxies with differe
 The ``Label Tools`` section allows user to automatically create a label related to the selected proxies.
 
 Firstly, to start the labelling process users must create the **CAMS** collection and move inside an already existing **camera** (or a new one), then by pressing the ``Refresh Camera List`` button the tool will automaticcally visualize the camera and display information.
-Once the camera has been oriented (**NB**: in order to easily orient the camera on the desired proxy or Proxies, user has different solution: manual orientation, by using default command of Blender, or using the add-on ``Store View``, which is already in Blender) and one or more Proxies has been selected, by pressing the ``Create Labels for Selected`` button a new label will appear. .
+
+Once the camera has been oriented (**NB**: in order to easily orient the camera on the desired proxy or Proxies, user has different solution: manual orientation, by using default command of Blender, or using the add-on ``Store View``, which is already in Blender) and one or more Proxies has been selected, by pressing the ``Create Labels for Selected`` button a new label will appear.
+
 Since labels will appear within the frame of the camera, **NOT** on top of the Proxies’ 3D surface, to visualise them user must enter on the ``Active camera view mode`` of Blender (**Numpad 0** button).
-User can also locate labels (as text objec) within the Outliner of Blender in the ``_generated_labels_Camera`` collection.
+
+User can also locate labels (as text objects) within the Outliner of Blender in the ``_generated_labels_Camera`` collection.
 Once automatically generated, labels can be easily modified by applying the ``Grab``, ``Scale``, and ``Rotate`` commands of Blender. Labels will appear both on the viewport of Blender and on the rendered images.
 
 
@@ -243,6 +245,7 @@ The panel allows to:
 
 When ``Display mode`` is set to ``Properties`` a ``Color Ramp`` appears on the lower part of the *Visual Manager* panel.
 The menu allows to set the ``Scale Type``, with three option (``Sequential``, ``Diverging``, and ``Qualitative``), and the ``Color Ramp`` type (``Viridis``, ``Blues``, ``Heat``).
+
 Everytime a *Color Ramp* is selected the line ``Selected`` will be automatically updated.
 The ``Apply Color Ramp`` button consents to attribute and visualize the color ramp selected in the Property list.
 When a color ramp is defined, by pressing the ``Apply Colors to Proxies`` button EMtools will automatically transfer colors to Proxies.
@@ -282,8 +285,8 @@ Epochs Manager
 Within this panel epochs are listed following the order indicated in the EM graph.
 For every epoch the tool automatically shows the corresponding colors.
 
-within the ``Epoch details`` panel when an epoch is selected time-span data is displayed (``start`` and ``end`` values).
-To visualize this time values, user **must indicate** the time-span for every row of the EM within the first cell (example: II A.D. [start:100;end:199]).
+In the ``Epoch details`` panel, when an epoch is selected, time-span data is displayed (``start`` and ``end`` values).
+To visualize this time values, **user must indicate** the time-span for every row of the EM within the first cell (example: II A.D. [start:100;end:199]).
 
 Epochs can be **selected**, **unselected** and **hide** by pressing the three symbols located on the right side of the Epochs list, after the color preview icon.
 The selections made within both the **Activity Manager** and the **Epochs Manager** are useful to enable the Stratigraphy filter, in the **Stratigraphy Manager** panel (:numref:`Fig. %s <EM_Stratig-Epoch_ManagerFIG>`).
@@ -306,37 +309,8 @@ To edit the filter process of the EM graph, select:
 - ``Surviving Units`` and ``Reconstruction Units`` buttons to include in the Epoch filter units that survive in multiple epochs, USVs, or both (press on the ``?`` button for more information).
 
 When filters are applied, the number of filtered data is continuously updated on the upper part of the panel and a list of geometries appears in the lower part of the panel itself (press on the ``X`` button to clean filters).
-On the right side of the list, by selecting the  **chain symbol** user can select a specific geometry.
+On the right side of the list, by selecting the  **chain symbol** user can select a specific geometry (a *broken chain* means there is an issue within the EM graph or within the 3D scene; **NB** a common issue is due to a mismatch between the node name within the EM and the Proxy name in Blender).
 Then, the ``Frame selected`` command of Blender will directly  move the point of view to the selected 3D model.
-
-
-
-.. _US/USV_Manager:
-
-US/USV Manager
---------------
-
-.. _US/USV_ManagerFIG:
-
-.. figure:: img/US_USV_Manager.png
-   :width: 400
-   :align: center
-
-   US/USV Manager panel
-
-This panel (:numref:`Fig. %s <US/USV_ManagerFIG>`) allows to: control the connection between the EM graph and the 3D environment, visualize a complete list of US/USV; automatically select proxy models within the scene. 
-
-First, user can control the *connection status*. 
-A *chain not connected* will be the signal of an issue within the EM graph or within the 3D scene (a frequent issue is due to a mismatch between the node name within the EM and the Proxy name in Blender). 
-
-Second, EMTools allows to visualize a complete list of all the US/USV indicated within the EM. 
-
-Third, user can select proxies by following two solutions: *list to proxy* and *proxy to list*. 
-In the first case, after selecting a proxy in the list it will be possible to select that proxy within the 3D scene by clicking on the button with the cube. 
-In the second case, after selecting a proxy on the scene it will be possible to highlight that geometry in the list and visualize its name. 
-A search option is also available after clicking of the white arrow presents at the bottom of the list. 
-
-It’s important to note that between the search section of the list and the three buttons, two text lines allow to read extensively both the name of the selected proxy and its description. 
 
 
 
@@ -345,27 +319,32 @@ It’s important to note that between the search section of the list and the thr
 Paradata Manager
 ----------------
 
-.. _Paradata_ManagerFIG:
+.. _em_Paradata_ManagerFIG:
 
-.. figure:: img/Paradata_Manager.png
+.. figure:: img/em_Paradata_Manager.png
    :width: 400
    :align: center 
 
    Paradata Manager panel
 
-This panel (:numref:`Fig. %s <Paradata_ManagerFIG>`) consent to have access to all the information linked with the subject of the study.  
+This panel (:numref:`Fig. %s <EM_Paradata_ManagerFIG>`) consent to explore all the information stored in every Paradata Node group of an EM graph.
 
-The *paradata streaming* button on the right corner of the US/USV panel, if active, enables to explore paradata connection (from properties to documents, passing through combiner nodes, if indicated, and extractor nodes) contained in the EM. 
-In this specific case, if the button is active, within the rounded brackets on the right side of the nodes visualized (Properties, Extractors, Combiners, and Docs) a number will indicate only nodes related with that precise proxy. 
-If *paradata streaming* button is inactive users will visualize all the EM nodes without a connection between them. In this specific case, within the rounded brackets on the right side of the nodes (Properties, Extractors, Combiners, and Docs) a number will indicate all the nodes presented in the EM.
 
-**NB**: to follow the streaming of information user should activate this button. 
+The ``Filter Paradata`` button, located on the right corner of the panel, if enable, activates the possibility to explore paradata connection (from properties to documents, passing through combiner nodes, if indicated, and extractor nodes) contained in the EM. 
+In this specific case, within the rounded brackets located on the right side of the corresponding node (Properties, Extractors, Combiners, and Docs) a number will indicate the amount of nodes related to that precise proxy. 
 
-Every section (*Properties*, *Extractors*, *Combiners*, and *Docs*) contained a list of nodes. 
-As already explained for the *US/USV Manager*, under every list a search box and two lines, that allow to read extensively name and description values, are available. 
+If ``Filter Paradata`` button is disable users will visualize all the EM nodes of the EM graph without a connection between them. 
+In this specific case, within the rounded brackets on the right side of the nodes (Properties, Extractors, Combiners, and Docs) a number will indicate all the paradata nodes of the EM.
+
+**NB**: to follow the streaming of information user should select the  ``Filter Paradata`` button. 
+
+Every section (**Properties**, **Extractors**, **Combiners**, and **Docs**) contained a list of nodes. 
+Under every list two lines allow to read extensively both the name and the description data related to every selected Paradata node. 
 *Extractors*, *Combiners* and *Docs* nodes also presented a third lines that allow to reach the repository where the information is located.
 
-(**DEV** version features..)
+
+
+
 
 
 .. _Periods_Manager:
