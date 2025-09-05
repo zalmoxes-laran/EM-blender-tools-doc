@@ -340,7 +340,7 @@ In this specific case, within the rounded brackets on the right side of the node
 
 Every section (**Properties**, **Extractors**, **Combiners**, and **Docs**) contained a list of nodes. 
 Under every list two lines allow to read extensively both the name and the description data related to every selected Paradata node. 
- **Extractors**, **Combiners**, and **Docs** nodes also presented a third lines that allow to reach the repository where the information is located.
+**Extractors**, **Combiners**, and **Docs** nodes also presented a third lines that allow to reach the repository where the information is located.
 
 
 
