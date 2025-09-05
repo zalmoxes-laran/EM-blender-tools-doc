@@ -319,7 +319,7 @@ Then, the ``Frame selected`` command of Blender will directly  move the point of
 Paradata Manager
 ----------------
 
-.. _em_Paradata_ManagerFIG:
+.. _EM_Paradata_ManagerFIG:
 
 .. figure:: img/em_Paradata_Manager.png
    :width: 400
