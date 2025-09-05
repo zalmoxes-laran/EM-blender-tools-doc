@@ -321,7 +321,7 @@ Paradata Manager
 
 .. _EM_Paradata_ManagerFIG:
 
-.. figure:: img/em_Paradata_Manager.png
+.. figure:: img/EM_Paradata_Manager.png
    :width: 400
    :align: center 
 
