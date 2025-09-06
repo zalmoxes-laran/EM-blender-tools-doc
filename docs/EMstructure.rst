@@ -370,64 +370,8 @@ The ``Add New Cesium Tileset`` allows to simply add an empty Cesium tileset obje
 At the center of the panel the RM list shows all the selected Representation Models, on the right side of the list a set of buttons replicste actions already described (**add**, **select**, **publish**, and **remove**).
 Under the RM list a box highlights the object currently selected and its the epoch.
 
-When Experimental features are enabled (see EsM setup section), within the ``Settings (experimental)`` section new functions appears; these settings are still under development.
+When Experimental features are enabled (see EM setup section), within the ``Settings (experimental)`` section new functions appears; these settings are still under development.
 
-
-.. _Periods_Manager:
-
-Periods Manager
----------------
-
-.. _Periods_ManagerFIG:
-
-.. figure:: img/Periods_Manager.png
-   :width: 400
-   :align: center 
-
-   Periods Manager panel
-
-
-This panel (:numref:`Fig. %s <Periods_ManagerFIG>`) lists all the chronological periods of the EM and allows to interact with all the Proxy models using Periods as filter. 
-Within the list of Periods, on the right side, different button allow user to:
-
-- change the color of each period;
-  
-- select all the proxy models associated to one or more periods;
-  
-- activate or deactivate the ability to select a proxies associated to a specific period;
-  
-- activate or deactivate the visibility of each period;
-  
-- activate or deactivate the possibility to visualize the objects attributed to a specific period;
-
-- activate or deactivate the possibility to soloing periods.
-
-As already explained for the previous lists of items, under every list there is a search box. 
-
-The lower part of the panel is dedicated to Representation Models (RMs). 
-This section allows user to manually attribute one or more RM to one or more periods (in some cases, especially for structure that has been used for more than one period, it is necessary to associate a RM to multiple periods). 
-To attribute an RM to a period user must select one or more geometries and then click on the *+* button. 
-On the contrary, to remove an RM from a specific period user must select one or more geometries and then click on the *-* button. 
-The third button, the *RM selection* button, allows to select ONLY the RMs that belong to a precise period (**NB**: this option does not work if RMs have not been associated to a specific period). When a RM will be associated to a period a list of epochs will automatically appear under the line *Active object:*. 
-In this case a list of epochs it has been necessary since an RM can be attributed to multiple periods. 
-This list of epochs is also provided with a search box in the lower part of the panel. 
-
-
-.. _EMdb:
-
-EMdb
-----
-
-.. _EMdbFIG:
-
-.. figure:: img/EMdb.png
-   :width: 400
-   :align: center 
-
-   EMdb panel
-
-
-This panel (:numref:`Fig. %s <EMdbFIG>`) consents to establish a connection between EMTools and an external database. 
 
 
 .. _Export_Manager:
@@ -435,25 +379,28 @@ This panel (:numref:`Fig. %s <EMdbFIG>`) consents to establish a connection betw
 Export Manager
 --------------
 
-.. _Export_ManagerFIG:
+.. _EM_Export_ManagerFIG:
 
-.. figure:: img/Export_Manager.png
+.. figure:: img/EM_Export_Manager.png
    :width: 400
    :align: center 
 
    Export Manager panel
 
-This panel (:numref:`Fig. %s <Export_ManagerFIG>`) is divided in two different sections: *tables export* and *EMviq (data) export*. 
+This panel (:numref:`Fig. %s <EM_Export_ManagerFIG>`) is divided in two different sections: **Export** and **Heriverse Export**. 
 The first section allows to automatically export EM data in csv files. 
-By pressing one button user can export the entire EM (*EM (csv)* button) or groups of nodes (*US/USV* button, *Sources* button, *Extractors* button). 
-The second part of the panel allows to export geometries from Blender to EMviq, that is the 3Dweb app, based on the Aton Framework, that allow to share online, within the same 3D scene, both 3D models (Proxies, Representation models and Source models) and the EM, with all its paradata. 
+By pressing one button user can export the entire EM (``EM (csv)`` button) or groups of nodes (``US/USV`` button, ``Sources`` button, ``Extractors`` button). 
+
+The second part of the panel allows to export geometries from Blender to Heriverse, that is the 3Dweb app, based on the Aton Framework [link], that allow to share online, within the same 3D scene, both 3D models (Proxies, Representation models and Source models) and the EM, with all its paradata. 
 
 To export correctly all the data, first it is necessary to control that every geometry (Representation Models and Source models) has been associated with the correct epoch/s.
 
-Second, 3D objects have to be associated to the correct collection of Blender (Representation Models - *RM*; Reality Based - *RB*; *Proxy*).
+Second, 3D objects have to be stored in the correct collection of Blender (Representation Models - **RM**; Reality Based - **RB**; **Proxy**).
 
-Third, in order to visualize all the data, user must install Aton [link].
 
-Fourth, before exporting geometries, user must compile all the 5 text boxes corresponding to *Project’s name*, *Model’s name*, *ATON user’s name*, *ATON user’s password* and the *Path to ATON* (where the ATON folder has been stored) and then decide the *file format* (gltf, obj, fbx) and the *texture data* (compression, resolution and quality size). 
+Fourth, before exporting geometries, user must: locate the folder where the Heriverse project will be saved, set the name of the Project, and check/uncheck the desired options. 
 
-Finally, by pressing the *Generate full EMviq Project* button EMTools will create two different folders with both the collection and scenes folder presented in the data folder of ATON. 
+Finally, by pressing the ``Export Heriverse Project`` button, EMTools will export the project within a specific folder ready for the upload on Heriverse. 
+
+
+
