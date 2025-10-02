@@ -99,7 +99,6 @@ To upload a new graph and explore its information user can follow all the steps 
       Example of EM info box
 
 
-
 Once the connection has been established, EMTools will summarize the most important information (US/USV; Epochs; Properties; Sources) within a simple table under the ``Path`` section (:numref:`Fig. %s <EMsetup_02FIG>`).
 
 The ``Remove GraphML`` button allows to remove one or more EMs from the EM setup list.
@@ -122,13 +121,6 @@ To establish the connection with EMtools:
 Starting from version 1.5, EMtools allows to link external resource folders containing photos, 3D scans, documents and other media files to your Extended Matrix project.
 This feature is particularly useful when working with large image collections that need to be referenced and previewed directly from within Blender.
 
-.. _resource_folder_setupFIG:
-
-.. figure:: img/resource_folder_setup.png
-   :width: 400
-   :align: center
-
-   Resource folder configuration in Auxiliary Files panel
 
 Setting Up Resource Folders
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -178,16 +170,6 @@ The thumbnail system creates a local cache that speeds up image browsing and red
 
 Generating Thumbnails
 ~~~~~~~~~~~~~~~~~~~~~
-
-.. _thumbnail_generationFIG:
-
-.. figure:: img/thumbnail_generation.png
-   :width: 400
-   :align: center
-
-   Thumbnail generation interface
-
-To generate thumbnails for your resource folder (:numref:`Fig. %s <thumbnail_generationFIG>`):
 
 1. In the Auxiliary Files panel, locate the text ``Thumbnails for the resource folder? Click below.``
 
