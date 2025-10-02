@@ -112,14 +112,181 @@ If the EM graph presents a connection with and external database, EMTools allows
 
 To establish the connection with EMtools:
 
-- expand the ``Auxiliry files`` section and press ``Add``;
+- expand the ``Auxiliary files`` section and press ``Add``;
 - select the type (Generic Excel, PyArchInit, EMdb Excel);
 - indicate the exact location of the Auxiliary file and click on the ``Accept`` button. 
-
 
 .. note::
    When **EMdb Excel** type is selected a ``Format`` menu appears, select the correct format from the list.
 
+Starting from version 1.5, EMtools allows to link external resource folders containing photos, 3D scans, documents and other media files to your Extended Matrix project.
+This feature is particularly useful when working with large image collections that need to be referenced and previewed directly from within Blender.
+
+.. _resource_folder_setupFIG:
+
+.. figure:: img/resource_folder_setup.png
+   :width: 400
+   :align: center
+
+   Resource folder configuration in Auxiliary Files panel
+
+Setting Up Resource Folders
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To link a resource folder to your Extended Matrix:
+
+1. Expand the ``Auxiliary files`` section in the EM setup panel (:numref:`Fig. %s <resource_folder_setupFIG>`)
+
+2. Select an existing auxiliary file or press ``Add`` to create a new one
+
+3. In the ``Resources:`` field, click the folder icon and navigate to your media folder
+
+4. **Important**: Before confirming the path, make sure to check the ``Relative Path`` option in the file browser settings
+
+
+.. warning::
+   
+   Always use **relative paths** when setting up resource folders!
+   
+   - ✓ Correct: ``//Resources`` or ``//../../SharedFolder/Photos``
+   - ✗ Wrong: ``C:\Users\YourName\Project\Resources`` (Windows-specific)
+   - ✗ Wrong: ``/Users/yourname/Project/Resources`` (macOS-specific)
+   
+   Relative paths ensure that your project works correctly when:
+   
+   - Opening the file on different computers
+   - Syncing through cloud services (OneDrive, Dropbox, Google Drive)
+   - Sharing the project with collaborators
+   - Moving the project to a different location
+
+
+If a warning appears in red indicating that the path is absolute, reconfigure the path using the relative format.
+
+The Thumbnail System
+~~~~~~~~~~~~~~~~~~~~
+
+Once a resource folder is configured, EMtools can automatically generate thumbnail previews of all images in that folder.
+The thumbnail system creates a local cache that speeds up image browsing and reduces memory usage.
+
+**How it works:**
+
+- Thumbnails are stored in a folder named ``EM_thumbs/`` next to your ``.blend`` file
+- Each resource folder gets its own subfolder (e.g., ``Resources_abc12345``)
+- The system remembers which images have been processed to avoid duplicates
+- If you sync your project via cloud storage, thumbnails are automatically shared across computers
+
+
+Generating Thumbnails
+~~~~~~~~~~~~~~~~~~~~~
+
+.. _thumbnail_generationFIG:
+
+.. figure:: img/thumbnail_generation.png
+   :width: 400
+   :align: center
+
+   Thumbnail generation interface
+
+To generate thumbnails for your resource folder (:numref:`Fig. %s <thumbnail_generationFIG>`):
+
+1. In the Auxiliary Files panel, locate the text ``Thumbnails for the resource folder? Click below.``
+
+2. Click the ``(Re)generate thumbnails`` button
+
+3. EMtools will scan all images in the resource folder (including subfolders) and create previews
+
+4. Progress information is displayed in the Blender console
+
+5. The line ``Thumbs: Resources_xxxxxxxx`` shows the name of the cache folder that was created
+
+
+.. note::
+   
+   Supported image formats: JPG, PNG, BMP, TIFF, PDF (first page)
+   
+   The generation process only creates thumbnails for new or modified images. 
+   If you click ``(Re)generate`` again, existing thumbnails are skipped automatically.
+
+
+Viewing Thumbnail Cache
+~~~~~~~~~~~~~~~~~~~~~~~
+
+You can verify that thumbnails were created correctly:
+
+- The ``Thumbs: Resources_xxxxxxxx`` line displays the cache folder name
+- Click the folder icon 📂 next to this line to open the cache folder in your file manager
+- Inside you'll find the ``index.json`` file and thumbnail images organized in subfolders
+
+
+Using Thumbnails in EMtools
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once thumbnails are generated, they are automatically displayed when:
+
+- Browsing DocumentNodes linked to images
+- Using the US/USV Manager to view associated documentation
+- Working with the Stratigraphy visualization tools
+
+The thumbnail preview provides quick access to your images without having to open them in external applications.
+
+
+Working Across Multiple Computers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you use cloud storage to sync your project:
+
+1. **First computer**: Set up resource folders using relative paths and generate thumbnails
+
+2. Wait for cloud sync to complete (the ``EM_thumbs/`` folder will be uploaded)
+
+3. **Second computer**: Open the same ``.blend`` file
+
+4. Thumbnails are automatically recognized and ready to use - no need to regenerate them!
+
+
+.. tip::
+   
+   If you work on multiple computers, make sure that:
+   
+   - The ``.blend`` file and resource folders maintain the same relative structure
+   - Cloud sync is complete before opening the project
+   - You always use the ``//`` prefix for relative paths
+
+
+Best Practices
+~~~~~~~~~~~~~~
+
+- **Keep resources organized**: Use clear folder names like ``Photos``, ``3DScans``, ``Documents``
+- **Generate thumbnails periodically**: After adding many new images, regenerate to update the cache
+- **Check the hash**: The ``Thumbs: Resources_xxxxxxxx`` code should be identical on all your computers if using relative paths
+- **Backup regularly**: Include both the ``.blend`` file and the ``EM_thumbs/`` folder in your backups
+
+
+.. note::
+
+   For more advanced usage and technical details about the thumbnail system, click the help icon (?) next to the ``Thumbs:`` line in the interface.
+
+
+Troubleshooting
+~~~~~~~~~~~~~~~
+
+**Thumbnails not appearing**
+   - Verify that the resource folder path is correct and accessible
+   - Click ``(Re)generate thumbnails`` to rebuild the cache
+   - Check the Blender console for error messages
+
+**Warning about absolute path**
+   - Reconfigure the resource folder using a relative path with ``//`` prefix
+   - Example: change ``C:\Project\Resources`` to ``//Resources``
+
+**Different cache folder on another computer**
+   - This happens when using absolute paths instead of relative paths
+   - Solution: reconfigure all resource folders using relative paths
+   - The hash (``Thumbs: Resources_xxxxxxxx``) should match across computers
+
+**Thumbnails folder not syncing**
+   - Check that your cloud storage service is actively syncing the ``EM_thumbs/`` folder
+   - Some cloud services may need manual folder selection for sync
 
 A third section, the ``Utilities & Settings`` one, is included within the EM setup panel.
 Here, users can: convert an EM made with an old version of the formalism, rename Proxies and enable Experimental Features.
