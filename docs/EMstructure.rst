@@ -341,7 +341,7 @@ Within the ``Display mode`` section, users can filter the visualization of the g
    Visual Manager EM-mode and the labeling workflow
 
 
-``EM`` will visualize Proxies with a monochromatic material that will match their node (US, USV/s, USV/n, SF, etc..; :numref:`Fig. %s <EM_VM_Proxy_cam_label_01-03FIG>`).
+``EM`` will visualize Proxies with a monochromatic material that will match their node (US, USV/s, USV/n, SF, USD, serSU, serUSD, etc..; :numref:`Fig. %s <EM_VM_Proxy_cam_label_01-03FIG>`).
 
 Within the panel (:numref:`Fig. %s <EM_VM_Proxy_cam_label_01-03FIG>`) user can also control the ``alpha`` value of the Proxies’ material (0 = completely transparent; 1 = no alpha).
 Other display options allow user to visualize ONLY selected Proxies with different modes (``bounding box``, ``wireframe``, ``solid``, ``solid&wireframe``). 
