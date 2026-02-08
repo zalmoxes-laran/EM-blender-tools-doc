@@ -7,6 +7,20 @@ The Extended Matrix (EM) can be created through several pathways, each suited to
    :local:
    :depth: 2
 
+The Knowledge Tree
+------------------
+
+The Extended Matrix knowledge system works like a **tree**: the GraphML file is the **trunk**, providing the stratigraphic sequence, chronological scaffolding, and fundamental relationships between units. The core properties (node types, relationships, epochs) are the **main branches** — they are part of the graph structure itself.
+
+The **leaves** are the detailed, granular data that come from auxiliary tabular files: definitions, interpretations, materials, construction techniques, measurements, and all those properties that give richness to each stratigraphic unit.
+
+This separation is deliberate: the graph (trunk) is best managed by the project leader and changes infrequently, while the tables (leaves) can be updated continuously by the working group using familiar tools like Excel or databases. Thanks to s3Dgraphy and EMtools, these two worlds merge on-the-fly into a unified knowledge graph.
+
+.. seealso::
+
+   For a full explanation of this architecture, see `The Knowledge Tree <https://docs.extendedmatrix.org/en/1.5.0/knowledge_tree.html>`_ in the Extended Matrix documentation.
+
+
 Overview
 --------
 
@@ -18,14 +32,8 @@ Three main approaches are available for creating an Extended Matrix:
 
 The Excel and AI approaches use a **two-file workflow**:
 
-- **stratigraphy.xlsx** (core) — Contains stratigraphic nodes, relationships, chronologies, and paradata. This file generates the GraphML.
-- **site_properties.xlsx** (auxiliary) — Contains site-specific properties (definitions, materials, techniques, etc.). This file is imported as an auxiliary to enrich the graph nodes.
-
-.. figure:: img/workflow_two_excel.png
-   :width: 600
-   :align: center
-
-   The two-Excel workflow: core stratigraphy generates the GraphML, site properties enrich it as auxiliary data.
+- **stratigraphy.xlsx** (core) — Contains stratigraphic nodes, relationships, chronologies, and paradata. This generates the GraphML (the trunk and main branches).
+- **site_properties.xlsx** (auxiliary) — Contains site-specific properties (definitions, materials, techniques, etc.). This is imported as auxiliary data to enrich the graph nodes (the leaves).
 
 
 From GraphML (yEd)
@@ -38,6 +46,10 @@ The traditional method for creating an EM is to use the `yEd Graph Editor <https
 - Fine-tuning and validation of automatically generated graphs
 
 For details on the GraphML structure and node types, see :doc:`EMstructure`.
+
+.. note::
+
+   For a comprehensive guide on the Extended Matrix formal language, node types, and how to construct a valid EM graph, refer to the `Extended Matrix documentation <https://docs.extendedmatrix.org/en/1.5.0/>`_. The `nodes introduction <https://docs.extendedmatrix.org/en/1.5.0/nodes_intro.html>`_ and `stratigraphic nodes <https://docs.extendedmatrix.org/en/1.5.0/stratigraphic_nodes.html>`_ pages are particularly useful for understanding what each node type represents.
 
 
 From Excel (Standard Stratigraphy)
@@ -315,21 +327,31 @@ EMtools supports import from archaeological database systems via s3Dgraphy's map
 pyArchInit
 ~~~~~~~~~~
 
-`pyArchInit <https://pyarchinit.readthedocs.io/>`_ databases (SQLite format) can be imported using the ``pyarchinit`` mapping type. The mapping file ``pyarchinit_us_mapping.json`` handles the translation from pyArchInit's table schema to s3Dgraphy nodes.
+`pyArchInit <https://pyarchinit.readthedocs.io/>`_ is an archaeological information system based on QGIS. There are **two ways** to use pyArchInit data with the Extended Matrix:
 
-To import:
+**1. Generate GraphML from pyArchInit (creating the trunk)**
 
-1. Add the SQLite database as an auxiliary file in EMtools
-2. Select file type **pyArchInit**
-3. Choose the appropriate mapping
-4. Click **Import**
+pyArchInit has a built-in tool that can export stratigraphic data directly as a GraphML file in Extended Matrix format. This is the recommended approach when you want to create a new EM graph from an existing pyArchInit database. See the `pyArchInit documentation on the HerRIS Matrix for Extended Matrix Tool <https://pyarchinit.readthedocs.io/it/latest/novit%C3%A0.html#herris-matrix-per-extended-matrix-tool>`_ (in Italian).
+
+**2. Import pyArchInit as auxiliary file (adding leaves)**
+
+When you already have a GraphML and want to enrich it with property data from a pyArchInit database, you can add it as an **auxiliary file** in EMtools. In this mode, the pyArchInit SQLite database is imported using the ``pyarchinit`` mapping type, and properties are added to existing graph nodes (matched by unit ID). The graph structure is not modified.
+
+To import as auxiliary:
+
+1. Import your GraphML into EMtools first
+2. In the EM Setup panel, add an auxiliary file
+3. Select file type **pyArchInit**
+4. Select the SQLite database file
+5. Choose the appropriate mapping (``pyarchinit_us_mapping``)
+6. Click **Import** — properties from the database are added to matching nodes
 
 Custom Database Formats
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-For other database formats, create a custom mapping JSON in the ``emdb/`` or ``pyarchinit/`` directories. The s3Dgraphy mapping system supports:
+For other database formats, create a custom mapping JSON in the ``emdb/`` or ``pyarchinit/`` directories. The s3Dgraphy mapping system (``MappingRegistry``) supports:
 
 - **xlsx** — Excel files with custom column layouts
 - **sqlite** — SQLite databases with custom table schemas
 
-See the s3Dgraphy mapping documentation for details on creating custom mappings.
+Custom mapping directories can be added with priority-based search, allowing project-specific mappings to override built-in ones. See the s3Dgraphy mapping documentation for details on creating custom mappings.
