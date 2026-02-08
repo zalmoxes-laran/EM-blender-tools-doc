@@ -51,8 +51,9 @@ Contents
 .. toctree::
    :maxdepth: 2
    :caption: User Guide
-   
+
    EMstructure
+   creating_em
    workflows
    export_guide
 
