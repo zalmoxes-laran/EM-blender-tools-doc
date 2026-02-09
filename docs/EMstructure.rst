@@ -303,10 +303,17 @@ Here a brief presentation of the Experimental Features, the numebers on the list
 
 2. Within the ``DosCo Folder`` section (:numref:`Fig. %s <EMsetup_03_editFIG>`) the ``More option`` menu appears, this new part of the add-on permits to populate Extractors, documents and Combiners using DosCo files.
    
-3. In the ``Utilities & Settings`` (:numref:`Fig. %s <EMsetup_03_editFIG>`) the activation of the ``Enable Experimental Features`` button activates the ``Experimental Tools`` section with three buttons: ``Rebuild Graph Indices``, ``Benchmark Property Functions``, and ``XLSX → GraphML (AI Data)``.
-These buttons activate experimental functions which are still under development.
+3. In the ``Utilities & Settings`` (:numref:`Fig. %s <EMsetup_03_editFIG>`) the activation of the ``Enable Experimental Features`` button activates the ``Experimental Tools`` section with ``Rebuild Graph Indices``, ``Benchmark Property Functions``, and the collapsible **Create a GraphML** wizard.
 
-   - **XLSX → GraphML (AI Data)**: This experimental converter transforms AI-extracted stratigraphic data from Excel spreadsheets into Extended Matrix GraphML format. It uses the s3dgraphy mapping pipeline to convert tabular data (Excel) → s3dgraphy graph representation → Extended Matrix GraphML with ParadataNodeGroups. The converter automatically creates paradata structures (ExtractorNode, DocumentNode) from attributes stored in the Excel columns (EXTRACTOR, DOCUMENT). This tool is particularly useful for importing stratigraphic data extracted by AI assistants (GPT-4, Claude, etc.) from archaeological reports and field notes. **Warning**: This feature is experimental and data fidelity may vary. Always verify the generated GraphML in yEd before using it in production.
+   - **Create a GraphML**: A 3-step panel-based wizard for generating Extended Matrix GraphML files from Excel data — either filled manually using downloadable templates or produced by AI-assisted extraction from archaeological reports. The wizard works entirely in memory until export:
+
+     - **Step 1 — Convert Stratigraphy**: Loads ``stratigraphy.xlsx`` (24-column template) and creates an s3dgraphy graph in memory.
+     - **Step 2 — Enrich with Paradata** (optional): Loads ``em_paradata.xlsx`` and adds per-property provenance chains (PropertyNode → ExtractorNode → DocumentNode) to matching nodes.
+     - **Step 3 — Export GraphML**: Saves the graph to a ``.graphml`` file. Import this file via **File > Import EM file** to populate the Blender scene.
+
+     The panel also provides **template download** buttons and an **AI Extraction Prompt** section with a language selector and a one-click **Copy AI Prompt to Clipboard** button. See :doc:`creating_em` for the full workflow.
+
+     **Warning**: This feature is experimental. Always verify the generated GraphML before using it in production.
 
 .. _EMsetup_04abcFIG:
 

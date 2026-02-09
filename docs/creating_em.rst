@@ -32,8 +32,8 @@ Three main approaches are available for creating an Extended Matrix:
 
 The Excel and AI approaches use a **two-file workflow**:
 
-- **stratigraphy.xlsx** (core) — Contains stratigraphic nodes, relationships, chronologies, and paradata. This generates the GraphML (the trunk and main branches).
-- **site_properties.xlsx** (auxiliary) — Contains site-specific properties (definitions, materials, techniques, etc.). This is imported as auxiliary data to enrich the graph nodes (the leaves).
+- **stratigraphy.xlsx** (core) — Contains stratigraphic nodes, relationships, and chronologies. This generates the GraphML (the trunk and main branches).
+- **em_paradata.xlsx** (enrichment) — Contains per-property provenance data with full data lineage (extractor text → source document). This is imported to enrich the graph with paradata chains.
 
 
 From GraphML (yEd)
@@ -176,101 +176,114 @@ Column Reference
      - Source document filename
 
 
-Import into EMtools
-~~~~~~~~~~~~~~~~~~~
+Import into EMtools (3-Step Wizard)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Prepare your ``stratigraphy.xlsx`` file following the template
-2. Use s3Dgraphy's ``MappedXLSXImporter`` with the mapping ``excel_to_graphml_mapping`` to generate a GraphML file
-3. Import the GraphML into EMtools via **File > Import EM file**
+EMtools provides a panel-based wizard in the **Experimental Tools** section for converting Excel data into a GraphML file. The wizard keeps the graph in memory until you export it, so you can optionally enrich it with paradata before saving.
+
+1. **Enable Experimental Features** in the EM Setup panel (Utilities & Settings section)
+2. Expand **Create a GraphML**
+
+**Step 1 — Convert Stratigraphy**
+
+- Select your ``stratigraphy.xlsx`` file
+- Choose the mapping (default: ``excel_to_graphml_mapping``)
+- Click **Convert to Graph** — the graph is created in memory and a summary is shown
+
+**Step 2 — Enrich with Paradata** (optional)
+
+- Select your ``em_paradata.xlsx`` file
+- Click **Enrich Graph** — provenance chains (PropertyNode → ExtractorNode → DocumentNode) are added to matching nodes
+
+**Step 3 — Export GraphML**
+
+- Choose the output file path
+- Click **Export GraphML** — the graph is saved to disk
+
+After exporting, import the GraphML into EMtools via **File > Import EM file** to populate the Blender lists and scene.
+
+.. tip::
+   Download empty templates directly from the wizard panel using the **Save Stratigraphy Template** and **Save Paradata Template** buttons.
 
 
-From Excel (Site Properties — Auxiliary)
------------------------------------------
+From Excel (Paradata Enrichment)
+---------------------------------
 
-The second Excel file contains site-specific properties that enrich the graph nodes with detailed attributes. This file is imported as an **auxiliary file** in EMtools using the auxiliary file system.
+The second Excel file (``em_paradata.xlsx``) contains per-property provenance data in **long format**: one row per (unit, property) pair. Each row records the property value, the specific text extracted from a source document, and which document it came from.
+
+This file is used in **Step 2** of the wizard to enrich the in-memory graph with full data lineage.
 
 Template Download
 ~~~~~~~~~~~~~~~~~
 
-- **template_site_properties.xlsx** — Empty template with 15 common property columns
+- **template_em_paradata.xlsx** — Empty template with the paradata column schema
 
-The template uses a sheet named **"Properties"** with data starting from row 2.
+The template uses a sheet named **"Paradata"** with data starting from row 2.
 
 Column Reference
 ~~~~~~~~~~~~~~~~
 
-.. list-table:: Site Properties Columns (15)
+.. list-table:: Paradata Columns
    :header-rows: 1
-   :widths: 5 15 75
+   :widths: 5 20 10 65
 
    * - Col
      - Header
+     - Required
      - Description
    * - A
-     - ID
+     - US_ID
+     - Yes
      - Must match an existing node ID in the stratigraphy
    * - B
-     - DEFINITION
-     - Synthetic definition (e.g., Wall, Floor, Fill, Cut)
+     - PROPERTY_TYPE
+     - Yes
+     - Property type (e.g., Height, Material, Conservation State)
    * - C
-     - INTERPRETATION
-     - Functional interpretation in archaeological context
+     - VALUE
+     - Yes
+     - The property value (e.g., "2.5m", "opus reticulatum")
    * - D
-     - BUILDING_TECHNIQUE
-     - Construction technique (e.g., opus reticulatum, dry stone)
+     - COMBINER_REASONING
+     - No
+     - Reasoning combining multiple sources (leave empty for single-source)
    * - E
-     - INORGANIC_COMPONENTS
-     - Inorganic materials (stone, mortar, brick, etc.)
+     - EXTRACTOR_1
+     - Yes
+     - Text extracted from the first source document
    * - F
-     - ORGANIC_COMPONENTS
-     - Organic materials (wood, bone, charcoal, etc.)
+     - DOCUMENT_1
+     - Yes
+     - Filename of the first source document
    * - G
-     - MEASURES
-     - Dimensions (free format or LxWxH)
+     - EXTRACTOR_2
+     - No
+     - Text extracted from a second source (multi-source only)
    * - H
-     - MATERIAL
-     - Primary material
-   * - I
-     - COLOR
-     - Color (Munsell or descriptive)
-   * - J
-     - CONSERVATION_STATE
-     - State of conservation
-   * - K
-     - SITE
-     - Archaeological site name
-   * - L
-     - AREA
-     - Excavation area/sector/room
-   * - M
-     - SOURCE_PDF
-     - Source PDF filename
-   * - N
-     - SOURCE_PAGE
-     - Page number in source PDF
-   * - O
-     - NOTES
-     - Additional notes
+     - DOCUMENT_2
+     - No
+     - Filename of the second source document
 
-Customizing Columns
-~~~~~~~~~~~~~~~~~~~
+Additional ``EXTRACTOR_N`` / ``DOCUMENT_N`` column pairs can be added for properties derived from more than two sources. The importer detects all pairs automatically via column name pattern matching.
 
-This template is a starting point. Projects with specialized needs can add or remove columns. For example, the Montebelluna metallurgical project added columns like ``METALLURGICAL_EVIDENCE``, ``SLAG_IDS``, and ``ROOM_OR_FUNCTIONAL_UNIT``.
+Provenance Chains
+~~~~~~~~~~~~~~~~~
 
-When customizing columns, create a corresponding mapping JSON following the format in ``s3dgraphy/mappings/emdb/site_properties_mapping.json``.
+Each row creates a provenance chain in the Extended Matrix graph:
 
-Import as Auxiliary File
+**Single-source** (COMBINER_REASONING empty)::
+
+   PropertyNode → ExtractorNode → DocumentNode
+
+**Multi-source** (COMBINER_REASONING filled)::
+
+   PropertyNode → CombinerNode → ExtractorNode₁ → DocumentNode₁
+                                → ExtractorNode₂ → DocumentNode₂
+
+Property Type Vocabulary
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Import your GraphML into EMtools
-2. In the EM Setup panel, add an auxiliary file
-3. Select file type **EMdb Excel**
-4. Choose the mapping **site_properties_mapping**
-5. Select your ``site_properties.xlsx`` file
-6. Click **Import** — properties are added to matching nodes
-
-.. tip::
-   Enable **Auto-reload on EM update** to automatically re-import the auxiliary file whenever the GraphML is reloaded.
+Common property types include: Height, Width, Length, Thickness, Depth, Material, Conservation State, Construction Technique, Primary Function, Artistic Style, Definition, Interpretation, Absolute Start Date, Absolute End Date, Dating Method. Custom property types in Title Case are also accepted.
 
 
 AI-Assisted Extraction
@@ -281,23 +294,34 @@ AI models (Claude, ChatGPT, Gemini, etc.) can extract stratigraphic data directl
 The Prompt
 ~~~~~~~~~~
 
-A ready-to-use, two-part prompt is available in the s3Dgraphy repository:
-
-``s3Dgraphy/docs/AI_EXTRACTION_PROMPT.md``
+A ready-to-use, two-part prompt is bundled inside the s3Dgraphy package and can be copied to clipboard directly from the EMtools panel:
 
 - **Part A** extracts core stratigraphy (24 columns) into a table compatible with ``stratigraphy.xlsx``
-- **Part B** extracts site properties (15+ columns) into a table compatible with ``site_properties.xlsx``
+- **Part B** extracts per-property provenance data into a table compatible with ``em_paradata.xlsx``
+
+The prompt is also available in the s3Dgraphy repository at ``s3Dgraphy/docs/AI_EXTRACTION_PROMPT.md``.
+
+Copy from Blender
+~~~~~~~~~~~~~~~~~
+
+In the **Create a GraphML** wizard panel (Experimental Tools), the **AI Extraction Prompt** section provides:
+
+1. A **Language** field — set the target language for descriptions (default: same as the source document)
+2. A **Copy AI Prompt to Clipboard** button — copies the full prompt (Part A + Part B) with the language instruction prepended
+
+This is the fastest way to get the prompt ready: paste it into your AI assistant alongside the archaeological documents.
 
 Workflow
 ~~~~~~~~
 
-1. Open your AI assistant (Claude, ChatGPT, etc.)
-2. Paste the **Part A prompt** from ``AI_EXTRACTION_PROMPT.md``
-3. Upload or paste the archaeological document
-4. Copy the AI's output table into ``stratigraphy.xlsx``
-5. Paste the **Part B prompt**
-6. Copy the second table into ``site_properties.xlsx``
-7. Import into EMtools following the steps above
+1. In EMtools, expand **Create a GraphML** → **AI Extraction Prompt**
+2. Set the output language if needed
+3. Click **Copy AI Prompt to Clipboard**
+4. Open your AI assistant (Claude, ChatGPT, Gemini, etc.)
+5. Paste the prompt, then upload or paste the archaeological document
+6. Copy the AI's **Part A** output table into ``stratigraphy.xlsx`` (sheet: "Stratigraphy")
+7. Copy the AI's **Part B** output table into ``em_paradata.xlsx`` (sheet: "Paradata")
+8. Use the 3-step wizard to convert, enrich, and export
 
 Working with Existing GraphML
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -308,14 +332,12 @@ When enriching an existing GraphML with new document data, add this instruction 
    Match extracted units to existing ones where possible.
    Mark new units that are not in the current graph.
 
-This was successfully used in the Montebelluna project, where AI-extracted data from multiple PDF reports was integrated with a pre-existing (but incomplete) GraphML, resulting in a significantly enriched stratigraphic sequence.
-
 Best Practices
 ~~~~~~~~~~~~~~
 
 - Process documents one at a time for accuracy
 - Review AI output before importing — check relationship symmetry and type assignments
-- Use the EXTRACTOR column to track which AI model produced each row
+- Use the EXTRACTOR columns to track the specific text extracted by the AI from each source
 - For large projects, build incrementally: start with a core set of units, then add from additional documents
 
 
