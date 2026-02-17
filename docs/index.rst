@@ -6,7 +6,7 @@ Welcome to the EM Tools Documentation
 The extension has been developed by E. Demetrescu at CNR-ISPC (Rome, former CNR-ITABC).
 
 .. note::
-   Starting from version 1.5, EM Tools is distributed as a Blender Extension (.blext) 
+   Starting from version 1.5, EM Tools is distributed as a Blender Extension (.zip file) 
    which automatically manages all Python dependencies.
 
 Quick Start
