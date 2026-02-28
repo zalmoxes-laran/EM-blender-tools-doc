@@ -70,8 +70,7 @@ Select three different objects in the Great Temple scene using Alt+F and compare
 
 .. note::
 
-   The video for this tutorial is available on the StratiGraph private YouTube channel.
-   Clip filename: ``17_em_paradata_graphviz.mp4``
+   A video walkthrough for this tutorial will be available on the Extended Matrix YouTube channel.
 
 .. seealso::
 

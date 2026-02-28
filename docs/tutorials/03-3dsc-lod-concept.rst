@@ -76,8 +76,7 @@ Apply the LOD generator to the sample mesh in the playground dataset and verify 
 
 .. note::
 
-   The video for this tutorial is available on the StratiGraph private YouTube channel.
-   Clip filename: ``03_3dsc_lod_concept.mp4``
+   A video walkthrough for this tutorial will be available on the Extended Matrix YouTube channel.
 
 .. seealso::
 

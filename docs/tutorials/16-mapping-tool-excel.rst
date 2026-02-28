@@ -78,8 +78,7 @@ Create a mapping file for a 10-row sample spreadsheet and import it into a new E
 
 .. note::
 
-   The video for this tutorial is available on the StratiGraph private YouTube channel.
-   Clip filename: ``16_em_mapping_tool.mp4``
+   A video walkthrough for this tutorial will be available on the Extended Matrix YouTube channel.
 
 .. seealso::
 

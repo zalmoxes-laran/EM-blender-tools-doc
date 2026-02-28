@@ -78,8 +78,7 @@ Create an EM for a real or fictional site with at least four SU nodes and import
 
 .. note::
 
-   The video for this tutorial is available on the StratiGraph private YouTube channel.
-   Clip filename: ``13_em_first_matrix.mp4``
+   A video walkthrough for this tutorial will be available on the Extended Matrix YouTube channel.
 
 .. seealso::
 

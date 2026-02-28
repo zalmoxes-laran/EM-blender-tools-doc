@@ -84,8 +84,7 @@ Install the add-on and confirm the EM panel appears in Blender's sidebar (N key)
 
 .. note::
 
-   The video for this tutorial is available on the StratiGraph private YouTube channel.
-   Clip filename: ``12_em_install_tools.mp4``
+   A video walkthrough for this tutorial will be available on the Extended Matrix YouTube channel.
 
 .. seealso::
 

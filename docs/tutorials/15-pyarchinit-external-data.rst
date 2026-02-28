@@ -72,8 +72,7 @@ Add a Document Resource to the playground EM that points to a local folder of ph
 
 .. note::
 
-   The video for this tutorial is available on the StratiGraph private YouTube channel.
-   Clip filename: ``15_em_pyarchinit.mp4``
+   A video walkthrough for this tutorial will be available on the Extended Matrix YouTube channel.
 
 .. seealso::
 
