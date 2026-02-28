@@ -95,3 +95,8 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+.. toctree::
+   :maxdepth: 2
+   :caption: Step-by-Step Tutorials
+
+   tutorials/index
