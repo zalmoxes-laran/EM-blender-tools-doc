@@ -97,6 +97,4 @@ Indices and tables
 * :ref:`search`
 .. toctree::
    :maxdepth: 2
-   :caption: Step-by-Step Tutorials
-
-   tutorials/index
+   
