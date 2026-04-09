@@ -181,7 +181,7 @@ Import into EMtools (3-Step Wizard)
 
 EMtools provides a panel-based wizard in the **Experimental Tools** section for converting Excel data into a GraphML file. The wizard keeps the graph in memory until you export it, so you can optionally enrich it with paradata before saving.
 
-1. **Enable Experimental Features** in the EM Setup panel (Utilities & Settings section)
+1. **Enable Experimental Features** in the EM Data Tree panel (Utilities & Settings section)
 2. Expand **Create a GraphML**
 
 **Step 1 — Convert Stratigraphy**
@@ -362,7 +362,7 @@ When you already have a GraphML and want to enrich it with property data from a 
 To import as auxiliary:
 
 1. Import your GraphML into EMtools first
-2. In the EM Setup panel, add an auxiliary file
+2. In the EM Data Tree panel, add an auxiliary file
 3. Select file type **pyArchInit**
 4. Select the SQLite database file
 5. Choose the appropriate mapping (``pyarchinit_us_mapping``)

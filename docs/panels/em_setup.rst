@@ -1,7 +1,7 @@
 .. _EMsetup:
 
-EM setup
-========
+EM Data Tree
+============
 
 .. _EMsetupFIG:
 
@@ -9,7 +9,7 @@ EM setup
    :width: 400
    :align: center
 
-   EM setup Panel
+   EM Data Tree Panel
 
 This panel (:numref:`Fig. %s <EMsetupFIG>`)  allows to create the first connection between Blender and the Extended Matrix (.graphml file).
 Press the ``Add GraphML`` and locate the ``.graphml`` file wiin the ``Path`` section (**NB**: before closing the path window remember to uncheck ``relative path`` within the settings.
@@ -24,13 +24,13 @@ Alternatively, it is possible to paste the entire path within the empty line).
 
    GraphML import
 
-When a GraphML is loaded (:numref:`Fig. %s <EMsetup_02FIG>`), on the left side of the EM setup window the GraphML ID will appear (for example, the ID: GT16).
+When a GraphML is loaded (:numref:`Fig. %s <EMsetup_02FIG>`), on the left side of the EM Data Tree window the GraphML ID will appear (for example, the ID: GT16).
 On the same line, on the right side, a green square will show up.
 The green color cofirms that a connection between the GraphML and EMtools has been established.
 
 .. note::
 
-   To correctly link the ``.graphml`` file with the ``EM setup`` panel it is mandaotry to insert, at least, the GraphML ID on the title of the ``Swimlane node`` (**1.5 dev4 palette**); the first node that needs to be imported in the yEd space to start the creation of an Extended Matrix (:numref:`Fig. %s <EM_TITLEFIG>`).
+   To correctly link the ``.graphml`` file with the ``EM Data Tree`` panel it is mandaotry to insert, at least, the GraphML ID on the title of the ``Swimlane node`` (**1.5 dev4 palette**); the first node that needs to be imported in the yEd space to start the creation of an Extended Matrix (:numref:`Fig. %s <EM_TITLEFIG>`).
 
    Example:
 
@@ -72,7 +72,7 @@ To upload a new graph and explore its information user can follow all the steps 
 
 Once the connection has been established, EMTools will summarize the most important information (US/USV; Epochs; Properties; Sources) within a simple table under the ``Path`` section (:numref:`Fig. %s <EMsetup_02FIG>`).
 
-The ``Remove GraphML`` button allows to remove one or more EMs from the EM setup list.
+The ``Remove GraphML`` button allows to remove one or more EMs from the EM Data Tree list.
 
 
 In this panel (:numref:`Fig. %s <EMsetup_02FIG>`) users can also link the path to the *DosCo* folder, where sources are stored.
@@ -98,7 +98,7 @@ Setting Up Resource Folders
 
 To link a resource folder to your Extended Matrix:
 
-1. Expand the ``Auxiliary files`` section in the EM setup panel
+1. Expand the ``Auxiliary files`` section in the EM Data Tree panel
 
 2. Select an existing auxiliary file or press ``Add`` to create a new one
 
@@ -241,7 +241,7 @@ Troubleshooting
    - Check that your cloud storage service is actively syncing the ``EM_thumbs/`` folder
    - Some cloud services may need manual folder selection for sync
 
-A third section, the ``Utilities & Settings`` one, is included within the EM setup panel.
+A third section, the ``Utilities & Settings`` one, is included within the EM Data Tree panel.
 Here, users can: convert an EM made with an old version of the formalism, rename Proxies and enable Experimental Features.
 
 In the first case EMtools will automatically convert US and USV nodes to the latest version of the formalism (**NB**: this function will not affect groups).
@@ -250,7 +250,7 @@ Within this section, EMtools includes also a button, ``Create Standard Collectio
 
 In the second case, by pressing ``Manage Proxies' Prefixes`` button, EMtools will automatically rename Proxies according to the GraphML ID (**NB**: this step is mandatory to mutually connect GraphML and Proxies. User must select geometries before applying the tool).
 
-In the third case, by pressing the ``Enable Experimental Features`` button, a set of Experimental Features will be activated within the sections of the EM setup panel (:numref:`Fig. %s <EMsetup_03_editFIG>`).
+In the third case, by pressing the ``Enable Experimental Features`` button, a set of Experimental Features will be activated within the sections of the EM Data Tree panel (:numref:`Fig. %s <EMsetup_03_editFIG>`).
 
 .. _EMsetup_03_editFIG:
 

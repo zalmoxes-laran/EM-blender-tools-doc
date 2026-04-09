@@ -30,7 +30,6 @@ What's New
    - **Graph Editor**: node-based graph visualization in the Node Editor
    - **Proxy Box Creator**: 7-point measurement tool with optional paradata enrichment
    - **Tapestry Integration**: AI-powered photorealistic reconstruction (experimental)
-   - **RM Coloring**: proxy-to-RM color projection based on volumetric intersections (experimental)
    - Blender Extension format with automatic dependency management
    - Heriverse export functionality
    - See full :doc:`changelog` for details

@@ -136,4 +136,4 @@ An expandable ``Associated Documents`` section shows thumbnails of documents lin
 - ``Gallery``: shows documents as a grid of thumbnails using Blender's native icon view
 
 .. note::
-   Thumbnails must be generated first from the EM setup panel (see the :ref:`EMsetup` section).
+   Thumbnails must be generated first from the EM Data Tree panel (see the :ref:`EMsetup` section).

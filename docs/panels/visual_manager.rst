@@ -116,11 +116,3 @@ Proxy Inflate Manager (Experimental)
    This section is only visible when **Experimental Features** are enabled in the :ref:`EMsetup` panel.
 
 See the :ref:`Proxy_Inflate_Manager` page for full documentation.
-
-RM Coloring (Experimental)
---------------------------
-
-.. warning::
-   This section is only visible when **Experimental Features** are enabled, Advanced EM mode is active, and RM temporal sync is on.
-
-See the :ref:`Proxy_to_RM_Projection` page for full documentation.

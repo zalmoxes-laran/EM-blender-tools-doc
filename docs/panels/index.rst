@@ -7,8 +7,8 @@ Panels are organized into three tab categories:
 
 **EM Tab** (Core Functionality):
 
-- :doc:`em_setup` - GraphML file management, mode switching, resource folders
-- :doc:`visual_manager` - Display modes, label tools, color ramps, RM coloring
+- :doc:`em_setup` - EM Data Tree: GraphML file management, mode switching, resource folders
+- :doc:`visual_manager` - Display modes, label tools, color ramps
 - :doc:`activity_manager` - Activity group filtering
 - :doc:`epochs_manager` - Epoch management, filtering, custom lighting
 - :doc:`stratigraphy_manager` - Stratigraphic unit exploration and filtering
@@ -33,7 +33,6 @@ Panels are organized into three tab categories:
 **Other**:
 
 - :doc:`graph_editor` - Node-based graph visualization (Node Editor)
-- :doc:`proxy_to_rm_projection` - RM coloring system (Experimental)
 - :doc:`keyboard_shortcuts` - Keyboard shortcuts reference
 
 .. toctree::
@@ -72,5 +71,4 @@ Panels are organized into three tab categories:
    :caption: Other
 
    graph_editor
-   proxy_to_rm_projection
    keyboard_shortcuts

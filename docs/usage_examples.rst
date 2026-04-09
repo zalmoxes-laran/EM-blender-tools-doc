@@ -11,7 +11,7 @@ Loading an Extended Matrix Graph
 
 1. Open Blender with EM Tools installed
 2. In the 3D Viewport, press ``N`` to open the sidebar
-3. Navigate to the ``EM Setup`` panel
+3. Navigate to the ``EM Data Tree`` panel
 4. Click on the file path field and select your ``.graphml`` file
 5. Click ``Reload`` to establish the connection
 6. The summary table will show the loaded data
@@ -21,7 +21,7 @@ Connecting to DosCo Folder
 
 If your project uses a DosCo (Documentation Source Collection) folder:
 
-1. In the ``EM Setup`` panel, locate the DosCo path field
+1. In the ``EM Data Tree`` panel, locate the DosCo path field
 2. Browse to your DosCo folder location
 3. The system will automatically link documents to their corresponding nodes
 
@@ -151,7 +151,7 @@ Paradata Streaming
 Graph Visualization
 ^^^^^^^^^^^^^^^^^^^
 
-1. Enable Experimental Features in the ``EM Setup`` panel
+1. Enable Experimental Features in the ``EM Data Tree`` panel
 2. Open the Node Editor and select the EM Graph node tree
 3. Use the ``Graph Editor`` to visualize:
 

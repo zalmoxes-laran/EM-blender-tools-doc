@@ -20,7 +20,7 @@ Unreleased (in development)
    - **Landscape-aware graph reload**: reloading GraphML in landscape mode correctly repopulates lists
    - **Proxy detection in landscape**: uses ``GRAPH_CODE.NODE_NAME`` naming convention (e.g., ``GT16.USM100``)
    - Support for detecting placeholder dates (XX) in epochs
-   - Warnings for incomplete or malformed GraphML files in EM Setup
+   - Warnings for incomplete or malformed GraphML files in EM Data Tree
    - Flag system for experimental features
    - Improved UI synchronization controls in the Paradata Manager panel
 

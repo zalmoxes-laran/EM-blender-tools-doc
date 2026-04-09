@@ -27,7 +27,7 @@ EM-tools for Blender
    - Horizon-based filtering and coloring
    - RM visibility sync with horizons
    - Tapestry AI integration (experimental)
-   - RM Coloring / Proxy-to-RM projection (experimental)
+
 
 **Planned Features**
    - Stable release of landscape mode
