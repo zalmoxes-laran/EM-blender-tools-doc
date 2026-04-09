@@ -477,5 +477,5 @@ Further Reading
 
 - :doc:`/installation` - Installation and setup
 - :doc:`/usage_examples` - Practical examples
-- :doc:`/EMstructure` - UI and structure overview
+- :doc:`/panels/index` - UI and structure overview
 - `GitHub Repository <https://github.com/zalmoxes-laran/EM-blender-tools>`_ - Source code

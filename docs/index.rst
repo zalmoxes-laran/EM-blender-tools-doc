@@ -52,7 +52,7 @@ Contents
    :maxdepth: 2
    :caption: User Guide
 
-   EMstructure
+   panels/index
    creating_em
    workflows
    export_guide
@@ -76,10 +76,16 @@ Contents
 .. toctree::
    :maxdepth: 1
    :caption: Community
-   
+
    support
    faq
    showcase
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Tutorials
+
+   tutorials/index
 
 Additional Resources
 --------------------
@@ -95,6 +101,9 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
 .. toctree::
-   :maxdepth: 2
-   
+   :hidden:
+
+   EMstructure
+

@@ -45,7 +45,7 @@ The traditional method for creating an EM is to use the `yEd Graph Editor <https
 - Projects where the stratigrapher directly builds the graph
 - Fine-tuning and validation of automatically generated graphs
 
-For details on the GraphML structure and node types, see :doc:`EMstructure`.
+For details on the GraphML structure and node types, see :doc:`panels/em_setup`.
 
 .. note::
 
