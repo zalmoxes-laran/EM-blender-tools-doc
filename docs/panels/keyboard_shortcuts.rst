@@ -12,7 +12,8 @@ EMtools provides keyboard shortcuts for common operations in the **3D Viewport**
    * - Shortcut
      - Action
      - Description
-   * - **F5** (macOS/Win/Linux)
+   * - **SHIFT+F5** (Win/Linux)
+       **FN+SHIFT+F5** (macOS)
      - Reload GraphML
      - Reloads the active GraphML file from disk
    * - **Option+F** (macOS)
