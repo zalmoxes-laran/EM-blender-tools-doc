@@ -90,3 +90,37 @@ The menu allows to set the ``Scale Type``, with three option (``Sequential``, ``
 Everytime a *Color Ramp* is selected the line ``Selected`` will be automatically updated.
 The ``Apply Color Ramp`` button consents to attribute and visualize the color ramp selected in the Property list.
 When a color ramp is defined, by pressing the ``Apply Colors to Proxies`` button EMtools will automatically transfer colors to Proxies.
+
+Display Controls
+----------------
+
+Below the display mode section, a row of controls is available:
+
+- **Alpha slider**: controls the transparency of the Proxies' material (0 = fully transparent, 1 = fully opaque)
+- **Shading buttons**: switch between ``Bounding Box``, ``Wireframe``, ``Solid``, and ``Solid & Wireframe`` display modes for selected proxies
+- **Bulk visibility controls**: show/hide all Proxies, all RM models, or all Special Finds at once
+- **Material override button**: applies a default material to objects not matched by the EM graph
+
+Color Scheme Save/Load
+----------------------
+
+When using the Properties display mode, color schemes can be saved and loaded:
+
+- ``Save Color Scheme`` button: exports the current property-color mapping to a ``.emc`` file
+- ``Load Color Scheme`` button: imports a previously saved ``.emc`` file and applies the colors to the property values list
+
+Proxy Inflate Manager (Experimental)
+-------------------------------------
+
+.. warning::
+   This section is only visible when **Experimental Features** are enabled in the :ref:`EMsetup` panel.
+
+See the :ref:`Proxy_Inflate_Manager` page for full documentation.
+
+RM Coloring (Experimental)
+--------------------------
+
+.. warning::
+   This section is only visible when **Experimental Features** are enabled, Advanced EM mode is active, and RM temporal sync is on.
+
+See the :ref:`Proxy_to_RM_Projection` page for full documentation.
