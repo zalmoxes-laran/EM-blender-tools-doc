@@ -1,7 +1,7 @@
 .. _Export_Statistics:
 
 Export Statistics
-================
+=================
 
 .. _EM_Export_StatisticsFIG:
 

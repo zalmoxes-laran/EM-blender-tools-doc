@@ -3,11 +3,11 @@
 # -- Project information
 
 project = 'Extended Matrix tool'
-copyright = '2024, Emanuel Demetrescu'
+copyright = '2025, Emanuel Demetrescu'
 author = 'Emanuel Demetrescu'
 
-release = '1.4'
-version = '1.4.0'
+release = '1.5'
+version = '1.5.0'
 
 # -- General configuration
 

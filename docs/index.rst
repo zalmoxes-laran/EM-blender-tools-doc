@@ -21,16 +21,22 @@ For detailed instructions, see the :doc:`installation` section.
 What's New
 ----------
 
-**Version 1.5.0** (January 2025)
-   - Converted to Blender Extension format
-   - Automatic dependency management
-   - GitHub Actions for automated releases
+**Version 1.5.0** (in development)
+   - **Landscape mode**: manage multiple archaeological graphs simultaneously in a single Blender scene
+   - **CronoFilter**: chronological horizons manager for landscape mode with horizon-based filtering and coloring
+   - **Stratigraphy Manager**: complete rewrite (formerly US/USV Manager) with containment filters, instance chain tracking, and associated documents
+   - **Anastylosis Manager (RMSF)**: link 3D objects to SpecialFind nodes with LOD management
+   - **3D Document Manager**: spatial-temporal document management with camera and image plane support
+   - **Graph Editor**: node-based graph visualization in the Node Editor
+   - **Proxy Box Creator**: 7-point measurement tool with optional paradata enrichment
+   - **Tapestry Integration**: AI-powered photorealistic reconstruction (experimental)
+   - **RM Coloring**: proxy-to-RM color projection based on volumetric intersections (experimental)
+   - Blender Extension format with automatic dependency management
    - Heriverse export functionality
    - See full :doc:`changelog` for details
 
-**Coming Soon**
-   - 3D GIS mode
-   - Enhanced Activity Manager
+**Development Tracking**
+   - Visit `dev.extendedmatrix.org <https://dev.extendedmatrix.org/dev-projects>`_ for progress and feature requests
    - See our :doc:`roadmap` for future plans
 
 .. admonition:: Documentation Status

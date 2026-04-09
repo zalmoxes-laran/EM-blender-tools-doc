@@ -98,7 +98,7 @@ Setting Up Resource Folders
 
 To link a resource folder to your Extended Matrix:
 
-1. Expand the ``Auxiliary files`` section in the EM setup panel (:numref:`Fig. %s <resource_folder_setupFIG>`)
+1. Expand the ``Auxiliary files`` section in the EM setup panel
 
 2. Select an existing auxiliary file or press ``Add`` to create a new one
 

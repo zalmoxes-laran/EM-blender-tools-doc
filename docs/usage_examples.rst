@@ -32,17 +32,17 @@ Creating Stratigraphic Units
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Import your archaeological model
-2. Use the ``US/USV Manager`` to create stratigraphic units
+2. Use the ``Stratigraphy Manager`` to explore stratigraphic units
 3. Assign proxies to each unit
-4. Define temporal relationships in the ``Periods Manager``
+4. Define temporal relationships in the ``Epochs Manager``
 
 Managing Epochs
 ^^^^^^^^^^^^^^^
 
-1. Open the ``Periods Manager``
+1. Open the ``Epochs Manager``
 2. Define your chronological periods
 3. Assign colors to each period for visual distinction
-4. Use the soloing feature to isolate specific time periods
+4. Use the visibility and selection toggles to isolate specific time periods
 
 Reconstruction Workflow
 -----------------------
@@ -52,7 +52,7 @@ Setting Up Reconstruction Models
 
 1. Import your base archaeological data
 2. Create reconstruction models (RM) in separate collections
-3. Use the ``RM`` section in ``Periods Manager`` to assign models to epochs
+3. Use the ``RM Manager`` to assign models to epochs
 4. Toggle reconstruction visibility with epoch controls
 
 Creating Multiple Hypotheses
@@ -66,20 +66,20 @@ Creating Multiple Hypotheses
 Data Export
 -----------
 
-Exporting to EMviq
-^^^^^^^^^^^^^^^^^^
+Exporting to Heriverse
+^^^^^^^^^^^^^^^^^^^^^^
 
 1. Ensure all models are properly assigned to epochs
 2. Navigate to ``Export Manager``
-3. Fill in the EMviq export settings:
-   
+3. Fill in the Heriverse export settings:
+
    - Project name
-   - ATON path
-   - User credentials
-   
+   - Output folder path
+   - Desired export options
+
 4. Choose export format (GLTF recommended)
 5. Set texture compression settings
-6. Click ``Generate full EMviq Project``
+6. Click ``Export Heriverse Project``
 
 Exporting Tables
 ^^^^^^^^^^^^^^^^
@@ -88,11 +88,11 @@ To export data as CSV files:
 
 1. Go to ``Export Manager``
 2. In the Tables Export section, choose:
-   
+
    - ``EM (csv)`` for complete export
    - ``US/USV`` for stratigraphic units only
    - ``Sources`` for documentation export
-   
+
 3. Select output directory
 4. Click the export button
 
@@ -104,22 +104,23 @@ Using Display Modes
 
 1. Open ``Visual Manager``
 2. Choose display mode:
-   
+
    - ``EM`` - Shows nodes by type with monochromatic materials
-   - ``Periods`` - Colors proxies by chronological period
-   
+   - ``Epochs`` - Colors proxies by chronological period
+   - ``Properties`` - Colors proxies by property values with customizable color ramps
+
 3. Adjust alpha transparency for better visibility
 4. Use wireframe or solid modes for selected objects
 
 Creating Labels
 ^^^^^^^^^^^^^^^
 
-1. Add a camera to your scene
+1. Add a camera to the CAMS collection in your scene
 2. Orient it towards the objects to label
 3. Select the proxies you want to label
-4. In ``Visual Manager``, click the ``Ab`` button
-5. Labels will be created in camera view
-6. Use ``Collection`` button to organize labels
+4. In ``Visual Manager``, expand the Label Tools section
+5. Click ``Create Labels for Selected``
+6. Labels will be created in camera view (press ``Numpad 0`` to see them)
 
 Statistical Analysis
 --------------------
@@ -128,21 +129,13 @@ Volume Calculations
 ^^^^^^^^^^^^^^^^^^^
 
 1. Select the objects to analyze
-2. Use the Statistics panel to calculate:
-   
+2. Use the ``Export Statistics`` panel to calculate:
+
    - Total volume
    - Volume by period
    - Volume by reconstruction certainty
 
-Source Analysis
-^^^^^^^^^^^^^^^
-
-1. Navigate to the Statistics panel
-2. Generate reports on:
-   
-   - Types of sources used
-   - Source distribution by period
-   - Property density analysis
+3. Click ``Export data in CSV`` to save the results
 
 Advanced Features
 -----------------
@@ -150,7 +143,7 @@ Advanced Features
 Paradata Streaming
 ^^^^^^^^^^^^^^^^^^
 
-1. Enable ``Paradata Streaming`` in the manager
+1. Enable ``Filter Paradata`` in the ``Paradata Manager``
 2. Select a stratigraphic unit
 3. The connected properties, extractors, and documents will filter automatically
 4. Navigate through the information hierarchy
@@ -158,13 +151,15 @@ Paradata Streaming
 Graph Visualization
 ^^^^^^^^^^^^^^^^^^^
 
-1. Use the Graph2Geometry feature to visualize:
-   
+1. Enable Experimental Features in the ``EM Setup`` panel
+2. Open the Node Editor and select the EM Graph node tree
+3. Use the ``Graph Editor`` to visualize:
+
    - Stratigraphic relationships
    - Temporal sequences
    - Source connections
-   
-2. Export graph visualizations for documentation
+
+4. Use neighborhood view to explore node relationships at different depths
 
 Tips and Best Practices
 -----------------------

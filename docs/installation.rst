@@ -9,33 +9,46 @@ User Installation
 System Requirements
 ^^^^^^^^^^^^^^^^^^^
 
-* Blender 4.0 or later
-* Operating System: Windows, macOS, or Linux
+* Blender 4.4 or later
+* Operating System: Windows (x64), macOS (ARM / Apple Silicon), macOS (Intel x64), Linux (x64)
 * At least 4GB RAM (8GB recommended)
 * 500MB free disk space
 
+.. note::
+   macOS Intel (x64) is supported up to Blender 4.5 (the last version available for Intel Macs).
+   From Blender 5.0 onwards, only macOS ARM (Apple Silicon) is supported.
+
+.. important::
+   Different ``.zip`` release files are available for different combinations of **Blender version** and **operating system**.
+   Make sure to download the correct file for your setup. For example:
+
+   - ``em_tools-v1.5.0-dev.140-blender5.1-windows-x64.zip`` for Blender 5.1 on Windows
+   - ``em_tools-v1.5.0-dev.140-blender5.0-macos-arm64.zip`` for Blender 5.0 on macOS Apple Silicon
+   - ``em_tools-v1.5.0-dev.140-blender4.5-macos-x64.zip`` for Blender 4.5 on macOS Intel
+
+   Release files with ``-dev.`` in the name are development builds. Stable releases (when available) will not have the ``-dev`` suffix.
+
 Installing from Extension Package
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The recommended way to install EM Tools is through the official Blender extension system:
 
 1. **Download the Extension**
-   
+
    - Visit the `GitHub Releases page <https://github.com/zalmoxes-laran/EM-blender-tools/releases>`_
-   - Download the latest ``.blext`` file (e.g., ``em_tools-v1.5.0.blext``)
+   - Download the ``.zip`` file matching your Blender version and operating system
 
 2. **Install in Blender**
-   
+
    - Open Blender
    - Navigate to ``Edit → Preferences... → Get Extensions``
    - Click the ``Install from Disk...`` button
-   - Deactivate the ``Filter files`` button within the ``Blender File View`` window
-   - Browse to the downloaded ``.blext`` file and select it
+   - Browse to the downloaded ``.zip`` file and select it
    - Press the ``Install from Disk`` button
    - The extension will be installed automatically
 
 3. **Enable the Extension**
-   
+
    - Find *EM Tools* in the add-ons list
    - Check the box next to it to enable
    - The EM Tools panels will automatically appear in the 3D Viewport sidebar
@@ -49,8 +62,8 @@ Updating EM Tools
 
 When a new version is available:
 
-1. Download the new ``.blext`` file from the `Download section of the Extended Matrix web site <https://www.extendedmatrix.org/download>`_
-2. Install it using the process previouly described
+1. Download the new ``.zip`` file from the `GitHub Releases page <https://github.com/zalmoxes-laran/EM-blender-tools/releases>`_ or the `Download section of the Extended Matrix web site <https://www.extendedmatrix.org/download>`_
+2. Install it using the process previously described
 3. Blender will automatically update the existing installation
 
 Development Setup
@@ -61,8 +74,8 @@ This section is for developers who want to contribute to EM Tools or modify it f
 Prerequisites
 ^^^^^^^^^^^^^
 
-* Blender 4.0 or later
-* Python 3.11 (same version as Blender)
+* Blender 4.4 or later
+* Python 3.13 (same version as Blender 4.4+)
 * Git
 * Visual Studio Code (recommended)
 * Blender Development extension for VSCode
@@ -86,7 +99,7 @@ Setting Up the Development Environment
       python scripts/setup_development.py
 
    This script will:
-   
+
    - Create a ``wheels`` directory
    - Download all required dependencies for your platform
    - Ensure compatibility with Blender's Python version
@@ -136,7 +149,7 @@ Daily Development
 3. Test your changes in the running Blender instance
 
 .. note::
-   You may see "already registered" warnings during hot reload. 
+   You may see "already registered" warnings during hot reload.
    These are normal and can be ignored.
 
 Creating a Release
@@ -163,9 +176,9 @@ Creating a Release
 4. **Automatic Build**
 
    GitHub Actions will automatically:
-   
+
    - Download wheels for all platforms
-   - Create a ``.blext`` package
+   - Create ``.zip`` packages for each Blender version and platform
    - Create a GitHub release
 
 Project Structure
@@ -232,7 +245,7 @@ Switches between development and production configurations:
 
    # For development with VSCode
    python scripts/switch_dev_mode.py dev
-   
+
    # For production builds
    python scripts/switch_dev_mode.py prod
 
@@ -244,8 +257,8 @@ Common Issues
 
 **Import Errors**
    - Ensure all wheels are downloaded: ``python scripts/setup_development.py``
-   - Check that you're using Python 3.11
-   - Verify Blender is version 4.0 or later
+   - Check that you're using Python 3.13
+   - Verify Blender is version 4.4 or later
 
 **VSCode Development Issues**
    - Make sure you're in development mode: ``python scripts/switch_dev_mode.py dev``
