@@ -85,3 +85,44 @@ Workflow
 
 - Click the trash button on the list row, or select the objects and click ``Remove Selected from Anastylosis``
 - The RMSF node and its graph edges are also removed
+
+
+.. _anastylosis_manager:
+
+Anastylosis Manager Overview
+----------------------------
+
+The Anastylosis Manager coordinates reconstructions built from real fragments (Special Finds, SF) and virtual ones (VSF). Each entry pairs a 3D object in the scene with a node in the graph via a ``has_representation_model`` edge, exposing both graph and geometry actions from a single panel.
+
+Typical workflow: promote selected meshes to the list, link them to the corresponding SF/VSF node, switch between LODs for preview vs. publication, then rely on the Export Manager to publish the linked scene together with the paradata.
+
+
+.. _anastylosis_target:
+
+Anastylosis Target (SF / VSF)
+-----------------------------
+
+The **target** of an anastylosis item is the SpecialFind (SF) or Virtual SpecialFind (VSF) node in the graph that the 3D object represents.
+
+- **SF** — a real fragment found on site.
+- **VSF** — a hypothetical fragment introduced during reconstruction.
+
+The connection is materialized by a ``has_representation_model`` edge between the graph node and an RMSF node (the list entry). From the panel you can:
+
+- Search the graph for a target node and link it (magnifying glass icon).
+- Unlink an existing target (removing the RMSF and its edges).
+- Jump to the target node in the Stratigraphy Manager for further inspection.
+
+
+.. _anastylosis_fragments:
+
+Anastylosis Fragments (LOD)
+---------------------------
+
+Each anastylosis object can have multiple LOD variants (LOD0 … LOD3). When LODs are detected, the panel shows a row of LOD buttons:
+
+- Click a number to swap the active LOD for the selected item.
+- Use the batch arrows to shift **all** items one LOD level up or down at once, keeping the reconstruction coherent.
+- ``Open Linked File`` jumps to the source ``.blend`` file when the mesh is linked from a library.
+
+LOD switching preserves transforms, materials and graph connections; only the mesh data-block is reassigned.

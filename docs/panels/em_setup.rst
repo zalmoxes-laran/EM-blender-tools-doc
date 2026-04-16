@@ -293,3 +293,37 @@ Here a brief presentation of the Experimental Features, the numebers on the list
    :align: center
 
    3D GIS mode
+
+
+.. _graphml_warnings:
+
+GraphML Warnings
+----------------
+
+When a GraphML file is imported, EMtools validates its structure and content. Any issues are surfaced in a collapsible **GraphML Warning** box below the graph entry.
+
+Common warnings:
+
+- **Missing site ID** — the swimlane header does not contain the mandatory ``ID:`` field (for example ``Great Temple [ID:GT16]``). Fix this in yEd before reloading.
+- **Placeholder epoch dates** — an epoch still contains the ``xx`` placeholder in its start/end fields. Replace with real dates.
+- **Structural issues** — malformed nodes, dangling edges, unknown node types reported by the importer. Each message indicates the offending node ID.
+
+The warnings are read-only: they describe what the importer detected. To clear them, fix the ``.graphml`` file in yEd and reload with the ``File Refresh`` button in the EM Data Tree list. The ``Data Funnel guide`` button links to the Extended Matrix manual section with authoring best-practices.
+
+
+.. _graphml_merge_conflict:
+
+GraphML Merge Conflict Resolution
+---------------------------------
+
+When an XLSX stratigraphy file is merged into an already-loaded graph (for example, to incrementally add units discovered in a later season), the EM Setup panel performs a diff and surfaces **conflicts** — nodes where the incoming data and the existing graph disagree.
+
+The **Conflict Resolution** panel appears in the EM tab while a merge is active. For each conflict the user can choose:
+
+- **Keep Existing** — ignore the incoming value for this node.
+- **Use Incoming** — overwrite the existing value.
+- **Per-Field Choice** — accept some fields from the existing graph and others from the incoming XLSX, useful when only a subset of attributes has changed.
+
+Epoch compatibility is verified before merge: if the XLSX references epochs that do not exist in the graph (or have incompatible ranges), a blocking **Epoch Report** is shown at the top of the panel. Fix the XLSX (or adjust graph epochs) and retry.
+
+``Apply Merge`` commits the choices into the graph; ``Cancel Merge`` discards them.

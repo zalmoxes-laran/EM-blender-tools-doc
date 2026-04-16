@@ -1,3 +1,5 @@
+.. _visual_manager:
+
 .. _Visual_Manager:
 
 Visual Manager

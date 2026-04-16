@@ -127,6 +127,57 @@ When an item is selected in the list, a details box appears below showing:
 - A **select** button to select the corresponding proxy in the 3D scene
 - The node **description**
 
+.. _epoch_filter:
+
+Epoch / Horizon Filter
+----------------------
+
+The **Epoch Filter** restricts the stratigraphy list to units belonging to a single epoch.
+
+In **single-graph mode**, the active epoch is chosen from the list in the Epoch Manager; the dropdown above the list shows the current selection. In **landscape mode** (multi-site project), the filter switches to chronological **horizons** defined in the CronoFilter panel, so temporal slicing is consistent across all loaded graphs.
+
+Combined options (shown only when the toggle is active):
+
+- ``Surviving Units`` — include units that were created in an earlier epoch but continue to exist in the current one (``survive_in_epoch`` edges).
+- ``Reconstructive Units`` — include virtual stratigraphic units (USV*) belonging to the epoch.
+
+The filter composes with the activity filter: when both are active, only units matching both conditions are shown.
+
+.. _activity_filter:
+
+Activity Filter
+---------------
+
+The **Activity Filter** groups stratigraphic units by **activity** — archaeological operations that cluster semantically related US (for example: a demolition, a construction phase, a collapse). Activities are an orthogonal dimension to epochs: the same epoch can contain multiple activities, and one activity can span several epochs.
+
+Activate the toggle, then choose the active activity from the dropdown. When combined with the epoch filter, only units that match both the epoch and the activity are displayed.
+
+Activities are defined in the Activity Manager panel and serialized into the graph via ``is_in_activity`` edges.
+
+.. _survival_filter:
+
+Survival Filter
+---------------
+
+The **Survival Filter** is a temporal display rule applied when a single epoch is selected. It controls whether the list shows only units *created* in the selected epoch or **every unit that exists in that epoch** (including those created earlier and still standing).
+
+- **Enabled**: include units whose continuity extends into the selected epoch — in practice "what was standing in epoch X?".
+- **Disabled**: show only units created in the selected epoch — "what was built in epoch X?".
+
+The survival of a real stratigraphic unit is governed by the :ref:`continuity_node` rules in the Extended Matrix: real units persist by default until a continuity node terminates them, while virtual units live only where they are declared unless continuity nodes extend them.
+
+.. _reconstruction_filter:
+
+Reconstruction Filter
+---------------------
+
+The **Reconstruction Filter** is a conceptual filter that controls whether virtual stratigraphic units (**USV/s**, **USV/n**, **SF**, **VSF** and their group/series variants) are shown alongside physical ones.
+
+- **Enabled**: virtual reconstruction units are included in the list. Use this when editing or reviewing the reconstruction hypothesis.
+- **Disabled**: only physically attested units (US, USM, USR, SU, SE, SF …) are shown. Use this when you want to focus on what is directly proved by archaeological evidence.
+
+The filter operates on the *epistemic status* of the units (proved vs. reconstructed), not on their temporal or semantic grouping — it composes with the epoch, activity and survival filters.
+
 Associated Documents
 --------------------
 

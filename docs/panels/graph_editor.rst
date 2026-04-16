@@ -1,3 +1,5 @@
+.. _graph_editor:
+
 .. _Graph_Editor:
 
 Graph Editor

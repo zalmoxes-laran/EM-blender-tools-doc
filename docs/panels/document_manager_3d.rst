@@ -1,11 +1,15 @@
 .. _Document_Manager_3D:
 
-3D Document Manager
-===================
+.. _document_manager:
 
-The 3D Document Manager panel handles spatial-temporal documents within the EM project. It allows linking documents to 3D representations (image planes and cameras), managing their certainty classification, and navigating between documents and their spatial context.
+Document Manager
+================
+
+The Document Manager panel lists all document nodes from the loaded graph and lets you navigate between each document and its supporting data: metadata, scene objects linking to it (RM, :ref:`rmdoc_manager`, RMSF), and the graph nodes it documents.
 
 The panel is located in the **EM Annotator** tab and is available in Advanced EM mode.
+
+For the spatial-authoring workflow (linking 3D quads and cameras to document nodes) see the dedicated :ref:`rmdoc_manager` page.
 
 Panel Layout
 ------------
@@ -81,3 +85,43 @@ Workflow
 
 - Click on the camera icon in the list row to instantly look through the camera associated with that document
 - Use ``Select Quad`` to select the image plane for manual adjustments
+
+
+.. _spatialized_documents:
+
+Spatialized Documents (RMDoc)
+-----------------------------
+
+The RMDoc panel manages scene objects (mesh quads) linked to document nodes for spatial authoring. Each entry binds a Blender object to a document node from the graph, optionally with a dedicated camera aligned to the source image.
+
+Use cases:
+
+- Georeferencing historical photos or drawings onto a 3D survey
+- Authoring orthographic documentation views
+- Navigating between document-specific camera setups
+
+**Robustness:** if a quad or its camera is deleted outside the RMDoc system, the panel detects the stale state and exposes a ``Repair`` button that resets the offending flag or removes the orphan item. A background handler keeps ``is_piloting_camera`` consistent with the actual scene state.
+
+
+.. _rmdoc_camera:
+
+RMDoc Camera
+------------
+
+Each RMDoc item can own a dedicated camera, created at the current viewport position. Two navigation actions are provided:
+
+- **Pilot Camera**: locks the 3D viewport to the camera. Any viewport navigation now moves the camera (and its child quad) together. Click again to exit.
+- **Look Through**: temporarily switches the viewport to the camera view and fits the render resolution to the image pixel size, so the camera frame exactly matches the document.
+
+Perspective/Orthographic toggle, focal length and clip distances are editable from the detail panel. ``Autocrop Near`` / ``Autocrop Far`` set clip planes to tightly fit the quad.
+
+
+.. _rmdoc_alpha:
+
+RMDoc Alpha (Transparency)
+--------------------------
+
+The Alpha slider in the detail panel edits the ``Alpha`` input of the quad's Principled BSDF material. Lower values make the document image see-through, useful when overlaying historical imagery onto the current 3D survey.
+
+Requires the quad to have a material with a Principled BSDF node wired to the base color image texture. Newly imported images are set up this way automatically.
+

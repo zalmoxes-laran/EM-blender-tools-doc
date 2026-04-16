@@ -25,3 +25,33 @@ At the center of the panel the RM list shows all the selected Representation Mod
 Under the RM list a box highlights the object currently selected and its the epoch.
 
 When Experimental features are enabled (see :ref:`EMsetup` section), within the ``Settings (experimental)`` section new functions appears; these settings are still under development.
+
+
+.. _rm_lod:
+
+Levels of Detail (LOD)
+----------------------
+
+A Representation Model can ship with multiple **Levels of Detail** (LOD0 = coarsest proxy, up to LOD3 = most detailed). The Manager detects LOD variants automatically from object naming conventions and exposes:
+
+- **Per-item LOD buttons** — click a level (0–3) to swap the mesh of the active RM to that variant. The current LOD is shown depressed.
+- **Batch LOD switch** — arrow buttons move *all* RMs up or down one LOD together, useful to toggle the whole scene between preview and final quality.
+- **Open Linked File** — jumps to the Blender file where LOD variants are linked from (when using library linking).
+
+LOD switching preserves all transforms, materials and epoch associations; only the mesh data-block is reassigned.
+
+
+.. _rm_epochs:
+
+RM Epochs
+---------
+
+Each RM can belong to one or more epochs. The sublist below the main RM list shows the epochs the selected RM is associated with:
+
+- The epoch marked with the filled keyframe icon is the **first epoch** (the RM first appears in the scene during this epoch).
+- Subsequent epochs are shown with a hollow keyframe icon, indicating the RM continues to be visible.
+- The ``X`` button removes the epoch association.
+
+Filters in the Stratigraphy Manager and quick visibility controls in the Visual Manager consult this list to decide which RMs to show at a given point in time.
+
+When the scene contains objects whose epoch names don't match any epoch in the active graph (for example after importing an older project), an **Orphaned Epochs** box appears at the top with a mapping table to remap them to valid epochs.
