@@ -17,7 +17,8 @@ Panels are organized into three tab categories, following the authoring workflow
 
 **EM Annotator Tab**:
 
-- :doc:`document_manager_3d` — Document manager and RMDoc (spatialized documents)
+- :doc:`document_manager_3d` — Document Manager (catalog of graph document nodes)
+- :doc:`rmdoc_manager` — RMDoc: scene objects linked to documents (spatial authoring)
 - :doc:`rm_manager` — Representation Model management
 - :doc:`anastylosis_manager` — RMSF (Representation Model Special Find) management
 - :doc:`proxy_box_creator` — Measurement-based proxy generation
@@ -48,6 +49,7 @@ Panels are organized into three tab categories, following the authoring workflow
    :caption: EM Annotator Tab
 
    document_manager_3d
+   rmdoc_manager
    rm_manager
    anastylosis_manager
    proxy_box_creator
