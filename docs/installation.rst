@@ -62,9 +62,11 @@ Updating EM Tools
 
 When a new version is available:
 
-1. Download the new ``.zip`` file from the `GitHub Releases page <https://github.com/zalmoxes-laran/EM-blender-tools/releases>`_ or the `Download section of the Extended Matrix web site <https://www.extendedmatrix.org/download>`_
-2. Install it using the process previously described
-3. Blender will automatically update the existing installation
+1. Uninstall the previous version of EM Tools from Blender (if installed)
+2. Restart Blender to ensure all old files are cleared
+3. Download the new ``.zip`` file from the `GitHub Releases page <https://github.com/zalmoxes-laran/EM-blender-tools/releases>`_ or the `Download section of the Extended Matrix web site <https://www.extendedmatrix.org/download>`_
+4. Install it using the process previously described
+5. Blender will automatically update the existing installation
 
 Development Setup
 -----------------
