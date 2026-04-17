@@ -193,8 +193,23 @@ Module Structure
    │   ├── operators_lod.py        # LOD switching operators + menus
    │   └── ui.py                   # UIList + Panel + load_post handler
    ├── rm_manager/                 # RM Manager panel
+   │   ├── __init__.py             # Register hub
+   │   ├── data.py                 # RMListItem + RM PropertyGroups
+   │   ├── handlers.py             # load_post + depsgraph handlers
+   │   ├── operators.py            # RM list CRUD + epoch selection + LOD
+   │   └── ui.py                   # VIEW3D_PT_RM_Manager + UIList + menus
    ├── paradata_manager/           # Paradata Manager panel
+   │   ├── __init__.py             # Register hub
+   │   ├── data.py                 # ParadataImageProps + paradata list items
+   │   ├── operators.py            # Document/Extractor/Combiner operators
+   │   └── ui.py                   # Panels (documents / extractors / combiners)
    ├── document_manager/           # 3D Document Manager panel
+   │   ├── __init__.py             # Register hub
+   │   ├── data.py                 # 3D document PropertyGroups
+   │   ├── handlers.py             # Scene-update handlers
+   │   ├── operators.py            # Document CRUD + link-to-epoch operators
+   │   ├── ui.py                   # Panel + UIList
+   │   └── validators.py           # Document data validation helpers
    ├── em_statistics/              # Mesh statistics CSV export (experimental panel)
    │   ├── __init__.py             # Register hub
    │   ├── materials.py            # CSV loading + material enum items + decimal formatting
@@ -216,9 +231,33 @@ Module Structure
    │           ├── __init__.py
    │           ├── ui.py
    │           └── properties.py   # Scene.heriverse_* settings
-   ├── cronofilter/                # CronoFilter panel
-   ├── graph_editor/               # Graph Editor panels
+   ├── cronofilter/                # CronoFilter panel (custom chronological horizons)
+   │   ├── __init__.py             # Register hub
+   │   ├── properties.py           # CF_ChronologicalHorizon + CF_CronoFilterSettings + Scene.cf_settings
+   │   ├── operators.py            # Add / Remove / Move / Save / Load / AutoHorizons
+   │   ├── ui.py                   # CF_UL_HorizonList + CF_PT_CronoFilterPanel
+   │   ├── integration.py          # Runtime integration helpers (preview / validation)
+   │   └── json_exporter_patch.py  # Patch wiring custom horizons into the JSON exporter
+   ├── graph_editor/               # Graph Editor panels (node-based graph visualization)
+   │   ├── __init__.py             # Register hub
+   │   ├── properties.py           # GraphEditor PropertyGroups
+   │   ├── data.py                 # Internal data structures
+   │   ├── nodes.py                # Node type definitions
+   │   ├── dynamic_nodes.py        # Dynamically generated node classes
+   │   ├── socket_generator.py     # Socket factory helpers
+   │   ├── layout.py               # Graph layout algorithms
+   │   ├── operators.py            # Graph manipulation operators
+   │   ├── keymap.py               # Custom keymap bindings
+   │   ├── ui.py                   # Editor panel + overlays
+   │   └── utils.py                # Shared utilities
    ├── proxy_box_creator/          # Proxy Box Creator panels
+   │   ├── __init__.py             # Register hub
+   │   ├── data.py                 # ProxyBoxSettings + ProxyBoxPointSettings
+   │   ├── create_enhanced.py      # Enhanced proxy-box generation logic
+   │   ├── document_picker.py      # Document selection helpers
+   │   ├── operators.py            # Creation / editing operators
+   │   ├── ui.py                   # Panel UI
+   │   └── utils.py                # Geometry helpers
    ├── proxy_inflate_manager/      # Proxy Inflate Manager (experimental)
    │   ├── __init__.py             # Register hub + Scene.proxy_inflate_stats
    │   ├── helpers.py              # get_inflate_name + auto-inflate hooks
@@ -232,8 +271,22 @@ Module Structure
    │   ├── material_override.py    # Shader-node material overrides
    │   └── utils.py                # Projection / vertex paint helpers
    ├── tapestry_integration/       # Tapestry AI integration
-   ├── server.py                   # TCP Server panel
+   │   ├── __init__.py             # Register hub
+   │   ├── properties.py           # Tapestry settings PropertyGroups
+   │   ├── operators.py            # Export / submit operators
+   │   ├── ui.py                   # Tapestry panel (renamed from ui_panel.py)
+   │   ├── graph_bridge.py         # Bridge between EM graph and Tapestry payload
+   │   ├── network_client.py       # HTTP client for Tapestry service
+   │   ├── render_utils.py         # Render helpers
+   │   └── semantic_extractor.py   # Semantic data extraction from the graph
+   ├── server.py                   # TCP Server panel (single-file, ~160 lines)
    ├── import_operators/           # Import functionality
+   │   ├── __init__.py             # Re-exports
+   │   ├── importer_registry.py    # Importer plug-in registry
+   │   ├── importer_graphml.py     # GraphML importer
+   │   ├── importer_xlsx.py        # XLSX importer
+   │   ├── import_EMdb.py          # EMdb importer
+   │   └── import_validator.py     # Input validation helpers
    ├── export_operators/           # Exporter pool (invoked by export_manager and elsewhere)
    │   ├── __init__.py             # Re-exports from heriverse + exporter_graphml
    │   ├── exporter_graphml.py     # GraphML save / save-as (invoked from EM tree header)
