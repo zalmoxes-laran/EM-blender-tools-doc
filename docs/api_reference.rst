@@ -168,7 +168,7 @@ Module Structure
    │   ├── operators.py            # Setup operators
    │   └── resource_utils.py       # Resource folder utilities
    ├── visual_manager/             # Visual Manager panel
-   │   ├── ui.py                   # Panel UI
+   │   ├── ui.py                   # Panel UI (hosts inline "RM Coloring" experimental section)
    │   ├── operators.py            # Material/display operators
    │   ├── color_ramps.py          # Color scheme definitions
    │   └── label_tools.py          # Label creation
@@ -178,21 +178,87 @@ Module Structure
    ├── stratigraphy_manager/       # Stratigraphy Manager panel
    │   ├── ui.py                   # Panel UI
    │   └── data.py                 # Filter data
-   ├── activity_manager.py         # Activity Manager panel
-   ├── anastylosis_manager.py      # Anastylosis/RMSF Manager
+   ├── activity_manager/           # Activity Manager panel
+   │   ├── __init__.py             # Register hub
+   │   ├── properties.py           # ActivityItem / ActivityManagerProperties
+   │   ├── operators.py            # ACTIVITY_OT_refresh_list
+   │   └── ui.py                   # UIList + Panel
+   ├── anastylosis_manager/        # Anastylosis / RMSF Manager
+   │   ├── __init__.py             # Register hub
+   │   ├── properties.py           # PropertyGroups (registered by em_props)
+   │   ├── lod_utils.py            # LOD constants + parser + fallback helpers
+   │   ├── graph_utils.py          # Graph cleanup + visibility analysis
+   │   ├── operators_list.py       # List CRUD operators
+   │   ├── operators_link.py       # SF/VSF linking operators
+   │   ├── operators_lod.py        # LOD switching operators + menus
+   │   └── ui.py                   # UIList + Panel + load_post handler
    ├── rm_manager/                 # RM Manager panel
    ├── paradata_manager/           # Paradata Manager panel
    ├── document_manager/           # 3D Document Manager panel
-   ├── export_manager.py           # Export Manager panel
+   ├── em_statistics/              # Mesh statistics CSV export (experimental panel)
+   │   ├── __init__.py             # Register hub
+   │   ├── materials.py            # CSV loading + material enum items + decimal formatting
+   │   ├── metrics.py              # Volume / weight / surface computation
+   │   ├── properties.py           # EMSceneProperties + Scene.em_properties
+   │   ├── operators.py            # EMExportCSV
+   │   └── ui.py                   # EM_PT_ExportPanel (experimental-gated)
+   ├── export_manager/             # Export Manager panel (plugin-style providers)
+   │   ├── __init__.py             # Register hub + re-export registry API
+   │   ├── registry.py             # ExportProvider + register/get_providers
+   │   ├── panel.py                # VIEW3D_PT_ExportPanel (loops providers)
+   │   └── providers/
+   │       ├── __init__.py         # Imports + registers each provider
+   │       ├── tabular/            # CSV export section
+   │       │   ├── __init__.py
+   │       │   ├── ui.py
+   │       │   └── operators.py    # OBJECT_OT_ExportUUSS / ExportuussData
+   │       └── heriverse/          # Heriverse Export UI section
+   │           ├── __init__.py
+   │           ├── ui.py
+   │           └── properties.py   # Scene.heriverse_* settings
    ├── cronofilter/                # CronoFilter panel
    ├── graph_editor/               # Graph Editor panels
    ├── proxy_box_creator/          # Proxy Box Creator panels
-   ├── proxy_inflate_manager.py    # Proxy Inflate Manager
+   ├── proxy_inflate_manager/      # Proxy Inflate Manager (experimental)
+   │   ├── __init__.py             # Register hub + Scene.proxy_inflate_stats
+   │   ├── helpers.py              # get_inflate_name + auto-inflate hooks
+   │   ├── operators.py            # Add / Activate / Deactivate / Remove / InflateAll
+   │   └── ui.py                   # VIEW3D_PT_ProxyInflatePanel (gated by experimental_features)
+   ├── proxy_to_rm_projection/     # RM Coloring backend (experimental)
+   │   ├── __init__.py
+   │   ├── data.py                 # proxy_projection_settings PropertyGroup
+   │   ├── operators.py            # proxy_projection.* operators
+   │   ├── ui.py                   # Internal helpers (UI rendered inline in visual_manager/ui.py)
+   │   ├── material_override.py    # Shader-node material overrides
+   │   └── utils.py                # Projection / vertex paint helpers
    ├── tapestry_integration/       # Tapestry AI integration
    ├── server.py                   # TCP Server panel
    ├── import_operators/           # Import functionality
-   ├── export_operators/           # Export functionality
+   ├── export_operators/           # Exporter pool (invoked by export_manager and elsewhere)
+   │   ├── __init__.py             # Re-exports from heriverse + exporter_graphml
+   │   ├── exporter_graphml.py     # GraphML save / save-as (invoked from EM tree header)
+   │   └── heriverse/              # Heriverse exporter subpackage
+   │       ├── __init__.py         # Register + re-exports
+   │       ├── utils.py            # clean_filename + layer-collection helpers
+   │       ├── gltf.py             # export_gltf_with_animation_support wrapper
+   │       ├── json_export.py      # HERIVERSE_OT_export_json (export.heriversejson)
+   │       ├── collections_op.py   # HERIVERSE_OT_make_collections_visible
+   │       └── operator.py         # EXPORT_OT_heriverse (main export.heriverse operator)
    └── s3Dgraphy/                  # Core graph library (bundled)
+
+Experimental Features
+~~~~~~~~~~~~~~~~~~~~~
+
+The following panels/sections are gated behind
+``scene.em_tools.experimental_features`` and render with a red header plus the
+``EXPERIMENTAL`` icon:
+
+- ``em_statistics`` — Export statistics (Experimental)
+- ``proxy_inflate_manager`` — Proxy Inflate Manager (Experimental)
+- ``proxy_to_rm_projection`` — RM Coloring (Experimental), drawn inline inside
+  the Visual Manager panel
+- ``export_manager/providers/heriverse`` uses experimental flags for some
+  advanced options but the provider itself is not gated
 
 Further Reading
 ---------------
