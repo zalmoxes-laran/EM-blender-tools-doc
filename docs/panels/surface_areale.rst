@@ -1,12 +1,21 @@
 .. _Surface_Areale:
 
-Surface Areale (RM2Proxy)
-=========================
+Surface Areale (Experimental)
+=============================
 
-The **Representation Model to Proxy (RM2Proxy)** panel and its child
-**Surface Areale** panel live in the ``EM Annotator`` sidebar tab and provide
-tools for turning an existing Representation Model (RM) into a proxy geometry
-via contour extraction.
+.. warning::
+   This panel is experimental and shipping as a preview in **EM 1.6**.
+   Behavior, operator IDs and property names may change between releases.
+   The page is built but kept out of the main navigation until the feature
+   stabilizes.
+
+   To make the panel visible in Blender, enable
+   ``scene.em_tools.experimental_features`` in the EM Data Tree panel.
+
+The **Representation Model to Proxy (Experimental)** panel and its child
+**Surface Areale (Experimental)** panel live in the ``EM Annotator`` sidebar
+tab and provide tools for turning an existing Representation Model (RM) into a
+proxy geometry via contour extraction.
 
 Unlike :ref:`Proxy_Box_Creator`, which builds a proxy from measurement points,
 this tool generates the proxy by sampling a horizontal contour on an RM surface

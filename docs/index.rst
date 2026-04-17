@@ -61,14 +61,6 @@ Contents
    workflows
    export_guide
 
-.. Experimental / non-stable long-form pages. Built but hidden from nav
-   so the addon can still deep-link to them.
-
-.. toctree::
-   :hidden:
-
-   creating_em
-
 .. toctree::
    :maxdepth: 2
    :caption: Developer Guide

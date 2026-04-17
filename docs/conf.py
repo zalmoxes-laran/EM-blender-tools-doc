@@ -27,6 +27,13 @@ intersphinx_disabled_domains = ['std']
 
 templates_path = ['_templates']
 
+# Files completely excluded from the build (no HTML emitted, no warnings).
+# To re-enable a page, remove it from this list and reference it from a toctree.
+exclude_patterns = [
+    '_build',
+    'creating_em.rst',
+]
+
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'

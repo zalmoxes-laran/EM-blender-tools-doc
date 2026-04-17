@@ -31,7 +31,6 @@ Stable panels
 - :doc:`rm_manager` — Representation Model management
 - :doc:`anastylosis_manager` — RMSF (Representation Model Special Find) management
 - :doc:`proxy_box_creator` — Measurement-based proxy generation
-- :doc:`surface_areale` — Surface Areale: RM-to-Proxy contour extraction
 
 **EM Bridge Tab** (export / integrations):
 
@@ -62,7 +61,6 @@ Stable panels
    rm_manager
    anastylosis_manager
    proxy_box_creator
-   surface_areale
 
 .. toctree::
    :maxdepth: 2
@@ -90,4 +88,5 @@ Stable panels
    proxy_inflate_manager
    proxy_to_rm_projection
    server_panel
+   surface_areale
    tapestry_integration

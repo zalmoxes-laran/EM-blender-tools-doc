@@ -282,7 +282,7 @@ Here a brief presentation of the Experimental Features, the numebers on the list
      - **Step 2 — Enrich with Paradata** (optional): Loads ``em_paradata.xlsx`` and adds per-property provenance chains (PropertyNode → ExtractorNode → DocumentNode) to matching nodes.
      - **Step 3 — Export GraphML**: Saves the graph to a ``.graphml`` file. Import this file via **File > Import EM file** to populate the Blender scene.
 
-     The panel also provides **template download** buttons and an **AI Extraction Prompt** section with a language selector and a one-click **Copy AI Prompt to Clipboard** button. See :doc:`../creating_em` for the full workflow.
+     The panel also provides **template download** buttons and an **AI Extraction Prompt** section with a language selector and a one-click **Copy AI Prompt to Clipboard** button.
 
      **Warning**: This feature is experimental. Always verify the generated GraphML before using it in production.
 
