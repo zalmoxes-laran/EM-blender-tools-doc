@@ -296,10 +296,15 @@ The Prompt
 
 A ready-to-use, two-part prompt is bundled inside the s3Dgraphy package and can be copied to clipboard directly from the EMtools panel:
 
-- **Part A** extracts core stratigraphy (24 columns) into a table compatible with ``stratigraphy.xlsx``
-- **Part B** extracts per-property provenance data into a table compatible with ``em_paradata.xlsx``
+The StratiMiner prompt (v5.0) produces a single ``em_data.xlsx`` with five
+typed sheets (``Units``, ``Epochs``, ``Claims``, ``Authors``, ``Documents``)
+that are consumed in one pass by :class:`UnifiedXLSXImporter`. Every claim
+row carries its own per-source attribution, distinguishing facts transcribed
+from the document author (``AUTHOR_KIND = author``) from facts newly derived
+by the AI (``AUTHOR_KIND = extractor``).
 
-The prompt is also available in the s3Dgraphy repository at ``s3Dgraphy/docs/AI_EXTRACTION_PROMPT.md``.
+The prompt file ships inside the s3Dgraphy package at
+``s3dgraphy/data/StratiMiner_Extraction_Prompt.md``.
 
 Copy from Blender
 ~~~~~~~~~~~~~~~~~
