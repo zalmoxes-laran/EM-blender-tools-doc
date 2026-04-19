@@ -1,368 +1,389 @@
 Creating an Extended Matrix from Different Sources
 ==================================================
 
-The Extended Matrix (EM) can be created through several pathways, each suited to different project needs and workflows. This guide covers all supported methods, from manual GraphML editing to AI-assisted extraction from archaeological reports.
+The Extended Matrix (EM) can be created through several pathways, each
+suited to different project needs and workflows. This guide covers the
+supported methods, focusing on the unified ``em_data.xlsx`` flow
+introduced in EMtools 1.5 / s3Dgraphy 1.6.
 
 .. contents::
    :local:
    :depth: 2
 
+
 The Knowledge Tree
 ------------------
 
-The Extended Matrix knowledge system works like a **tree**: the GraphML file is the **trunk**, providing the stratigraphic sequence, chronological scaffolding, and fundamental relationships between units. The core properties (node types, relationships, epochs) are the **main branches** — they are part of the graph structure itself.
+The Extended Matrix knowledge system works like a **tree**: the GraphML
+file is the **trunk**, providing the stratigraphic sequence, chronological
+scaffolding, and fundamental relationships between units. The leaves are
+the detailed, granular data that give richness to each stratigraphic
+unit: definitions, interpretations, materials, measurements, dating
+evidence, and so on.
 
-The **leaves** are the detailed, granular data that come from auxiliary tabular files: definitions, interpretations, materials, construction techniques, measurements, and all those properties that give richness to each stratigraphic unit.
-
-This separation is deliberate: the graph (trunk) is best managed by the project leader and changes infrequently, while the tables (leaves) can be updated continuously by the working group using familiar tools like Excel or databases. Thanks to s3Dgraphy and EMtools, these two worlds merge on-the-fly into a unified knowledge graph.
+A single ``em_data.xlsx`` file carries **both the trunk and the leaves**
+for a given graph. It is consumed in one pass by the ``UnifiedXLSXImporter``
+to produce a complete s3Dgraphy graph, ready to be written as GraphML
+(for yEd editing) or merged into an already-loaded GraphML (conflict
+resolution).
 
 .. seealso::
 
-   For a full explanation of this architecture, see `The Knowledge Tree <https://docs.extendedmatrix.org/en/1.5.0/knowledge_tree.html>`_ in the Extended Matrix documentation.
+   For a full explanation of this architecture, see
+   `The Knowledge Tree <https://docs.extendedmatrix.org/en/1.5.0/knowledge_tree.html>`_
+   in the Extended Matrix documentation.
 
 
 Overview
 --------
 
-Three main approaches are available for creating an Extended Matrix:
+Three parallel paths are supported for creating and evolving an EM
+graph:
 
-1. **From GraphML** — Manual creation using graph editors like yEd
-2. **From Excel** — Structured tabular input using standardized templates
-3. **AI-Assisted Extraction** — Using AI models to extract stratigraphy from PDF reports, field notes, and images
+1. **From GraphML (yEd)** — Manual creation or editing of the GraphML
+   file with the yEd graph editor. Full control over the graph
+   structure, traditional stratigrapher-driven workflow.
+2. **From em_data.xlsx** — Structured tabular input using the unified
+   5-sheet schema. Two sub-paths:
 
-The Excel and AI approaches use a **two-file workflow**:
+   a. **AI-assisted** — copy the StratiMiner prompt into Claude /
+      ChatGPT / Gemini, attach the PDFs, paste the returned xlsx.
+   b. **Manual** — save the empty template and fill it by hand,
+      ideal for migrating pre-existing archaeological databases with
+      explicit stratigraphic relations.
 
-- **stratigraphy.xlsx** (core) — Contains stratigraphic nodes, relationships, and chronologies. This generates the GraphML (the trunk and main branches).
-- **em_paradata.xlsx** (enrichment) — Contains per-property provenance data with full data lineage (extractor text → source document). This is imported to enrich the graph with paradata chains.
+3. **From existing databases** — Import from pyArchInit and other
+   tabular sources via the s3Dgraphy mapping system. See
+   `From Existing Databases`_ at the end of this page.
+
+Paths 1 and 2 converge on the same in-memory graph and can be mixed
+freely in the same project.
 
 
 From GraphML (yEd)
--------------------
+------------------
 
-The traditional method for creating an EM is to use the `yEd Graph Editor <https://www.yworks.com/products/yed>`_ to manually build the GraphML file. This approach gives full control over the graph structure and is well-suited for:
+The traditional method for creating an EM is to use the
+`yEd Graph Editor <https://www.yworks.com/products/yed>`_ to manually
+build the GraphML file. This approach gives full control over the
+graph structure and is well-suited for:
 
-- Small to medium stratigraphic sequences
-- Projects where the stratigrapher directly builds the graph
-- Fine-tuning and validation of automatically generated graphs
+- Small to medium stratigraphic sequences;
+- Projects where the stratigrapher directly builds the graph;
+- Fine-tuning and validation of automatically generated graphs.
 
-For details on the GraphML structure and node types, see :doc:`panels/em_setup`.
+For details on the GraphML structure and node types, see
+:doc:`panels/em_setup`.
 
 .. note::
 
-   For a comprehensive guide on the Extended Matrix formal language, node types, and how to construct a valid EM graph, refer to the `Extended Matrix documentation <https://docs.extendedmatrix.org/en/1.5.0/>`_. The `nodes introduction <https://docs.extendedmatrix.org/en/1.5.0/nodes_intro.html>`_ and `stratigraphic nodes <https://docs.extendedmatrix.org/en/1.5.0/stratigraphic_nodes.html>`_ pages are particularly useful for understanding what each node type represents.
+   For a comprehensive guide on the Extended Matrix formal language,
+   node types, and how to construct a valid EM graph, refer to the
+   `Extended Matrix documentation <https://docs.extendedmatrix.org/en/1.5.0/>`_.
+   The `nodes introduction <https://docs.extendedmatrix.org/en/1.5.0/nodes_intro.html>`_
+   and `stratigraphic nodes <https://docs.extendedmatrix.org/en/1.5.0/stratigraphic_nodes.html>`_
+   pages are particularly useful for understanding what each node type
+   represents.
 
 
-From Excel (Standard Stratigraphy)
+From em_data.xlsx (Unified schema)
 -----------------------------------
 
-The Excel-based approach uses a standardized template with 24 columns that map directly to the s3Dgraphy graph model.
+The unified xlsx format is a **single file** with five typed sheets
+that together describe both the stratigraphic skeleton and its full
+paradata chain. It replaces the legacy two-file workflow
+(``stratigraphy.xlsx`` + ``em_paradata.xlsx``) used by earlier EMtools
+versions.
 
-Template Download
-~~~~~~~~~~~~~~~~~
+The StratiMiner panel in the EMtools EM Bridge tab offers both paths
+to **create** an ``em_data.xlsx`` and both paths to **use** one.
 
-Download the empty template from the s3Dgraphy repository:
+.. image:: img/stratiminer_panel.png
+   :alt: StratiMiner panel in EM Bridge tab
+   :align: center
 
-- **template_stratigraphy.xlsx** — Empty template with 24 column headers
-- **example_stratigraphy.xlsx** — Example with 5 sample stratigraphic units
 
-The template uses a sheet named **"Stratigraphy"** with data starting from row 2.
+Create em_data.xlsx
+~~~~~~~~~~~~~~~~~~~
 
-Column Reference
+**Option A — AI-assisted**
+
+1. Open **EM Bridge → StratiMiner (Experimental)** (requires the
+   *Experimental Features* flag).
+2. Under **CREATE em_data.xlsx**, set the *Language* (default: the same
+   as the source document) and the *Documents folder* pointing at the
+   directory that holds the source PDFs.
+3. Select the optional toggles:
+
+   - **Validation script** — includes a Python snippet the AI must run
+     on its output to catch duplicates, missing references, missing
+     ``COMBINER_REASONING`` and stratigraphic cycles. Strongly
+     recommended.
+   - **End-of-session checklist** — the AI-side QA list for the final
+     handoff.
+   - **Include stratigraphy-only mode** — appends an extra section
+     describing the reduced flow for legacy databases with no paradata
+     attribution. Enable only if your source data matches that case.
+
+4. Click **Copy StratiMiner Prompt**. The prompt is placed in the
+   clipboard, with the documents-folder path injected and all the
+   toggles applied.
+5. Paste the prompt into your AI assistant (Claude, ChatGPT, Gemini)
+   together with the PDFs. The AI returns a single ``em_data.xlsx``.
+
+**Option B — Manual**
+
+1. Click **Save em_data.xlsx Template** under *Option B*. A Save dialog
+   opens; choose a directory. An empty ``em_data_template.xlsx`` is
+   copied from the s3Dgraphy package.
+2. Open the template in Excel or LibreOffice. Every header cell carries
+   a tooltip that describes the expected content.
+3. Fill the five sheets (see `The 5-sheet schema`_ below). The minimal
+   required content is: at least one row in ``Units``, ``Authors`` and
+   ``Claims``.
+
+Both options produce the same file format and are interchangeable.
+
+
+Use em_data.xlsx
 ~~~~~~~~~~~~~~~~
 
-.. list-table:: Stratigraphy Columns (24)
-   :header-rows: 1
-   :widths: 5 15 10 70
+**Path A — Build a brand-new GraphML**
 
-   * - Col
-     - Header
+1. Under **USE em_data.xlsx**, pick the ``em_data.xlsx`` file.
+2. Optionally tick *Also write .graphml on import* and pick the output
+   path. (The panel auto-suggests one next to the xlsx.)
+3. Click **Build GraphML from em_data.xlsx**. The xlsx is parsed by
+   ``UnifiedXLSXImporter`` into a fresh in-memory graph, and (if you
+   enabled it) immediately written out as ``.graphml``.
+4. The resulting ``.graphml`` can be opened in yEd for visual editing,
+   or imported back into EMtools via the standard *Import EM file*
+   flow.
+
+**Path B — Merge into an already-loaded GraphML**
+
+1. Make sure a GraphML is loaded and active in the EM tree tab.
+2. Under **USE em_data.xlsx → Merge into active GraphML**, click
+   **Merge into Active Graph…**.
+3. A file picker opens — select the ``em_data.xlsx``. The merger
+   auto-detects the unified 5-sheet schema (falls back to the legacy
+   stratigraphy.xlsx format for backward compatibility) and compares it
+   with the active graph.
+4. Differences surface in the *Conflict Resolution* panel: qualia
+   added, qualia value changed, new per-claim attribution sources,
+   added authors / documents / epochs, relation-edge attribution
+   changes. You accept or reject each conflict.
+5. Apply the resolutions; accepted changes are written into the active
+   in-memory graph. Save the graph with *Save GraphML* / *Save As…* to
+   persist the merged state to disk.
+
+
+The 5-sheet schema
+~~~~~~~~~~~~~~~~~~
+
+An ``em_data.xlsx`` file has exactly five sheets, in this order:
+
+**1. Units** — the stratigraphic skeleton
+
+.. list-table::
+   :header-rows: 1
+   :widths: 10 10 30
+
+   * - Column
      - Required
      - Description
-   * - A
-     - ID
+   * - ``ID``
      - Yes
-     - Unique identifier for the stratigraphic unit (e.g., US001, USM01)
-   * - B
-     - TYPE
+     - Unique unit id (``C01``, ``SU001``, ``USV100``, ``TM_USM01`` …)
+   * - ``TYPE``
      - Yes
-     - Node type: US, USVs, USVn, SF, VSF, USD, serSU, serUSD, serUSVn, serUSVs, TSU, SE, BR
-   * - C
-     - DESCRIPTION
-     - Yes
-     - Detailed textual description of the unit
-   * - D
-     - PERIOD
+     - Stratigraphic class: ``US``, ``USVs``, ``USVn``, ``SF``, ``VSF``,
+       ``USD``, ``serSU``, ``serUSD``, ``serUSVn``, ``serUSVs``,
+       ``TSU``, ``SE``, ``BR``
+   * - ``NAME``
      - No
-     - Historical period (e.g., Roman, Medieval, Modern)
-   * - E
-     - PERIOD_START
-     - No
-     - Start year of the period (negative for BCE)
-   * - F
-     - PERIOD_END
-     - No
-     - End year of the period
-   * - G
-     - PHASE
-     - No
-     - Chronological phase within the period
-   * - H
-     - PHASE_START
-     - No
-     - Start year of the phase
-   * - I
-     - PHASE_END
-     - No
-     - End year of the phase
-   * - J
-     - SUBPHASE
-     - No
-     - Finer chronological subdivision
-   * - K
-     - SUBPHASE_START
-     - No
-     - Start year of the subphase
-   * - L
-     - SUBPHASE_END
-     - No
-     - End year of the subphase
-   * - M
-     - OVERLIES
-     - No
-     - Comma-separated IDs of units this one covers
-   * - N
-     - OVERLAIN_BY
-     - No
-     - Comma-separated IDs of units resting on this one
-   * - O
-     - CUTS
-     - No
-     - Comma-separated IDs of units cut by this one
-   * - P
-     - CUT_BY
-     - No
-     - Comma-separated IDs of units that cut this one
-   * - Q
-     - FILLS
-     - No
-     - Comma-separated IDs of units this one fills
-   * - R
-     - FILLED_BY
-     - No
-     - Comma-separated IDs of units that fill this one
-   * - S
-     - ABUTS
-     - No
-     - Comma-separated IDs of units this one abuts
-   * - T
-     - ABUTTED_BY
-     - No
-     - Comma-separated IDs of units abutting this one
-   * - U
-     - BONDED_TO
-     - No
-     - Comma-separated IDs of units physically bonded (contemporary)
-   * - V
-     - EQUALS
-     - No
-     - Comma-separated IDs of physically equal units (same fabric)
-   * - W
-     - EXTRACTOR
-     - Yes
-     - Who/what extracted the data (e.g., Claude, GPT-4, Manual)
-   * - X
-     - DOCUMENT
-     - Yes
-     - Source document filename
+     - Short human label. Falls back to ``ID`` when empty
 
+Units only declares the existence of a node. Every fact about it
+(dimensions, materials, datation, relationships) goes into the
+``Claims`` sheet.
 
-Import into EMtools (3-Step Wizard)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**2. Epochs** — swimlanes and non-overlapping phases
 
-EMtools provides a panel-based wizard in the **Experimental Tools** section for converting Excel data into a GraphML file. The wizard keeps the graph in memory until you export it, so you can optionally enrich it with paradata before saving.
-
-1. **Enable Experimental Features** in the EM Data Tree panel (Utilities & Settings section)
-2. Expand **Create a GraphML**
-
-**Step 1 — Convert Stratigraphy**
-
-- Select your ``stratigraphy.xlsx`` file
-- Choose the mapping (default: ``excel_to_graphml_mapping``)
-- Click **Convert to Graph** — the graph is created in memory and a summary is shown
-
-**Step 2 — Enrich with Paradata** (optional)
-
-- Select your ``em_paradata.xlsx`` file
-- Click **Enrich Graph** — provenance chains (PropertyNode → ExtractorNode → DocumentNode) are added to matching nodes
-
-**Step 3 — Export GraphML**
-
-- Choose the output file path
-- Click **Export GraphML** — the graph is saved to disk
-
-After exporting, import the GraphML into EMtools via **File > Import EM file** to populate the Blender lists and scene.
-
-.. tip::
-   Download empty templates directly from the wizard panel using the **Save Stratigraphy Template** and **Save Paradata Template** buttons.
-
-
-From Excel (Paradata Enrichment)
----------------------------------
-
-The second Excel file (``em_paradata.xlsx``) contains per-property provenance data in **long format**: one row per (unit, property) pair. Each row records the property value, the specific text extracted from a source document, and which document it came from.
-
-This file is used in **Step 2** of the wizard to enrich the in-memory graph with full data lineage.
-
-Template Download
-~~~~~~~~~~~~~~~~~
-
-- **template_em_paradata.xlsx** — Empty template with the paradata column schema
-
-The template uses a sheet named **"Paradata"** with data starting from row 2.
-
-Column Reference
-~~~~~~~~~~~~~~~~
-
-.. list-table:: Paradata Columns
+.. list-table::
    :header-rows: 1
-   :widths: 5 20 10 65
+   :widths: 10 10 30
 
-   * - Col
-     - Header
+   * - Column
      - Required
      - Description
-   * - A
-     - US_ID
+   * - ``ID``
      - Yes
-     - Must match an existing node ID in the stratigraphy
-   * - B
-     - PROPERTY_TYPE
+     - Short phase code (``E1``, ``PH0``, ``PH2`` …)
+   * - ``NAME``
      - Yes
-     - Property type (e.g., Height, Material, Conservation State)
-   * - C
-     - VALUE
+     - Human-readable name (``II A.D.``, ``PH2 – Temple construction``)
+   * - ``START``
      - Yes
-     - The property value (e.g., "2.5m", "opus reticulatum")
-   * - D
-     - COMBINER_REASONING
+     - Start year as an integer (negative = BCE)
+   * - ``END``
+     - Yes
+     - End year as an integer
+   * - ``COLOR``
      - No
-     - Reasoning combining multiple sources (leave empty for single-source)
-   * - E
-     - EXTRACTOR_1
+     - Swimlane fill colour (``#RRGGBB``)
+
+Epochs **must be non-overlapping**. If a unit spans multiple phases,
+it is a *single* ``belongs_to_epoch`` claim pointing at its primary
+phase; additional survival spans are handled by ``survive_in_epoch``
+edges added by the downstream chronology resolver.
+
+**3. Claims** — the long-table, one row per asserted fact
+
+Every piece of information about a unit (or an epoch) lives here. A
+row carries one of four kinds of content:
+
+- **Scalar qualia** — ``PROPERTY_TYPE`` ∈ ``definition``,
+  ``material_type``, ``length``, ``width``, ``height``, ``shape``,
+  ``conservation_state``, ``interpretation``, ``comparanda``, …
+- **Temporal qualia** — ``absolute_time_start`` /
+  ``absolute_time_end``. Feed the DP-32 chronology resolver.
+- **Epoch membership** — ``belongs_to_epoch`` with ``TARGET2_ID``
+  pointing at an ``Epochs.ID``.
+- **Stratigraphic relation** — ``overlies``, ``cuts``, ``fills``,
+  ``abuts``, ``bonded_to``, ``equals``, ``is_after`` …; ``TARGET_ID``
+  is the source endpoint, ``TARGET2_ID`` the target endpoint.
+
+Each row also carries its own **per-claim attribution**:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 15 40
+
+   * - Column group
+     - Fields
+     - Meaning
+   * - Attribution #1
+     - ``EXTRACTOR_1`` / ``DOCUMENT_1`` / ``AUTHOR_1`` /
+       ``AUTHOR_KIND_1``
+     - The verbatim excerpt (``EXTRACTOR_1``) from the source
+       document (``DOCUMENT_1``), asserted by ``AUTHOR_1``. The
+       ``AUTHOR_KIND_1`` column distinguishes facts **transcribed**
+       from the document author (``author``) from facts **newly
+       derived** by an AI extractor (``extractor``).
+   * - Attribution #2 (optional)
+     - ``EXTRACTOR_2`` / ``DOCUMENT_2`` / ``AUTHOR_2`` /
+       ``AUTHOR_KIND_2``
+     - Second converging source. When both #1 and #2 are populated,
+       ``COMBINER_REASONING`` must describe how the two sources are
+       combined (concordance, divergence, canonical choice).
+
+**4. Authors** — the normalized author catalog
+
+.. list-table::
+   :header-rows: 1
+   :widths: 10 10 40
+
+   * - Column
+     - Required
+     - Description
+   * - ``ID``
      - Yes
-     - Text extracted from the first source document
-   * - F
-     - DOCUMENT_1
+     - ``A.01``, ``A.02``, ... for humans. ``AI.01``, ``AI.02``, ...
+       for AI agents (the prefix matters)
+   * - ``KIND``
      - Yes
-     - Filename of the first source document
-   * - G
-     - EXTRACTOR_2
+     - ``author`` (human, AuthorNode) or ``extractor`` (AI,
+       AuthorAINode). Must agree with the ID prefix.
+   * - ``DISPLAY_NAME``
      - No
-     - Text extracted from a second source (multi-source only)
-   * - H
-     - DOCUMENT_2
+     - Human-readable display (``"Demetrescu, Emanuele"`` or
+       ``"StratiMiner-v1"``)
+   * - ``ORCID``
      - No
-     - Filename of the second source document
+     - ORCID for humans; model version / pipeline id for AI agents
+   * - ``AFFILIATION``
+     - No
+     - Institutional affiliation
 
-Additional ``EXTRACTOR_N`` / ``DOCUMENT_N`` column pairs can be added for properties derived from more than two sources. The importer detects all pairs automatically via column name pattern matching.
+**5. Documents** — the normalized source catalog
 
-Provenance Chains
-~~~~~~~~~~~~~~~~~
+.. list-table::
+   :header-rows: 1
+   :widths: 10 10 40
 
-Each row creates a provenance chain in the Extended Matrix graph:
+   * - Column
+     - Required
+     - Description
+   * - ``ID``
+     - Yes
+     - ``D.01``, ``D.02``, ...
+   * - ``FILENAME``
+     - Yes
+     - Filename on disk
+   * - ``TITLE``
+     - No
+     - Full bibliographic title
+   * - ``YEAR``
+     - No
+     - Publication year
+   * - ``AUTHOR_IDS``
+     - No
+     - Comma-separated ``Authors.ID`` list for the document authors
+       (distinct from the per-claim authors!)
 
-**Single-source** (COMBINER_REASONING empty)::
 
-   PropertyNode → ExtractorNode → DocumentNode
+Why the distinction between author and extractor matters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Multi-source** (COMBINER_REASONING filled)::
+Every claim is traceable to *one specific agent*: either the person who
+wrote the source document (``KIND=author``) or the agent who derived
+the claim from the document (``KIND=extractor``, typically the AI
+StratiMiner).
 
-   PropertyNode → CombinerNode → ExtractorNode₁ → DocumentNode₁
-                                → ExtractorNode₂ → DocumentNode₂
+The s3Dgraphy **diagnostics layer** uses this distinction to route
+chronology paradoxes and stratigraphic cycles to the right reviewer.
+When the resolver detects that unit ``Y`` declares an
+``absolute_time_start = 130`` that contradicts its stratigraphic
+position, the warning names the specific extractor / author that made
+the offending claim — so you know whether to re-read the PDF or
+re-prompt the AI.
 
-Property Type Vocabulary
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-Common property types include: Height, Width, Length, Thickness, Depth, Material, Conservation State, Construction Technique, Primary Function, Artistic Style, Definition, Interpretation, Absolute Start Date, Absolute End Date, Dating Method. Custom property types in Title Case are also accepted.
-
-
-AI-Assisted Extraction
------------------------
-
-AI models (Claude, ChatGPT, Gemini, etc.) can extract stratigraphic data directly from archaeological reports, field notes, and even images. This dramatically accelerates the creation of an Extended Matrix from existing documentation.
-
-The Prompt
-~~~~~~~~~~
-
-A ready-to-use, two-part prompt is bundled inside the s3Dgraphy package and can be copied to clipboard directly from the EMtools panel:
-
-The StratiMiner prompt (v5.0) produces a single ``em_data.xlsx`` with five
-typed sheets (``Units``, ``Epochs``, ``Claims``, ``Authors``, ``Documents``)
-that are consumed in one pass by :class:`UnifiedXLSXImporter`. Every claim
-row carries its own per-source attribution, distinguishing facts transcribed
-from the document author (``AUTHOR_KIND = author``) from facts newly derived
-by the AI (``AUTHOR_KIND = extractor``).
-
-The prompt file ships inside the s3Dgraphy package at
-``s3dgraphy/data/StratiMiner_Extraction_Prompt.md``.
-
-Copy from Blender
-~~~~~~~~~~~~~~~~~
-
-In the **Create a GraphML** wizard panel (Experimental Tools), the **AI Extraction Prompt** section provides:
-
-1. A **Language** field — set the target language for descriptions (default: same as the source document)
-2. A **Copy AI Prompt to Clipboard** button — copies the full prompt (Part A + Part B) with the language instruction prepended
-
-This is the fastest way to get the prompt ready: paste it into your AI assistant alongside the archaeological documents.
-
-Workflow
-~~~~~~~~
-
-1. In EMtools, expand **Create a GraphML** → **AI Extraction Prompt**
-2. Set the output language if needed
-3. Click **Copy AI Prompt to Clipboard**
-4. Open your AI assistant (Claude, ChatGPT, Gemini, etc.)
-5. Paste the prompt, then upload or paste the archaeological document
-6. Copy the AI's **Part A** output table into ``stratigraphy.xlsx`` (sheet: "Stratigraphy")
-7. Copy the AI's **Part B** output table into ``em_paradata.xlsx`` (sheet: "Paradata")
-8. Use the 3-step wizard to convert, enrich, and export
-
-Working with Existing GraphML
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-When enriching an existing GraphML with new document data, add this instruction to the prompt::
-
-   I already have a GraphML with the following units: [list IDs].
-   Match extracted units to existing ones where possible.
-   Mark new units that are not in the current graph.
-
-Best Practices
-~~~~~~~~~~~~~~
-
-- Process documents one at a time for accuracy
-- Review AI output before importing — check relationship symmetry and type assignments
-- Use the EXTRACTOR columns to track the specific text extracted by the AI from each source
-- For large projects, build incrementally: start with a core set of units, then add from additional documents
+See :doc:`panels/em_setup` for details on the *Conflict Resolution*
+panel that surfaces these diagnostics.
 
 
 From Existing Databases
-------------------------
+-----------------------
 
-EMtools supports import from archaeological database systems via s3Dgraphy's mapping system.
+EMtools supports import from archaeological database systems via
+s3Dgraphy's mapping system.
 
 pyArchInit
 ~~~~~~~~~~
 
-`pyArchInit <https://pyarchinit.readthedocs.io/>`_ is an archaeological information system based on QGIS. There are **two ways** to use pyArchInit data with the Extended Matrix:
+`pyArchInit <https://pyarchinit.readthedocs.io/>`_ is an archaeological
+information system based on QGIS. There are **two ways** to use
+pyArchInit data with the Extended Matrix:
 
 **1. Generate GraphML from pyArchInit (creating the trunk)**
 
-pyArchInit has a built-in tool that can export stratigraphic data directly as a GraphML file in Extended Matrix format. This is the recommended approach when you want to create a new EM graph from an existing pyArchInit database. See the `pyArchInit documentation on the HerRIS Matrix for Extended Matrix Tool <https://pyarchinit.readthedocs.io/it/latest/novit%C3%A0.html#herris-matrix-per-extended-matrix-tool>`_ (in Italian).
+pyArchInit has a built-in tool that can export stratigraphic data
+directly as a GraphML file in Extended Matrix format. This is the
+recommended approach when you want to create a new EM graph from an
+existing pyArchInit database. See the
+`pyArchInit documentation on the HerRIS Matrix for Extended Matrix Tool
+<https://pyarchinit.readthedocs.io/it/latest/novit%C3%A0.html#herris-matrix-per-extended-matrix-tool>`_
+(in Italian).
 
 **2. Import pyArchInit as auxiliary file (adding leaves)**
 
-When you already have a GraphML and want to enrich it with property data from a pyArchInit database, you can add it as an **auxiliary file** in EMtools. In this mode, the pyArchInit SQLite database is imported using the ``pyarchinit`` mapping type, and properties are added to existing graph nodes (matched by unit ID). The graph structure is not modified.
+When you already have a GraphML and want to enrich it with property
+data from a pyArchInit database, you can add it as an **auxiliary
+file** in EMtools. In this mode, the pyArchInit SQLite database is
+imported using the ``pyarchinit`` mapping type, and properties are
+added to existing graph nodes (matched by unit ID). The graph
+structure is not modified.
 
 To import as auxiliary:
 
@@ -371,14 +392,26 @@ To import as auxiliary:
 3. Select file type **pyArchInit**
 4. Select the SQLite database file
 5. Choose the appropriate mapping (``pyarchinit_us_mapping``)
-6. Click **Import** — properties from the database are added to matching nodes
+6. Click **Import** — properties from the database are added to
+   matching nodes
 
-Custom Database Formats
-~~~~~~~~~~~~~~~~~~~~~~~
 
-For other database formats, create a custom mapping JSON in the ``emdb/`` or ``pyarchinit/`` directories. The s3Dgraphy mapping system (``MappingRegistry``) supports:
+Legacy two-file workflow (deprecated)
+-------------------------------------
 
-- **xlsx** — Excel files with custom column layouts
-- **sqlite** — SQLite databases with custom table schemas
+Before EMtools 1.5 the AI-assisted flow produced **two** files
+(``stratigraphy.xlsx`` + ``em_paradata.xlsx``) that had to be imported
+in separate steps. That workflow is deprecated but still usable for
+backward compatibility:
 
-Custom mapping directories can be added with priority-based search, allowing project-specific mappings to override built-in ones. See the s3Dgraphy mapping documentation for details on creating custom mappings.
+- The ``MappedXLSXImporter`` + ``QualiaImporter`` pair is still shipped
+  and registered.
+- The ``em.merge_xlsx_start`` operator auto-detects the legacy schema
+  (sheet named ``Stratigraphy``) and falls back to the old importer
+  path.
+- Legacy xlsx files can be converted to the unified schema by: import
+  with the legacy pair → resulting graph exported to
+  ``em_data.xlsx`` via ``UnifiedXLSXExporter``.
+
+New projects should use the unified ``em_data.xlsx`` schema from the
+start.

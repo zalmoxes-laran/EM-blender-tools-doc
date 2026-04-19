@@ -59,6 +59,7 @@ Contents
 
    panels/index
    workflows
+   creating_em
    export_guide
 
 .. toctree::
