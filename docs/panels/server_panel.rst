@@ -1,7 +1,7 @@
 .. _Server_Panel:
 
-Server Panel
-============
+Server Panel (Experimental)
+===========================
 
 The Server Panel provides TCP connectivity for remote control of EMtools. It allows external applications to send commands to Blender via a TCP socket connection.
 

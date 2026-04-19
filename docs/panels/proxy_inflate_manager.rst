@@ -1,7 +1,7 @@
 .. _Proxy_Inflate_Manager:
 
-Proxy Inflate Manager
-=====================
+Proxy Inflate Manager (Experimental)
+====================================
 
 The Proxy Inflate Manager adds thickness to proxy models using Blender's Solidify modifier. This is useful for giving volume to flat proxy geometry, both for visualization and for export workflows.
 

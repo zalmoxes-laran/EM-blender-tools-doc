@@ -2,8 +2,8 @@
 
 .. _Graph_Editor:
 
-Graph Editor
-============
+Graph Editor (Experimental)
+===========================
 
 The Graph Editor provides a node-based visualization of the Extended Matrix graph directly within Blender's Node Editor. It is composed of multiple sub-panels that control loading, filtering, appearance, and synchronization between the graph and the 3D viewport.
 

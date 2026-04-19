@@ -1,7 +1,7 @@
 .. _Tapestry_Integration:
 
-Tapestry Integration
-====================
+Tapestry Integration (Experimental)
+===================================
 
 The Tapestry Integration panel provides AI-powered photorealistic reconstruction capabilities. It connects to an external Tapestry server to submit rendering jobs that transform proxy-based scenes into photorealistic visualizations.
 
