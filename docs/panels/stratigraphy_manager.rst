@@ -33,6 +33,48 @@ Each row in the stratigraphy list displays:
 
 Clicking the link icon selects the corresponding 3D proxy. Use Blender's ``Frame Selected`` command to navigate to it.
 
+.. _strat_manager_add_us:
+
+Add Stratigraphic Unit (``+ Add US``)
+--------------------------------------
+
+A dedicated toolbar row below the list hosts the **Add US** button (icon: the custom
+``proxies_rows_add`` glyph, distinct from Blender's built-in ``+``). The button opens the
+shared **Add Stratigraphic Unit** dialog — the same floating form that the Proxy Box
+Creator and Surface Areas tools use when the user clicks ``+`` next to their own US
+pickers, so US creation is identical everywhere.
+
+The dialog fields (top to bottom):
+
+- **Type** — canonical ``node_type`` from s3Dgraphy's JSON datamodel (v1.5.2 and later).
+  Every stratigraphic class the library knows about is listed, including the new
+  ``USN`` (Negative Stratigraphic Unit) and the series types (``serSU``, ``serUSD``,
+  ``serUSVs``, ``serUSVn``).
+- **Name** — bound to the transient sentinel
+  ``scene.em_tools.stratigraphy.pending_us_name``. The ``+`` beside the field proposes
+  the first free number (gap-aware, starting from 1).
+- **Description** — optional; stored on the node.
+- **Shared numbering across US types** — default **ON**. When on, the ``+`` button draws
+  from a global pool across every US type (any trailing-digits id in the graph counts;
+  so ``SU001`` and ``US.1`` share slot ``1``). When off, each type has its own series
+  (``USN.1`` independent of ``US.1``).
+- **Epoch** *(mandatory)* — drives the Activity filter below; an update on this field
+  immediately re-filters the Activity dropdown to units whose own epoch matches.
+- **Activity** *(optional)* — when set, the new US gets an ``is_in_activity`` edge and
+  the GraphMLPatcher nests the US's XML under the target Activity group at save time.
+  A refresh icon inline re-runs the filter if the activity list looks stale.
+- **Add stratigraphic link** *(optional)* — toggle to open a sub-block with
+  ``is_after`` / ``is_before`` direction + target US picker.
+- **Save GraphML immediately** — default **ON**. When on, clicking OK also writes the
+  updated graph to disk via ``export.graphml_update`` (write-lock guard handles yEd
+  conflicts, mirroring the Proxy Box Creator's "virtuous save" principle).
+
+On OK the shared factory (``us_helpers.create_us_node``) writes the node,
+``has_first_epoch`` (mandatory), the optional ``is_in_activity``, and the optional
+stratigraphic relation. The new unit is immediately pinned as the active one in the
+Stratigraphy Manager list — any panel that reads ``target_us_name`` (Proxy Box,
+Surface Areas, Stratigraphy Manager itself) picks it up on the next draw.
+
 .. _filter_system:
 
 Filter System

@@ -3,66 +3,59 @@
 Proxy Box Creator
 =================
 
-The Proxy Box Creator is a measurement-based tool for generating proxy geometry from 3D reference points. It uses a 7-point recording system to define the dimensions and orientation of a proxy box.
+The Proxy Box Creator builds a proxy mesh (a 7-point bounding volume) for a
+Stratigraphic Unit and wires the full paradata chain behind it — Document
+instance → Extractors → Combiner → PropertyNode ("Proxy Geometry") — all
+wrapped in a per-US :ref:`ParadataNodeGroup <paradata_node_group>`
+(``<US>_PD``).
 
-The panel is located in the **EM Annotator** tab.
+The panel lives under **EM Annotator → RM to Proxy Suite → Proxy Box Creator**
+and is structured top-to-bottom as a two-step workflow:
 
-.. note::
-   The paradata enrichment mode (which allows linking source documents to each measurement point) is only available when **Experimental Features** are enabled in Advanced EM mode.
+1. **Step 1 — Anchor Document** (the source the extractors will cite).
+2. **Step 2 — Measurement Points** (seven 3D positions defining the box).
+3. **Parameters** (pivot, proxy collection, Active US, persistence).
+4. **Chain Summary** (collapsible) + **Create / Clear** buttons.
 
-Panel Layout
-------------
+The panel is gated behind ``scene.em_tools.experimental_features`` and
+``mode_em_advanced``.
 
-**Status Box**:
+.. _proxy_box_step1:
 
-Displays progress counters with status icons (checkmark when complete, error when incomplete):
+Step 1 — Anchor Document
+------------------------
 
-- Points recorded: X/7
-- Documents assigned: X/7 (only in paradata mode)
-- Extractors calculated: X/7 (only in paradata mode)
+Every paradata chain needs a :class:`DocumentNode` as its ultimate source.
+You have three ways to set the anchor:
 
-**Create Proxy Button**:
+- **Pick from selected** (eyedropper icon): introspects the active mesh in the
+  viewport. If the mesh is already linked to a DocumentNode through the RM
+  Manager's :ref:`has_representation_model <rm_containers>` edge, the anchor
+  is set immediately. If no link exists, a follow-up dialog opens that
+  promotes the mesh to ``rm_list`` (when an active epoch is present),
+  creates the :class:`RepresentationModelNode`, adds the
+  ``has_representation_model`` edge, and records the anchor.
+- **Search** (magnifying-glass icon): opens the shared
+  ``draw_document_picker_with_create_button`` widget — search the existing
+  document catalog or click **+ Add New Document...** to open the Master
+  Document creation dialog. After the dialog closes, the newly-created
+  document is the anchor.
+- **Clear** (``X`` icon): drops the anchor without touching the scene.
 
-A prominent button that becomes enabled only when all requirements are met. If prerequisites are missing, the button label indicates what is needed (e.g., ``Record All Points First``, ``Assign Documents First``).
+A :guilabel:`Propagate to all 7 points` checkbox (default ON) controls whether
+each measurement point automatically inherits the anchor document on Record
+(and gets its extractor id auto-computed). Turn it off for rare multi-source
+workflows where different points cite different documents.
 
-**Clear All Points** button: resets the entire workflow.
+.. _proxy_box_step2:
 
-Settings (Sub-panel)
---------------------
+Step 2 — Measurement Points
+---------------------------
 
-- ``Proxy Name`` text field
-- ``Pivot Location`` dropdown: controls the pivot point placement
-- ``Use Proxy Collection`` toggle: places the generated proxy in the Proxy collection
-- ``Activate paradata enrichment`` checkbox (experimental): enables document assignment and extractor calculation for each point
-
-Workflow (Sub-panel)
---------------------
-
-Instructions are displayed based on the active mode.
-
-**Geometry Only Mode** (paradata enrichment OFF):
-
-1. Position the 3D cursor on the reference model
-2. Click the ``Record`` button next to the point
-3. Repeat for all 7 points
-4. Click ``Create Proxy``
-
-**Paradata-Enriched Mode** (paradata enrichment ON):
-
-1. Position the 3D cursor on the reference model
-2. Click the search button to pick a source document
-3. Click the ``Record`` button
-4. Click the refresh button to calculate the extractor ID
-5. Repeat for all 7 points
-6. Click ``Create Proxy``
-
-Points (Sub-panel)
-------------------
-
-Shows 7 recording boxes, one per measurement point:
+Seven rows, one per semantic point:
 
 .. list-table::
-   :widths: 10 40 50
+   :widths: 12 30 58
    :header-rows: 1
 
    * - #
@@ -70,33 +63,127 @@ Shows 7 recording boxes, one per measurement point:
      - Purpose
    * - 1
      - Alignment Start
-     - Defines the beginning of the main axis
+     - Beginning of the main axis
    * - 2
      - Alignment End
-     - Defines the end of the main axis
+     - End of the main axis
    * - 3
      - Thickness
-     - Defines the perpendicular width
+     - Perpendicular width
    * - 4
      - Quota Min
-     - Defines the minimum height
+     - Minimum height
    * - 5
      - Quota Max
-     - Defines the maximum height
+     - Maximum height
    * - 6
      - Length Start
-     - Defines the start of the axis extent
+     - Start of the axis extent
    * - 7
      - Length End
-     - Defines the end of the axis extent
+     - End of the axis extent
 
-Each point box shows:
+Each row displays: status icon (CHECKMARK when recorded), current position
+``(x, y, z)`` or ``—``, and a :guilabel:`Record` button that captures the
+3D cursor at click time. When **Propagate** is on and the anchor is set,
+the Record button also fills the row's ``source_document`` and
+``extractor_id`` (gap-aware, counts both graph-side extractors and ids
+already staged on other points so no two extractors of the same Proxy
+collide).
 
-- Point label with status icon (checkmark if recorded)
-- Coordinates display: ``(x, y, z)`` or ``(not recorded)``
-- ``Record`` button: captures the current 3D cursor position
+.. _proxy_box_parameters:
 
-In paradata mode, each box also shows:
+Parameters
+----------
 
-- **Document field**: assigned document name with a search button and a copy-down button (copies the document to all remaining points)
-- **Extractor field**: auto-calculated extractor ID with a refresh button (only active after a document is assigned)
+- :guilabel:`Pivot` — ``Bottom`` (default), ``Center`` or ``Top``; governs
+  where the proxy mesh's origin sits.
+- :guilabel:`Use Proxy Collection` — file the new mesh under the standard
+  ``Proxy`` collection (default ON).
+- :guilabel:`Save GraphML immediately after create` — default ON. Persists
+  the new paradata chain to the active ``.graphml`` via
+  ``export.graphml_update`` right after Create. The write-lock pre-flight
+  handles yEd conflict detection; disable only if you want to batch-save
+  later.
+- :guilabel:`Active US` row — a ``prop_search`` on the Stratigraphy Manager
+  list, bound to the ``target_us_name`` computed property. Picking here
+  moves the Stratigraphy Manager's active US (and vice versa). The ``+``
+  button (custom ``proxies_rows_add`` icon) opens the **Add Stratigraphic
+  Unit** dialog; see :ref:`strat_manager_add_us`.
+
+The proxy mesh will take the Active US's name on Create — there is no
+separate "proxy name" field anymore.
+
+.. _proxy_box_chain_summary:
+
+Chain Summary
+-------------
+
+A collapsible box narrates the paradata chain that Create will write, with
+the correct edge direction and type:
+
+.. code-block:: text
+
+   US10102  --has_property-->  Proxy Geometry
+     --has_data_provenance-->  C.N (new)
+     <--is_combined_in--       D.01.102, D.01.103, ..., D.01.108
+     <--has_extractor--        D.01 (cloned instance)
+
+The names shown are the ones currently resolved: Active US on the left,
+the Step-1 anchor document on the right.
+
+.. _proxy_box_create:
+
+Create Proxy
+------------
+
+The Create button is enabled only when: (1) all 7 points are recorded, (2)
+every point has a ``source_document`` + ``extractor_id`` (guaranteed when
+Propagate is on), and (3) an Active US is resolved. If any prerequisite is
+missing, the button's label spells out what's left (``Record all 7 points
+first``, ``Set the anchor document (Step 1)``, ``Select the Active US
+first``, …).
+
+On Create the operator:
+
+1. Runs a **write-lock pre-flight** on the active graphml.
+2. **Clones** the Step-1 anchor Document into a fresh instance (same
+   display name, new UUID, copied three-axis classification). Each run
+   gets its own Document instance so the extractors never attach to a
+   document already wrapped inside another PD group.
+3. Writes seven :class:`ExtractorNode` s (one per point) with
+   ``Extractor --extracted_from--> Document-instance`` edges (canonical,
+   dashed).
+4. Writes a :class:`CombinerNode` (``C.N``, gap-aware) with
+   ``Combiner --combines--> Extractor`` edges, positioned at the
+   extractor centroid in the Extractors collection.
+5. Writes (or reuses) a :class:`PropertyNode` named ``Proxy Geometry``
+   (canonical qualia from ``em_qualia_types_additions.json``) on the
+   Active US with edge ``US --has_property--> PropertyNode``, and the
+   provenance edge ``PropertyNode --has_data_provenance--> Combiner``.
+6. **Wraps everything in a per-US ParadataNodeGroup** named ``<US>_PD``
+   (``US --has_paradata_nodegroup--> PD_group``). Every paradata child
+   gets an ``is_in_paradata_nodegroup`` edge pointing at the PD; the
+   GraphMLPatcher nests the child's XML under the PD's ``<graph>`` at
+   save time.
+7. If the Active US has an ``is_in_activity`` edge (from the Add-US
+   dialog's Activity picker), **mirrors** it onto the PD group so both
+   sit inside the same :class:`ActivityNodeGroup` container in yEd.
+8. Builds the proxy mesh (7-point box with the chosen pivot), prefixes
+   the name with ``graph_code.`` per DP-46, and re-applies the active
+   display mode (EM / Epochs / Horizons / Properties) so the new mesh
+   picks up the correct material.
+9. If :guilabel:`Save GraphML immediately` is on, invokes
+   ``export.graphml_update``. The message reports ``[persisted]``.
+
+What the result looks like in yEd: a group labelled ``US10102_PD`` sitting
+in the same swimlane row as its US, containing the Document instance,
+seven extractors (labelled ``D.01.102``…``D.01.108`` at Corner-NorthWest),
+one combiner (``C.N``), and the ``Proxy Geometry`` property, all wired
+with dashed paradata edges.
+
+.. note::
+   Inline US creation has been removed from this panel. Click the ``+``
+   next to the Active US picker to launch the shared
+   :ref:`Add-US dialog <strat_manager_add_us>` — the same form the
+   Stratigraphy Manager and Surface Areas use.

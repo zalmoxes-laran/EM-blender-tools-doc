@@ -9,6 +9,101 @@ This page contains the detailed changelog for all EM Tools releases. For the lat
 Unreleased (in development)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**Added — US creation workflow unification (2026-04)**
+   - **Unified "Add Stratigraphic Unit" dialog** (``strat.add_us``):
+     single floating form used by the Stratigraphy Manager (new
+     ``+ Add US`` button under the list), the Proxy Box Creator
+     (``+`` next to the Active US picker), and Surface Areas (``+``
+     next to the Existing US picker). Fields: Type, Name + gap-aware
+     suggest-next, Description, Shared-numbering toggle (default
+     ON), Epoch (mandatory, drives the Activity filter), Activity
+     (optional, writes ``is_in_activity``), optional stratigraphic
+     link. OK optionally saves the graphml and pins the new unit
+     as active.
+   - **``us_helpers.create_us_node(...)`` factory**: one entry point
+     for US creation; writes ``has_first_epoch``, optional
+     ``is_in_activity`` (mirrored on the PD nodegroup when created),
+     optional stratigraphic relation, and populates the Stratigraphy
+     Manager list in one pass.
+   - **``us_types.py`` facade**: JSON-driven US type registry
+     derived from s3Dgraphy's datamodel v1.5.2 (patch) and its classification
+     API (``is_real / is_virtual / is_series`` + ``US_PROPER_TYPES``
+     / ``ALL_US_TYPES``).
+   - **Activity picker filtered by epoch**:
+     ``scene.activity_manager.filtered_activities`` +
+     ``ACTIVITY_OT_filter_by_epoch`` + ``draw_activity_picker``
+     widget. Shows only activities matching the US's epoch; inline
+     refresh icon re-runs the filter.
+   - **ParadataNodeGroup per US** (``<US>_PD``): Proxy Box Creator
+     wraps every new paradata chain (Document instance clone →
+     Extractors → Combiner → PropertyNode) inside a per-US
+     container. Inherits ``is_in_activity`` from the US so both sit
+     in the same yEd group.
+   - **Document instance cloning**: Proxy Box Creator duplicates
+     the Step-1 anchor Document into a fresh instance per run so
+     extractors never attach to a Document already in another PD
+     group.
+   - **Chain summary box** in the Proxy Box Creator (collapsible).
+   - **Save-after-create toggle** (``persist_after_create``, default
+     ON) on both the Add-US dialog and the Proxy Box Creator.
+   - **Custom Add-US icon** (``proxies_rows_add``) — visually
+     distinct from the dialog-internal ``+`` suggest-next.
+   - **Next-number gap-aware from 1**: fills the first unused
+     number starting at 1 (was scanning only ``[min(used),
+     max(used)]``).
+   - **Shared-pool numbering**: counts trailing digits across every
+     US type; ``SU001`` ≡ ``US.1`` in the pool. Opt-in via a toggle
+     in the dialog; default ON.
+   - **Legacy prefix aliases**: Italian ``SU…`` treated as alias
+     of English ``US…`` (and ``USNEG`` / ``US_NEG`` as alias of
+     ``USN``).
+   - **Negative Stratigraphic Unit (USN)**: new canonical type in
+     every US picker (dashed border in yEd). Replaces the ad-hoc
+     ``US_NEG`` UI placeholder.
+
+**Changed — US creation workflow unification (2026-04)**
+   - US creation consolidated to one form; the inline
+     ``create_new_us`` toggles in Proxy Box Creator and Surface
+     Areas are gone.
+   - Proxy Box Creator edge direction/types corrected:
+     extractors → Document is ``extracted_from`` (dashed) instead
+     of non-canonical ``has_extractor`` (solid); Combiner →
+     Extractors is ``combines`` instead of ``is_combined_in``.
+   - Proxy Box Creator PropertyNode named after the canonical qualia
+     ("Proxy Geometry", ``property_type="proxy_geometry"``, new
+     entry in ``em_qualia_types_additions.json``).
+   - Centralised hardcoded US-type lists across 10 files (15
+     occurrences); three were incomplete — fixed incidentally.
+
+**Removed — US creation workflow unification (2026-04)**
+   - ``PROXYBOX_OT_suggest_next_us``, ``EMTOOLS_OT_suggest_next_us``
+     operators.
+   - Inline ``create_new_us`` branch fields on ``ProxyBoxSettings``
+     and ``SurfaceArealeSettings``.
+   - ``GENERIC`` placeholder from the Surface Areas US type picker.
+
+**Fixed — US creation workflow unification (2026-04)**
+   - Paradata chain edges rendered as solid lines (canonical edge
+     types now used — ``extracted_from`` / ``combines`` /
+     ``has_data_provenance`` / ``has_property``).
+   - Extractor / Combiner NodeLabel positioned as Corner-NorthWest;
+     previously ``modelName=Internal, modelPosition=Center``.
+   - ParadataNodeGroup positioning anchored to the host US's epoch
+     Y (was (0,0) outside any swimlane row); children nested in
+     the PD's ``<graph>``.
+   - ActivityNodeGroup containment: children with
+     ``is_in_activity`` nested inside the Activity's ``<graph>``.
+   - Document instance collisions: Proxy Box Creator resolves the
+     Step-1 anchor by UUID and clones it locally instead of
+     sharing with other PD groups.
+   - Activity filter silent-fail: the epoch-change update callback
+     used ``bpy.ops.activity.filter_by_epoch`` which Blender
+     rejects silently inside update callbacks. Direct populator
+     call now.
+   - "Add-US dialog not on operator stack" warning when clicking
+     the ``+ next number`` button — resolved via shared scene-level
+     sentinel.
+
 **Added**
    - **Landscape mode (multi-graph)**: manage 2+ archaeological graphs simultaneously in a single Blender scene
    - **CronoFilter**: chronological horizons manager for landscape mode

@@ -38,16 +38,32 @@ Workflow
 --------
 
 1. Select a Representation Model in the scene.
-2. Pick the stratigraphic unit (US/USV) the generated proxy will represent.
-3. Configure the contour strategy in *Settings* (sampling density, smoothing,
-   offset, extrusion direction).
-4. Run the contour builder; the resulting proxy is placed in the working
-   collection and linked to the stratigraphic unit.
+2. Pick the Document (existing or create a new one via the shared
+   **+ Add New Document...** widget; see :ref:`document_manager`).
+3. Pick the target Stratigraphic Unit — the row has a ``+`` button
+   (custom ``proxies_rows_add`` icon) that launches the shared
+   :ref:`Add-US dialog <strat_manager_add_us>` when you need a fresh
+   one. After the dialog closes the new unit is already active, so
+   the picker immediately reflects it.
+4. Configure the contour strategy in *Settings* (sampling density,
+   smoothing, offset, extrusion direction).
+5. Run the contour builder; the resulting proxy is placed in the
+   working collection and linked to the stratigraphic unit via the
+   full paradata chain (experimental mode) or just parented to the
+   RM (1.5 baseline).
 
 The panel enforces a checklist before enabling the "Generate" action — each
 prerequisite shows a ``CHECKMARK`` / ``X`` icon next to its description, so
-you can immediately see what is missing (RM assigned, US selected, DosCo
-linked, etc.).
+you can immediately see what is missing (RM assigned, Document picked,
+US picked, etc.).
+
+.. note::
+   Inline US creation has been removed from this panel. The previous
+   ``Create New US`` toggle (with its own type / name / epoch / activity /
+   stratigraphic-link fields) is replaced by the ``+`` next to the US
+   picker, which opens the shared :ref:`Add-US dialog <strat_manager_add_us>`.
+   Same form the Stratigraphy Manager and Proxy Box Creator use — one
+   changepoint for every US creation rule.
 
 Relationship to other panels
 ----------------------------
