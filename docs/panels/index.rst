@@ -7,16 +7,67 @@ grouped into three tab categories — **EM**, **EM Annotator**,
 **EM Bridge** — following the authoring workflow from data setup to
 export.
 
-For navigation, the documentation sorts the same panels into two
-groups:
+The list below mirrors the order in which the panels appear in Blender.
 
-- :doc:`stable_panels` — production-ready panels
-- :doc:`experimental_panels` — panels under active development, gated
-  behind the ``Enable Experimental Features`` flag; all titles end
-  with ``(Experimental)``
+EM tab — core
+-------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   stable_panels
-   experimental_panels
+   em_setup
+   stratigraphy_manager
+   epochs_manager
+   activity_manager
+   paradata_manager
+   visual_manager
+   cronofilter
+
+EM Annotator tab — spatial authoring
+------------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   document_manager_3d
+   rm_manager
+   anastylosis_manager
+   rmdoc_manager
+   proxy_box_creator
+   surface_areale
+
+EM Bridge tab — export & integrations
+-------------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   export_manager
+
+Reference
+---------
+
+.. toctree::
+   :maxdepth: 1
+
+   keyboard_shortcuts
+
+Experimental
+------------
+
+Panels under active development. They appear in Blender only when
+``Enable Experimental Features`` is on (and where applicable, when
+Advanced EM mode is enabled). Always work on a backup before using them
+on production data. Their titles end with ``(Experimental)`` so they are
+easy to spot in the sidebar.
+
+.. toctree::
+   :maxdepth: 1
+
+   graph_editor
+   proxy_inflate_manager
+   proxy_to_rm_projection
+   server_panel
+   stratiminer
+   export_statistics
+   tapestry_integration

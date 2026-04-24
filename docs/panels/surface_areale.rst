@@ -1,69 +1,61 @@
-.. _Surface_Areale:
+.. _Surface_Areas:
 
-Surface Areale (Experimental)
-=============================
+Surface Areas
+=============
 
-.. warning::
-   This panel is experimental and shipping as a preview in **EM 1.6**.
-   Behavior, operator IDs and property names may change between releases.
-   The page is built but kept out of the main navigation until the feature
-   stabilizes.
+The **Surface Areas** panel lives in the ``EM Annotator`` sidebar tab and
+provides a four-step checklist for linking a drawn area on a
+Representation Model (RM) to the extended matrix.
 
-   To make the panel visible in Blender, enable
-   ``scene.em_tools.experimental_features`` in the EM Data Tree panel.
+Unlike :ref:`Proxy_Box_Creator`, which builds a proxy from measurement
+points, Surface Areas attaches a sketched contour to an existing RM and
+wires the full paradata chain (US → Property → Extractor → Document →
+RM) in the graph.
 
-The **Representation Model to Proxy (Experimental)** panel and its child
-**Surface Areale (Experimental)** panel live in the ``EM Annotator`` sidebar
-tab and provide tools for turning an existing Representation Model (RM) into a
-proxy geometry via contour extraction.
+The panel is **production-ready** as of EM 1.6 — it is no longer gated
+behind ``Enable Experimental Features``. Advanced EM mode is still
+required so the tab itself shows up.
 
-Unlike :ref:`Proxy_Box_Creator`, which builds a proxy from measurement points,
-this tool generates the proxy by sampling a horizontal contour on an RM surface
-and extruding it to match a set of archaeological boundaries.
-
-Panel structure
----------------
-
-The toolbox is composed of three stacked panels:
-
-- **Representation Model to Proxy (RM2Proxy)** — parent panel. Shown only
-  when a GraphML is loaded.
-- **Surface Areale** — child of RM2Proxy; step-by-step workflow with a
-  requirement checklist (target RM, stratigraphic layer, working collection,
-  etc.). Driven by ``scene.em_tools.surface_areale`` settings.
-- **Settings** — child of Surface Areale; advanced parameters
-  (``DEFAULT_CLOSED``).
+.. _surface-areas:
 
 Workflow
 --------
 
-1. Select a Representation Model in the scene.
-2. Pick the Document (existing or create a new one via the shared
-   **+ Add New Document...** widget; see :ref:`document_manager`).
-3. Pick the target Stratigraphic Unit — the row has a ``+`` button
-   (custom ``proxies_rows_add`` icon) that launches the shared
-   :ref:`Add-US dialog <strat_manager_add_us>` when you need a fresh
-   one. After the dialog closes the new unit is already active, so
-   the picker immediately reflects it.
-4. Configure the contour strategy in *Settings* (sampling density,
-   smoothing, offset, extrusion direction).
-5. Run the contour builder; the resulting proxy is placed in the
-   working collection and linked to the stratigraphic unit via the
-   full paradata chain (experimental mode) or just parented to the
-   RM (1.5 baseline).
+The panel renders a compact checklist; the *Draw* button at the bottom
+unlocks only when every step is met.
 
-The panel enforces a checklist before enabling the "Generate" action — each
-prerequisite shows a ``CHECKMARK`` / ``X`` icon next to its description, so
-you can immediately see what is missing (RM assigned, Document picked,
-US picked, etc.).
+**1. Mesh** — single-line row that walks the chain *mesh → RM → Document*:
 
-.. note::
-   Inline US creation has been removed from this panel. The previous
-   ``Create New US`` toggle (with its own type / name / epoch / activity /
-   stratigraphic-link fields) is replaced by the ``+`` next to the US
-   picker, which opens the shared :ref:`Add-US dialog <strat_manager_add_us>`.
-   Same form the Stratigraphy Manager and Proxy Box Creator use — one
-   changepoint for every US creation rule.
+- Pick the target mesh in the object slot.
+- An ``RM_on`` / ``RM_off`` badge tells you whether the mesh is
+  registered as an RM via :ref:`rm_manager`.
+- A document badge shows the linked document code (e.g. ``D.06``) when
+  the chain resolves, or ``no D.`` otherwise.
+- The help icon at the end of the row opens this manual page.
+
+If the mesh isn't an RM yet, a hint row appears with a **Promote** button
+that registers the mesh in the currently-active RM container — no
+need to switch panels. If the RM has no Document linked, the row expands
+into a document picker (search existing or create a new master via the
+shared :ref:`Add Master Document <document_manager>` dialog).
+
+**2. Extractor** — single row with the extractor method picker.
+
+**3. Property** — single row with the property name field.
+
+**4. SU** — single row with a Stratigraphic Unit picker. The ``+`` button
+opens the shared :ref:`Add-US dialog <strat_manager_add_us>` when a
+fresh unit is needed.
+
+**Chain Summary** — a collapsible section under the four steps shows the
+graph statements that will be committed when *Draw* runs, so you can
+sanity-check node names and arrow directions without leaving the panel.
+
+**Draw** — modal grease-pencil operator. Sketch the contour on the RM
+surface; ``[B]`` toggles a whisker handle, ``[Enter]`` confirms,
+``[Esc]`` cancels. On confirm the area is registered as a SurfaceAreale
+proxy, parented to the RM, and the paradata chain is materialised in the
+graph.
 
 Relationship to other panels
 ----------------------------
@@ -72,13 +64,16 @@ Relationship to other panels
   see :ref:`rm_manager` and :ref:`EMsetup`.
 - **Output**: the generated proxy is a standard scene object, visible and
   editable in :ref:`Stratigraphy_Manager` and :ref:`visual_manager`.
-- **Alternatives**: :ref:`Proxy_Box_Creator` for measurement-driven proxies.
+- **Alternatives**: :ref:`Proxy_Box_Creator` for measurement-driven
+  proxies.
 
 Implementation notes
 --------------------
 
 :file: ``surface_areale/ui.py``, ``surface_areale/operators.py``,
-       ``surface_areale/strategies.py``, ``surface_areale/contour_builder.py``
+       ``surface_areale/postprocess.py``, ``surface_areale/strategies.py``
 
 Settings live on the ``SurfaceArealeSettings`` PropertyGroup, exposed via
-``scene.em_tools.surface_areale``.
+``scene.em_tools.surface_areale``. The mesh→RM→Document detection is
+shared with :ref:`Proxy_Box_Creator` via ``find_rm_document`` in
+``surface_areale.postprocess``.
