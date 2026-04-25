@@ -35,6 +35,7 @@ EM Annotator tab — spatial authoring
    rmdoc_manager
    proxy_box_creator
    surface_areale
+   conservation_workflow
 
 EM Bridge tab — export & integrations
 -------------------------------------

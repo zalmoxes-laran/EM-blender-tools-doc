@@ -57,6 +57,35 @@ The recommended way to install EM Tools is through the official Blender extensio
    The extension automatically installs all required Python dependencies.
    No manual dependency installation is needed.
 
+Importing the EM Palette in yEd
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+EM Tools reads ``.graphml`` files that use a specific set of node types
+(stratigraphic units, sources, paradata, connectors, …). To author or
+edit those files in `yEd <https://www.yworks.com/products/yed>`_ you
+need to load the **EM palette** — a small ``.graphml`` file that adds
+the EM nodes to yEd's right-hand drag-and-drop panel.
+
+1. **Download the palette** from the
+   `palette release page <https://www.extendedmatrix.org/download>`_
+   (file: ``EM_palette_<version>.graphml``).
+2. **Open yEd** and choose ``Edit → Manage Palette…``.
+3. In the *Manage Palette* dialog click **Import Section…** and select
+   the ``.graphml`` palette you downloaded.
+4. Tick the new section so it is **visible** and close the dialog.
+
+The EM palette will now appear in the right-hand panel of yEd as a new
+section. Drag any node from there onto the canvas to author an EM graph
+that EM Tools can load directly into Blender.
+
+.. todo::
+   Add screenshots — *Edit → Manage Palette*, the *Import Section* dialog,
+   and the palette visible in the right-hand panel after import.
+
+.. tip::
+   The full walkthrough including video is in
+   :doc:`tutorials/12-install-yed-blender`.
+
 Updating EM Tools
 ^^^^^^^^^^^^^^^^^
 

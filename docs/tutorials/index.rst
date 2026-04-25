@@ -22,6 +22,15 @@ see the `ExtendedMatrix-doc Learn EM section <https://extendedmatrix.org/docs>`_
 
 .. toctree::
    :maxdepth: 1
+   :caption: Intermediate Workflows
+
+   19-manual-em-construction
+   20-em-2d-3d-linking
+   21-sources-metadata
+   22-complete-case-study
+
+.. toctree::
+   :maxdepth: 1
    :caption: Advanced Workflows
 
    14-multitemporal-visualization
