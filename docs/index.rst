@@ -5,6 +5,11 @@ Welcome to the EM Tools Documentation
 
 The extension is developed by E. Demetrescu at CNR-ISPC (Rome, former CNR-ITABC).
 
+.. admonition:: First time here?
+   :class: tip
+
+   If this is your very first contact with the Extended Matrix project, the recommended landing page is `extendedmatrix.org <https://www.extendedmatrix.org>`__ — it explains *what* EM is, *who* it is for, and *which* of the manuals you should open next. The page you are reading now is the **EM Tools manual**: the practical guide to the Blender add-on. The complementary `language manual <https://docs.extendedmatrix.org>`__ is where the formal notation is defined.
+
 .. figure:: img/EM_workflow_blender.svg
    :width: 100%
    :align: center
