@@ -29,16 +29,19 @@ Each RMSF row carries **two distinct links**, and they live on
   A movable object is the same entity even when it changes location,
   orientation, or fragmentation across time. The SF node owns that
   identity; the RMSF mesh is just the geometric snapshot we use to
-  render it. Multiple RMSF meshes can therefore point at the same SF,
-  and the dotted connector that links SFs to each other in the graph
-  encodes the **diachronic transformation** of the object (e.g. an
-  intact column at epoch *N* and the same column collapsed at epoch
-  *N+1*).
+  render it. Multiple RMSF meshes can therefore point at the same SF, 
+  that in turn can be instanced in different epochs with different 
+  properties (position, orientation, fragmentation) through the dotted 
+  connector that links SFs to each other in the graph
+  encodes the **diachronic transformation** of the object (e.g. the 
+  fragment of the column found in non origianl position at epoch *N* 
+  and the same fragment repositioned in the original position at epoch
+  *N-1*).
 
 - **RMSF → Document** is the *paradata / source* axis. The mesh comes
-  from a measurement or survey campaign (photogrammetry, laser scan,
-  drawing) — its trustworthiness, license, embargo, and the right to
-  extract derived information (sections, diameters, surface areas) all
+  from a measurement or survey campaign (photogrammetry, laser scan) 
+  — its trustworthiness, license, embargo, and the right to
+  extract derived information (sections, diameters) all
   hang off the source document. Without this linkage the downstream
   knowledge-extraction tools (Surface Areas, Proxy Box, measurement
   extractors) have no provenance to attach the new paradata to.
