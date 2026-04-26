@@ -39,7 +39,7 @@ A new user often meets three names at once. The distinction matters because each
      - `3D-survey-collection docs <https://docs.extendedmatrix.org/projects/3D-survey-collection>`_
    * - **Heriverse**
      - The *Heritage Science Metaverse* — web-based publication and collaborative VR for EM-aware scenes. The natural endpoint of what you author here.
-     - `Heriverse docs <https://docs.extendedmatrix.org/projects/strativerse/en/latest/>`__
+     - `Heriverse docs <https://docs.extendedmatrix.org/projects/heriverse/en/latest/>`__
 
 If you are unsure which one you need: start from EM (the language) if you have *evidence to organize*; come to EM Tools if you have *3D content to annotate*; reach for 3DSC if you have *raw survey data to clean and align*; open Heriverse when your work is *ready to be published on the web*.
 
@@ -161,7 +161,7 @@ Additional Resources
 - **Extended Matrix website**: `extendedmatrix.org <https://www.extendedmatrix.org>`_
 - **EM language docs**: `docs.extendedmatrix.org <https://docs.extendedmatrix.org>`_
 - **3DSC docs**: `3D-survey-collection <https://docs.extendedmatrix.org/projects/3D-survey-collection>`_
-- **Heriverse docs**: `Heritage Science Metaverse <https://docs.extendedmatrix.org/projects/strativerse/en/latest/>`__
+- **Heriverse docs**: `Heritage Science Metaverse <https://docs.extendedmatrix.org/projects/heriverse/en/latest/>`__
 - **ATON Framework**: `phoenixbf/aton on GitHub <https://github.com/phoenixbf/aton>`__
 - **Video tutorials**: `YouTube Channel <https://www.youtube.com/extendedmatrix>`_
 
