@@ -19,6 +19,7 @@ see the `ExtendedMatrix-doc Learn EM section <https://extendedmatrix.org/docs>`_
 
    12-install-yed-blender
    13-first-matrix-creation
+   build-proxies
 
 .. toctree::
    :maxdepth: 1
