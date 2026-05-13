@@ -75,6 +75,21 @@ Once the connection has been established, EMTools will summarize the most import
 The ``Remove GraphML`` button allows to remove one or more EMs from the EM Data Tree list.
 
 
+.. _em-tools-aux-load:
+
+.. note::
+
+   **Loading DosCo documents into the graph**
+
+   The panel commands described below load documents from your DosCo
+   folder into the EM graph as nodes. The link between the file on
+   disk and the graph node is preserved; if you re-iterate your
+   DosCo (add new entries, update existing ones), reload from this
+   panel to surface the changes. For the DosCo concept, folder layout
+   and iteration pattern, see `Iterating the DosCo
+   <https://docs.extendedmatrix.org/en/1.5.0/em_workspace_preparation.html#enrich-dosco-iterative>`_
+   in the Extended Matrix language manual.
+
 In this panel (:numref:`Fig. %s <EMsetup_02FIG>`) users can also link the path to the *DosCo* folder, where sources are stored.
 To locate sources, users must follow the same guidelines previously outlined for the localization of the EM file.
 
@@ -241,16 +256,109 @@ Troubleshooting
    - Check that your cloud storage service is actively syncing the ``EM_thumbs/`` folder
    - Some cloud services may need manual folder selection for sync
 
-A third section, the ``Utilities & Settings`` one, is included within the EM Data Tree panel.
-Here, users can: convert an EM made with an old version of the formalism, rename Proxies and enable Experimental Features.
+Utils sub-panel
+---------------
 
-In the first case EMtools will automatically convert US and USV nodes to the latest version of the formalism (**NB**: this function will not affect groups).
+A third section, the ``Utils`` sub-panel (labelled *Utilities & Settings*
+in older builds), is included within the EM Data Tree panel.
+Here, users can: convert an EM made with an old version of the formalism,
+create the default collections, rename Proxies and enable Experimental
+Features.
+
+In the first case (``Convert 1.x->1.5`` button) EMtools will normalise
+older GraphML files authored with the 1.x palette to the 1.5 visual
+conventions — see :ref:`convert-legacy-em-graph` below for details.
 
 Within this section, EMtools includes also a button, ``Create Standard Collections``, that allows to automatically create the set of default collections (Proxy, RM, CAMS) related to a reconstruction process with Extended Matrix.
 
-In the second case, by pressing ``Manage Proxies' Prefixes`` button, EMtools will automatically rename Proxies according to the GraphML ID (**NB**: this step is mandatory to mutually connect GraphML and Proxies. User must select geometries before applying the tool).
+By pressing ``Manage Proxies' Prefixes`` button, EMtools will automatically rename Proxies according to the GraphML ID (**NB**: this step is mandatory to mutually connect GraphML and Proxies. User must select geometries before applying the tool).
 
-In the third case, by pressing the ``Enable Experimental Features`` button, a set of Experimental Features will be activated within the sections of the EM Data Tree panel (:numref:`Fig. %s <EMsetup_03_editFIG>`).
+By pressing the ``Enable Experimental Features`` button, a set of Experimental Features will be activated within the sections of the EM Data Tree panel (:numref:`Fig. %s <EMsetup_03_editFIG>`).
+
+.. _convert-legacy-em-graph:
+
+Convert 1.x->1.5
+~~~~~~~~~~~~~~~~
+
+The ``Convert 1.x->1.5`` button in the EM Data Tree → **Utils**
+sub-panel migrates older Extended Matrix GraphML files (authored
+with the 1.x generation of the yEd palette) to the **1.5** visual
+conventions used by the current importer and tooling.
+
+What it does
+^^^^^^^^^^^^
+
+The button drives the ``graphml.convert_borders`` operator, which
+reads a ``.graphml`` file and rewrites its node visual attributes
+in-place on a new file:
+
+- Sets the **border width** to ``4.0`` for the EM target shapes
+  (rectangle, hexagon, ellipse, octagon, parallelogram).
+- Applies the **1.5 canonical border colours** based on shape type
+  and background:
+
+  - rectangle → ``#9B3333`` (US / negative units)
+  - hexagon → ``#31792D`` (USV)
+  - ellipse → ``#31792D`` (USV variants)
+  - parallelogram → ``#248FE7`` (documents / extractors)
+  - octagon → ``#D8BD30`` (Special Find) when on a light background,
+    ``#B19F61`` (Virtual Special Find) when on a black background.
+
+The result is written next to the original file with a
+``_converted.graphml`` suffix; the source file is left untouched.
+
+How to use
+^^^^^^^^^^
+
+1. Expand the ``Utils`` sub-panel in the EM Data Tree.
+2. Click ``Convert 1.x->1.5`` — Blender's file browser opens.
+3. Select the legacy ``.graphml`` file and confirm. EMtools
+   produces ``<name>_converted.graphml`` in the same folder and
+   reports the output path in the Blender status bar.
+4. Load the converted file with ``Add GraphML`` as you would any
+   other graph (see the *Loading DosCo documents into the graph*
+   note above for the load workflow).
+
+What it does NOT do
+^^^^^^^^^^^^^^^^^^^
+
+The operator is a **visual / palette normaliser**, not a full
+datamodel migration. In particular:
+
+- It does not invent or upgrade paradata. If the older graph lacked
+  ``family`` / ``is_series`` attributes on extractors and combiners,
+  the converted file reflects the same absence.
+- It does not rename relation edges whose semantics changed between
+  releases (e.g. ``is_after`` direction canonicalisation introduced
+  in v1.5.3). Such edges are preserved as-is and may surface as
+  importer warnings.
+- It does not re-link external documents. DosCo references in the
+  original are preserved as identifiers; ensure the corresponding
+  files are reachable in your DosCo folder.
+- For projects authored **before EM 1.0** (pre-formalisation,
+  free-form yEd), conversion is not reliable: the original is best
+  used as a visual reference for manually rebuilding the graph in
+  the current palette.
+
+For the missing pieces above, the importer side picks up some of
+the slack: ``s3dgraphy.importer.import_graphml`` is forgiving on
+older label conventions and re-maps known legacy types on the fly
+during import, and the post-import passes in ``s3dgraphy.transforms``
+(``hoist_propagative_metadata``, ``prune_redundant_propagative_edges``,
+``compact_propagative_metadata``) can be used to normalise paradata
+attribution programmatically.
+
+Roadmap
+^^^^^^^
+
+A single, end-to-end ``s3dgraphy.utils.convert_legacy_em_graph``
+wrapper that combines the palette-normalisation step performed by
+this button with the in-memory cleanup transforms is on the
+s3dgraphy roadmap. Until it lands, the procedure above (button →
+load → optional transforms → re-export) is the recommended path.
+The anchor for this section (``convert-legacy-em-graph``) is
+stable and will continue to point here when the wrapper is
+published.
 
 .. _EMsetup_03_editFIG:
 

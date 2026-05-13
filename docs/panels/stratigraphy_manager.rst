@@ -159,8 +159,24 @@ Filters are **mutually exclusive by category**:
 
 The ``X`` button in the header resets all filters at once.
 
+.. _link-graph-to-proxies:
+
 Selected Item Details
 ---------------------
+
+.. note::
+
+   **Linking the graph to proxies**
+
+   The connection between a stratigraphic node in your graph (visible as
+   a row in the UIList above) and its 3D geometry (the proxy in the
+   Blender scene) is the core operation that turns a graph into a
+   navigable 3D reconstruction. The UIList row carries the graph
+   identity; the Blender object carries the geometry. The **link**
+   button in the details box binds them, so that paradata, period, and
+   provenance travel with the geometry from that point on. Once linked,
+   the row's link icon (see *List Rows* above) switches from a broken
+   chain to a closed chain.
 
 When an item is selected in the list, a details box appears below showing:
 

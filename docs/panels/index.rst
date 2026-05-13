@@ -22,6 +22,7 @@ EM tab — core
    paradata_manager
    visual_manager
    cronofilter
+   georeferencing
 
 EM Annotator tab — spatial authoring
 ------------------------------------

@@ -12,6 +12,20 @@ Epochs Manager
    Epochs Manager panel
 
 
+.. _assemble-epochs:
+
+.. note::
+
+   **Assembling epoch-specific scenes**
+
+   This panel composes scene snapshots filtered by epoch — showing
+   only the stratigraphic units (and their proxies) that belong to
+   a given chronological phase. The matrix provides the timeline
+   backbone; this panel projects a single slice of it as a
+   self-contained 3D scene, ready for screenshots, animations, or
+   publication. The output is reproducible: re-running the assembly
+   on the same epoch always yields the same scene.
+
 Within this panel epochs are listed following the order indicated in the EM graph.
 For every epoch the tool automatically shows the corresponding colors.
 

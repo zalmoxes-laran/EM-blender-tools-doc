@@ -1,3 +1,5 @@
 
 .DS_Store
 docs/_build/
+docs/_build*/
+.cowork-work/

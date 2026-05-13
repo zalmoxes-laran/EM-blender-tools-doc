@@ -13,6 +13,20 @@ Representation Models Manager
    RM Manager panel
 
 
+.. _add-representation-models:
+
+.. note::
+
+   **Adding representation models to your reconstruction**
+
+   Representation models (RMs) are higher-fidelity 3D versions of
+   your stratigraphic proxies, used for visualization and publication.
+   They live alongside the proxy graph: the proxy keeps the evidence
+   link with full paradata, the RM carries the visual fidelity
+   (textures, materials, refined geometry). This panel binds an RM
+   to its source proxy, so that the evidence chain travels with the
+   rendered output.
+
 This panel (:numref:`Fig. %s <RM_ManagerFIG>`) allows to manage all the Representation models related to the reconstruciton project.
 With the three buttons on the upper part of the panel (``Update from Scene``, ``Update from Graph``, and ``Select from Object``) it is possible to upadate the RM list and select the corresponding 3D model.
 

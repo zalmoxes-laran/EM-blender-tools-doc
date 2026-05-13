@@ -27,3 +27,10 @@ Second, 3D objects have to be stored in the correct collection of Blender (Repre
 Fourth, before exporting geometries, user must: locate the folder where the Heriverse project will be saved, set the name of the Project, and check/uncheck the desired options.
 
 Finally, by pressing the ``Export Heriverse Project`` button, EMTools will export the project within a specific folder ready for the upload on Heriverse.
+
+.. seealso::
+
+   The upload step itself (creating a Heriverse scene and pushing the
+   exported bundle online) is documented on the Heriverse side — see
+   `Publishing a reconstruction via Heriverse
+   <https://docs.extendedmatrix.org/projects/heriverse/en/latest/user_dashboard.html#publish-via-heriverse>`_.

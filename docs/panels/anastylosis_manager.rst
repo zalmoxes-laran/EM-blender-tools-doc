@@ -1,7 +1,27 @@
 .. _Anastylosis_Manager:
+.. _do-anastylosis:
 
 Anastylosis Manager (RMSF)
 ==========================
+
+.. note::
+
+   **Performing anastylosis with EM Tools**
+
+   Anastylosis — the reassembly of a structure (wall, column, frieze)
+   from its scattered or re-used fragments — is a core EM Tools
+   workflow. The Anastylosis Manager panel described below lets you
+   align 3D-surveyed pieces or drawn-from-source fragments into a
+   coherent reconstructive ensemble. Each piece is exposed as a
+   **Representation Model Special Find (RMSF)** row carrying two
+   orthogonal links: one toward the SpecialFind / Virtual SpecialFind
+   node (the *identity* of the fragment across epochs) and one toward
+   its source Document (the *paradata / provenance* of the geometry).
+   The graph backbone tracks the evidence chain throughout: each
+   fragment carries provenance, each alignment is paradata-supported,
+   and the final ensemble is publishable as a documented
+   reconstruction. See the **Workflow** section below for the
+   step-by-step procedure.
 
 The Anastylosis Manager handles **Representation Model Special Find**
 (RMSF) meshes — typically photogrammetric or laser-scan models of
