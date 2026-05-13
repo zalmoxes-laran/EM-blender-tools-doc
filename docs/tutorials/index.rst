@@ -29,6 +29,8 @@ see the `ExtendedMatrix-doc Learn EM section <https://extendedmatrix.org/docs>`_
    20-em-2d-3d-linking
    21-sources-metadata
    22-complete-case-study
+   place_drawings_as_references
+   link_photos_as_aux
 
 .. toctree::
    :maxdepth: 1

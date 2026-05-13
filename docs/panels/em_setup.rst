@@ -104,6 +104,103 @@ To establish the connection with EMtools:
 .. note::
    When **EMdb Excel** type is selected a ``Format`` menu appears, select the correct format from the list.
 
+.. _aux-files-concept:
+
+Auxiliary files — concept
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Auxiliary files are **not** part of the EM graph's core structure.
+The graph (``.graphml``) defines stratigraphy, proxies, sources and
+their logical relations; auxiliary files provide *additional,
+tabular* information that EMtools attaches to existing graph nodes
+at import time. They live outside the graph and can be re-imported,
+re-mapped or detached without altering the topology of the
+reconstruction.
+
+The three currently supported auxiliary types behave the same way
+conceptually but differ in their source format:
+
+- **Generic Excel** — any ``.xlsx`` with a header row; mapping is
+  defined by the user.
+- **pyArchInit** — a pyArchInit SQLite database; mapping is
+  pre-configured for the pyArchInit US table (see
+  :doc:`/tutorials/15-pyarchinit-external-data`).
+- **EMdb Excel** — a tabular database structured according to the
+  *EMdb* conventions; mapping is driven by a **JSON mapping file**
+  (see :ref:`aux-json-mapping` below).
+
+.. important::
+
+   Auxiliary files in this sense (tabular data attached at import
+   time via a mapping) must not be confused with **auxiliary
+   stratigraphic nodes** in the EM language — *Continuity* and
+   related node types that belong to the formal notation. The
+   former is a *data plumbing* feature of EMtools; the latter is a
+   *modelling primitive* of the language. See the EM language
+   manual for the latter.
+
+Typical use cases:
+
+- enrich existing US/USV nodes with material qualia, dating
+  ranges, excavator notes that live in a separate spreadsheet;
+- link photo paths and metadata to stratigraphic units without
+  redrawing the graph in yEd
+  (see :ref:`link-photos-aux` for the step-by-step procedure);
+- merge field-database records (pyArchInit) into an already
+  authored graph.
+
+.. _aux-json-mapping:
+
+JSON mapping template
+~~~~~~~~~~~~~~~~~~~~~
+
+For the **EMdb Excel** (and **Generic Excel**) auxiliary types,
+EMtools consumes a JSON mapping file that declares how each column
+of the spreadsheet should be projected onto graph properties.
+A minimal mapping has the following shape:
+
+.. code-block:: json
+
+   {
+     "version": "1.0",
+     "sheet_name": "Stratigraphy",
+     "start_row": 2,
+     "id_column": "A",
+     "mappings": [
+       {"column": "A", "target": "human_id",      "type": "identifier"},
+       {"column": "B", "target": "node_type",     "type": "node_type"},
+       {"column": "C", "target": "epoch",         "type": "epoch"},
+       {"column": "D", "target": "material",      "type": "qualia"},
+       {"column": "E", "target": "photo_path",    "type": "document_link"}
+     ]
+   }
+
+Each row of the spreadsheet (from ``start_row`` onward) is matched
+against an existing graph node via ``id_column``. For each entry
+in ``mappings``, EMtools writes the value of the indicated column
+onto the target property of the matched node (or creates the
+property if absent). Supported ``type`` values mirror the kinds of
+data the EM language recognises (``identifier``, ``node_type``,
+``epoch``, ``qualia``, ``document_link``, …); the exact list
+depends on the importer in use and is documented alongside the
+operator in :doc:`/api_reference`.
+
+.. todo::
+
+   Ship a canonical ``emdb_mapping.template.json`` next to the
+   addon and reference it here once finalised. Until then the
+   shape above is the reference; live working examples can be
+   inspected in the *Basilica Iulia* dataset used by
+   :doc:`/tutorials/16-mapping-tool-excel`.
+
+.. seealso::
+
+   - :doc:`/tutorials/16-mapping-tool-excel` — bulk import via the
+     JSON mapping tool, end-to-end on a 2 000+ row dataset.
+   - :doc:`/tutorials/15-pyarchinit-external-data` — pyArchInit as
+     auxiliary file (live link to the field database).
+   - :ref:`link-photos-aux` — link photos as auxiliary files.
+
 Starting from version 1.5, EMtools allows to link external resource folders containing photos, 3D scans, documents and other media files to your Extended Matrix project.
 This feature is particularly useful when working with large image collections that need to be referenced and previewed directly from within Blender.
 

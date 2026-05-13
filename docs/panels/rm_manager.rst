@@ -27,6 +27,14 @@ Representation Models Manager
    to its source proxy, so that the evidence chain travels with the
    rendered output.
 
+.. seealso::
+
+   Importing 2D drawings (sections, plans, orthophotos) and bringing
+   them to the correct metric position and scale is a recurring
+   companion task — both for RMs and for documents managed via
+   :ref:`rmdoc_manager`. See :ref:`place-drawings-as-refs` for the
+   full procedure.
+
 This panel (:numref:`Fig. %s <RM_ManagerFIG>`) allows to manage all the Representation models related to the reconstruciton project.
 With the three buttons on the upper part of the panel (``Update from Scene``, ``Update from Graph``, and ``Select from Object``) it is possible to upadate the RM list and select the corresponding 3D model.
 
