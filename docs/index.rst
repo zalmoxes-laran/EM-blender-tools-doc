@@ -36,7 +36,7 @@ A new user often meets three names at once. The distinction matters because each
      - You are here.
    * - **3DSC**
      - A complementary Blender environment for high-quality 3D survey processing that can feed EM Tools.
-     - `3D-survey-collection docs <https://docs.extendedmatrix.org/projects/3D-survey-collection>`_
+     - `3D-survey-collection docs <https://docs.extendedmatrix.org/projects/3DSC>`_
    * - **Heriverse**
      - The *Heritage Science Metaverse* — web-based publication and collaborative VR for EM-aware scenes. The natural endpoint of what you author here.
      - `Heriverse docs <https://docs.extendedmatrix.org/projects/heriverse/en/latest/>`__
@@ -160,7 +160,7 @@ Additional Resources
 - **GitHub Repository**: `EM-blender-tools <https://github.com/zalmoxes-laran/EM-blender-tools>`_
 - **Extended Matrix website**: `extendedmatrix.org <https://www.extendedmatrix.org>`_
 - **EM language docs**: `docs.extendedmatrix.org <https://docs.extendedmatrix.org>`_
-- **3DSC docs**: `3D-survey-collection <https://docs.extendedmatrix.org/projects/3D-survey-collection>`_
+- **3DSC docs**: `3D-survey-collection <https://docs.extendedmatrix.org/projects/3DSC>`_
 - **Heriverse docs**: `Heritage Science Metaverse <https://docs.extendedmatrix.org/projects/heriverse/en/latest/>`__
 - **ATON Framework**: `phoenixbf/aton on GitHub <https://github.com/phoenixbf/aton>`__
 - **Video tutorials**: `YouTube Channel <https://www.youtube.com/extendedmatrix>`_
