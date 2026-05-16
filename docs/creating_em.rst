@@ -363,8 +363,65 @@ pyArchInit
 ~~~~~~~~~~
 
 `pyArchInit <https://pyarchinit.readthedocs.io/>`_ is an archaeological
-information system based on QGIS. There are **two ways** to use
-pyArchInit data with the Extended Matrix:
+information system based on QGIS.
+
+.. _pyarchinit-architecture:
+
+Architecture
+^^^^^^^^^^^^
+
+The integration uses three independent layers — each one can be
+maintained, upgraded, or replaced without breaking the others.
+
+.. code-block:: text
+
+   +------------------------------------------------------------------+
+   |                                                                  |
+   |   PyArchInit project (QGIS plugin)                               |
+   |   - Stratigraphic records, 2D GIS data                           |
+   |   - Maintained by Luca Mandolesi and the PyArchInit community    |
+   |                                                                  |
+   +-----------------------------+------------------------------------+
+                                 |
+                                 |  s3Dgraphy library (mapping layer)
+                                 |  - Reads the PyArchInit database
+                                 |  - Either references records live,
+                                 |    or bakes them into the EM graph
+                                 |  - pyarchinit_us_mapping is the
+                                 |    canonical mapping for the US table
+                                 |
+                                 v
+   +------------------------------------------------------------------+
+   |                                                                  |
+   |   EM-Tools (Blender add-on)                                      |
+   |   - Consumes the s3Dgraphy graph                                 |
+   |   - Drives the Extended Matrix workflow                          |
+   |                                                                  |
+   +------------------------------------------------------------------+
+
+Two integration modes
+"""""""""""""""""""""
+
+**Connection mode (recommended for live projects)** — the PyArchInit
+database stays the source of truth for stratigraphic records.
+s3Dgraphy reads it on demand. Changes in PyArchInit propagate to EM
+on the next read.
+
+**Bake mode** — the PyArchInit records are imported once into the EM
+graph as auxiliary nodes. Subsequent edits happen on the EM side.
+Useful for archive projects or for finalised excavations.
+
+.. seealso::
+
+   - :doc:`tutorials/15-pyarchinit-external-data` — full how-to
+   - `PyArchInit project <https://github.com/pyarchinit/pyarchinit>`_
+   - `s3Dgraphy on PyPI <https://pypi.org/project/s3dgraphy/>`_
+   - `Extended Matrix cookbook recipe <https://docs.extendedmatrix.org/en/latest/cookbook/pyarchinit_integration.html>`_
+
+Operational workflow
+^^^^^^^^^^^^^^^^^^^^
+
+There are **two ways** to use pyArchInit data with the Extended Matrix:
 
 **1. Generate GraphML from pyArchInit (creating the trunk)**
 
