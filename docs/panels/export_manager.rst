@@ -13,24 +13,45 @@ Export Manager
 
    Export Manager panel
 
-This panel (:numref:`Fig. %s <EM_Export_ManagerFIG>`) is divided in two different sections: **Export** and **Heriverse Export**.
-The first section allows to automatically export EM data in csv files.
-By pressing one button user can export the entire EM (``EM (csv)`` button) or groups of nodes (``US/USV`` button, ``Sources`` button, ``Extractors`` button).
+The **Export Manager** lives in the *EM Bridge* tab of the 3D Viewport
+sidebar and groups every exporter EM Tools ships with into a single
+panel. Each exporter is rendered as a collapsible sub-section with its
+own help-button pointing to its dedicated documentation page.
 
-The second part of the panel allows to export geometries from Blender to Heriverse, that is the 3Dweb app, based on the Aton Framework, that allow to share online, within the same 3D scene, both 3D models (Proxies, Representation models and Source models) and the EM, with all its paradata.
+This page documents the **Tabular Export** section only. For the
+Heriverse publishing pipeline see :doc:`heriverse_export`.
 
-To export correctly all the data, first it is necessary to control that every geometry (Representation Models and Source models) has been associated with the correct epoch/s.
+.. _tabular-export:
 
-Second, 3D objects have to be stored in the correct collection of Blender (Representation Models - **RM**; Reality Based - **RB**; **Proxy**).
+Tabular Export
+--------------
 
+The Tabular Export section dumps the Extended Matrix graph(s) into
+plain tabular files for downstream analysis, archival, or ingestion in
+external tools (spreadsheets, statistical software, databases).
 
-Fourth, before exporting geometries, user must: locate the folder where the Heriverse project will be saved, set the name of the Project, and check/uncheck the desired options.
+Two output formats are available:
 
-Finally, by pressing the ``Export Heriverse Project`` button, EMTools will export the project within a specific folder ready for the upload on Heriverse.
+- **em_data.xlsx** — the 5-sheet canonical workbook containing the
+  stratigraphic units (US/USV), Sources, Extractors, and the relational
+  tables that link them together. This is the recommended deliverable
+  when the goal is to hand over the graph as a self-contained
+  spreadsheet.
+- **CSV** — a flat dump of individual node groups (US/USV, Sources,
+  Extractors). Useful when only one slice of the graph is needed, or
+  when integrating with a CSV-only pipeline.
+
+To use the section:
+
+1. Pick the desired table format with the radio toggle
+   (``table_type``).
+2. Press the ``EM (csv)`` button to export the active graph in the
+   chosen format.
+
+The output files are saved next to the current ``.blend`` file unless
+a custom path is configured upstream.
 
 .. seealso::
 
-   The upload step itself (creating a Heriverse scene and pushing the
-   exported bundle online) is documented on the Heriverse side — see
-   `Publishing a reconstruction via Heriverse
-   <https://docs.extendedmatrix.org/projects/heriverse/en/latest/user_dashboard.html#publish-via-heriverse>`_.
+   :doc:`heriverse_export` — for publishing the reconstruction to the
+   Heriverse platform (proxies, RM, RB, animations, paradata).

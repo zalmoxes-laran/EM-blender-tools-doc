@@ -45,6 +45,7 @@ EM Bridge tab — export & integrations
    :maxdepth: 1
 
    export_manager
+   heriverse_export
 
 Reference
 ---------
