@@ -5,6 +5,13 @@
 RMDoc — Representation Model Document
 =====================================
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - `Document node <https://docs.extendedmatrix.org/en/1.5/paradata_nodes.html#documentnode>`_
+     — the formal node type each RMDoc row materialises in 3D space.
+
 The **RMDoc** panel manages scene objects (mesh quads) linked to document nodes for spatial authoring. Each RMDoc item binds a Blender object to a document node from the graph, optionally with a dedicated camera aligned to the source image.
 
 It is the object-centric counterpart of the :ref:`document_manager`: while the Document Manager catalogs documents at graph level, RMDoc manages their materialisation in the 3D scene.

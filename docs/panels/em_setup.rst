@@ -3,6 +3,15 @@
 EM Data Tree
 ============
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - `Extended Matrix — language manual <https://docs.extendedmatrix.org/en/1.5/index.html>`_
+     — overview of the formal notation feeding the ``.graphml`` files loaded here.
+   - `EM workspace preparation <https://docs.extendedmatrix.org/en/1.5/em_workspace_preparation.html>`_
+     — DosCo folder layout and iteration pattern.
+
 .. _EMsetupFIG:
 
 .. figure:: ../img/EMsetup.png
@@ -87,7 +96,7 @@ The ``Remove GraphML`` button allows to remove one or more EMs from the EM Data 
    DosCo (add new entries, update existing ones), reload from this
    panel to surface the changes. For the DosCo concept, folder layout
    and iteration pattern, see `Iterating the DosCo
-   <https://docs.extendedmatrix.org/en/1.5.0/em_workspace_preparation.html#enrich-dosco-iterative>`_
+   <https://docs.extendedmatrix.org/en/1.5/em_workspace_preparation.html#enrich-dosco-iterative>`_
    in the Extended Matrix language manual.
 
 In this panel (:numref:`Fig. %s <EMsetup_02FIG>`) users can also link the path to the *DosCo* folder, where sources are stored.

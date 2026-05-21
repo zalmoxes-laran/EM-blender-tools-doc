@@ -37,7 +37,7 @@ Prerequisites
   drawing directly.
 - Familiarity with the EM paradata vocabulary
   (`EM language docs — Paradata Nodes
-  <https://docs.extendedmatrix.org/en/1.5.0dev/paradata_nodes.html>`_).
+  <https://docs.extendedmatrix.org/en/1.5/paradata_nodes.html>`_).
 
 DosCo discipline
 ----------------

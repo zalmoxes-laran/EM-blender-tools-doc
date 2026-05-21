@@ -4,6 +4,14 @@
 Anastylosis Manager (RMSF)
 ==========================
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - `Special Finds, Virtual Special Finds and Reused Special Finds
+     <https://docs.extendedmatrix.org/en/1.5/stratigraphic_nodes.html#special-finds-virtual-special-finds-and-reused-special-finds-sf-vsf-and-rsf>`_
+     — the SF / VSF / RSF nodes anchored by the RMSF rows.
+
 .. note::
 
    **Performing anastylosis with EM Tools**

@@ -3,6 +3,20 @@
 Representation Models Manager
 =============================
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - `Paradata NodeGroup <https://docs.extendedmatrix.org/en/1.5/paradata_group.html>`_
+     — Representation Models are wrapped as NodeGroups; this is the
+     closest formal-language entry point.
+
+.. note::
+
+   The EM 1.5 language manual does not (yet) have a dedicated page for
+   Representation Models — the concept lives in the EM Tools side of
+   the stack. This cross-link is the closest formalisation; the page
+   here is the canonical reference for RM authoring.
 
 .. _RM_ManagerFIG:
 

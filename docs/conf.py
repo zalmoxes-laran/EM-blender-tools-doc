@@ -37,6 +37,10 @@ todo_include_todos = True
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
+    # EM language manual (formal notation). The slug `/en/1.5/` is the
+    # RTD short version that tracks the 1.5.x branch on the EM-doc repo —
+    # `/en/1.5.0/` and `/en/1.5.0dev/` are stale and return 404.
+    'em-doc': ('https://docs.extendedmatrix.org/en/1.5/', None),
 }
 intersphinx_disabled_domains = ['std']
 
@@ -46,7 +50,6 @@ templates_path = ['_templates']
 # To re-enable a page, remove it from this list and reference it from a toctree.
 exclude_patterns = [
     '_build',
-    'creating_em.rst',
 ]
 
 # -- Options for HTML output

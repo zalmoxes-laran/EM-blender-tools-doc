@@ -3,6 +3,15 @@
 Stratigraphy Manager
 ====================
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - `Stratigraphic nodes <https://docs.extendedmatrix.org/en/1.5/stratigraphic_nodes.html>`_
+     — formal definition of US, USV, USVn, USD, SF and TSU node types.
+   - `Auxiliary stratigraphic nodes <https://docs.extendedmatrix.org/en/1.5/auxiliary_stratigraphic_nodes.html>`_
+     — Continuity and related modelling primitives.
+
 This tool allows to explore and filter all the EM graph nodes. The panel is divided into a header with filter status, an expandable filter section, and a scrollable list of stratigraphic units.
 
 .. _EM_Strat_ManagerFIG:

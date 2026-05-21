@@ -3,6 +3,13 @@
 Epochs Manager
 ==============
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - `Canvas, epochs and the time axis <https://docs.extendedmatrix.org/en/1.5/canvas.html>`_
+     — how epochs are formalised on the canvas and the chronological axis.
+
 .. _EM_Stratig-Epoch_ManagerFIG:
 
 .. figure:: ../img/EM_Stratig-Epoch_Manager.png

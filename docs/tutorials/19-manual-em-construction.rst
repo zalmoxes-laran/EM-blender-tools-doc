@@ -36,7 +36,7 @@ Prerequisites
   and save GraphML.
 - A basic understanding of stratigraphic reading
   (`EM language docs — A stratigraphic approach
-  <https://docs.extendedmatrix.org/en/1.5.0dev/stratigraphic_approach.html>`_).
+  <https://docs.extendedmatrix.org/en/1.5/stratigraphic_approach.html>`_).
 
 Dataset
 -------
@@ -111,7 +111,7 @@ Go through the report a second time, this time looking only for
 *verbs of stratigraphic relation*: "covers", "is cut by", "fills",
 "contemporary with", … For each, pick the matching connector from
 the EM palette (see `EM language docs — Connectors
-<https://docs.extendedmatrix.org/en/1.5.0dev/connectors.html>`_)
+<https://docs.extendedmatrix.org/en/1.5/connectors.html>`_)
 and draw the arrow.
 
 **Step 5 — Attach the sources**

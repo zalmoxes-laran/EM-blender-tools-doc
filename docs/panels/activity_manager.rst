@@ -3,6 +3,12 @@
 Activity Manager
 ================
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - `Activity NodeGroup <https://docs.extendedmatrix.org/en/1.5/activity.html>`_
+     — concept and modelling rules for activity groups.
 
 .. _EM_Act_ManagerFIG:
 

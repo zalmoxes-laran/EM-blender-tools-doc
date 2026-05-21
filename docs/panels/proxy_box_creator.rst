@@ -3,10 +3,20 @@
 Proxy Box Creator
 =================
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - `Paradata NodeGroup <https://docs.extendedmatrix.org/en/1.5/paradata_group.html#paradata-nodes-group>`_
+     — DP-60 formal definition of the ``<US>_PD`` group written by this panel.
+   - `Paradata nodes <https://docs.extendedmatrix.org/en/1.5/paradata_nodes.html>`_
+     — Document, Extractor, Combiner and PropertyNode types in the chain.
+
 The Proxy Box Creator builds a proxy mesh (a 7-point bounding volume) for a
 Stratigraphic Unit and wires the full paradata chain behind it — Document
 instance → Extractors → Combiner → PropertyNode ("Proxy Geometry") — all
-wrapped in a per-US :ref:`ParadataNodeGroup <paradata_node_group>`
+wrapped in a per-US `ParadataNodeGroup
+<https://docs.extendedmatrix.org/en/1.5/paradata_group.html#paradata-nodes-group>`_
 (``<US>_PD``).
 
 The panel lives under **EM Annotator → RM to Proxy Suite → Proxy Box Creator**

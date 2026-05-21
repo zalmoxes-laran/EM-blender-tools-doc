@@ -30,7 +30,7 @@ resolution).
 .. seealso::
 
    For a full explanation of this architecture, see
-   `The Knowledge Tree <https://docs.extendedmatrix.org/en/1.5.0/knowledge_tree.html>`_
+   `The Knowledge Tree <https://docs.extendedmatrix.org/en/1.5/knowledge_tree.html>`_
    in the Extended Matrix documentation.
 
 
@@ -79,9 +79,9 @@ For details on the GraphML structure and node types, see
 
    For a comprehensive guide on the Extended Matrix formal language,
    node types, and how to construct a valid EM graph, refer to the
-   `Extended Matrix documentation <https://docs.extendedmatrix.org/en/1.5.0/>`_.
-   The `nodes introduction <https://docs.extendedmatrix.org/en/1.5.0/nodes_intro.html>`_
-   and `stratigraphic nodes <https://docs.extendedmatrix.org/en/1.5.0/stratigraphic_nodes.html>`_
+   `Extended Matrix documentation <https://docs.extendedmatrix.org/en/1.5/>`_.
+   The `nodes introduction <https://docs.extendedmatrix.org/en/1.5/nodes_intro.html>`_
+   and `stratigraphic nodes <https://docs.extendedmatrix.org/en/1.5/stratigraphic_nodes.html>`_
    pages are particularly useful for understanding what each node type
    represents.
 
@@ -416,7 +416,7 @@ Useful for archive projects or for finalised excavations.
    - :doc:`tutorials/15-pyarchinit-external-data` — full how-to
    - `PyArchInit project <https://github.com/pyarchinit/pyarchinit>`_
    - `s3Dgraphy on PyPI <https://pypi.org/project/s3dgraphy/>`_
-   - `Extended Matrix cookbook recipe <https://docs.extendedmatrix.org/en/latest/cookbook/pyarchinit_integration.html>`_
+   - `Extended Matrix cookbook recipe <https://docs.extendedmatrix.org/en/1.5/cookbook/pyarchinit_integration.html>`_
 
 Operational workflow
 ^^^^^^^^^^^^^^^^^^^^
