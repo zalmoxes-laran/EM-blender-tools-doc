@@ -509,6 +509,133 @@ Here a brief presentation of the Experimental Features, the numebers on the list
    3D GIS mode
 
 
+.. _pyarchinit_row_filtering:
+
+Row Filtering (3D GIS Import, 1.6+)
+-----------------------------------
+
+When importing data from a PyArchInit SQLite database (and other
+mapped tabular sources) through the 3D GIS mode, EMtools can filter
+rows on the fly so you import only the subset you care about —
+for example, one archaeological site at a time instead of every
+site recorded in the database.
+
+This works by reading the ``is_filter`` flags in the mapping JSON
+file you select. For each column the mapping marks as filterable,
+EMtools queries the database for the distinct values present and
+populates a dropdown in the 3D GIS panel.
+
+.. seealso::
+
+   `s3dgraphy mapping JSON authoring — Filterable columns
+   <https://docs.extendedmatrix.org/projects/s3dgraphy/en/1.6/importers/mapping_schema.html#filterable-columns-is-filter>`_
+   — how to mark a column as filterable when writing a mapping file
+   (the producer-side view of the same feature).
+
+When the dropdowns appear
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+After you select, in the 3D GIS panel:
+
+1. A **database file** in the ``DB`` field (the
+   ``pyarchinit_db_path`` property), and
+2. A **mapping** (for example ``pyarchinit_us_mapping``),
+
+EMtools reads the mapping, finds columns marked ``is_filter: true``,
+and renders a box titled **"Filter rows by:"** with one dropdown
+per filterable column. If the mapping has no filter columns the box
+does not appear and the panel behaves exactly as in 1.5.
+
+Up to **5 filter columns** per mapping are supported. Beyond that
+limit the extra columns are silently ignored.
+
+Required vs optional filters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A dropdown whose label ends with an asterisk (for example
+``Site *``) is **required**: you must pick a specific value before
+importing. The ``(All values)`` placeholder is absent for these.
+
+A dropdown without an asterisk is **optional**: choose
+``(All values)`` to skip it (no filter applied on that column), or
+pick a specific value to constrain the import.
+
+Multiple filters combine with logical **AND**. For example, picking
+``Site = Pompei`` and ``Area = A`` imports only rows where both
+conditions match.
+
+Values are matched **exactly** — case-sensitive string equality.
+There are no wildcards, ranges or multi-select.
+
+What happens at import time
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Click **Import**. EMtools collects your dropdown choices into a
+``filters`` dictionary and passes it to the importer:
+
+- If a required filter was left at ``(All values)``, the import is
+  aborted with an error message — pick a concrete value and retry.
+- If all required filters are set, the importer issues a SQL query
+  with a ``WHERE`` clause built from your selections
+  (parameterised, so the values are safely escaped).
+- Only rows matching the filters become nodes in the resulting
+  graph; everything else stays in the database, untouched.
+
+Caching
+~~~~~~~
+
+Distinct values for a filter column are queried lazily, the first
+time the dropdown is opened, and **cached** keyed on
+``(file path, file mtime, column name)``. Re-opening the dropdown
+is therefore instant; changing the file on disk invalidates the
+cache on the next read.
+
+If you change the database **path** or the **mapping** in the
+panel, EMtools resets all 5 filter slots and re-discovers the
+filterable columns from scratch.
+
+Limits and edge cases
+~~~~~~~~~~~~~~~~~~~~~
+
+- Filtering applies to the **3D GIS import path** (the main
+  ``pyarchinit_db_path`` field shown in the 3D GIS panel). The
+  **auxiliary-files** import path described in
+  :ref:`aux-files-concept` does **not** show filter dropdowns in
+  1.6 — it still imports the whole table.
+
+- If the mapping declares a filter column but the database table
+  is **missing that column**, the dropdown shows an error message
+  and the import is aborted. Fix the mapping (or the database
+  schema) and retry.
+
+- Filtering does not affect **relations** resolution: if you filter
+  out US #42 but US #38 has a relation pointing to #42, the
+  relation is dropped because the target sits outside the imported
+  subset. Workarounds: include both ends of the relation in your
+  filter, or re-import with a broader filter and prune the result
+  externally.
+
+Example — importing only one site
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Importing only the *Pompei* site from a multi-site PyArchInit
+database:
+
+1. Open the 3D GIS import panel (see :ref:`EMsetup_04abcFIG`).
+2. Set **DB** to your ``pyarchinit.db`` file.
+3. Set **Mapping** to ``pyarchinit_us_mapping`` — a mapping that
+   marks ``sito`` as ``is_filter: true`` and
+   ``filter_required: true``.
+4. The **"Filter rows by:"** box appears with one dropdown,
+   labelled ``Site *``.
+5. Open the dropdown — EMtools queries the database and shows
+   ``Ercolano``, ``Pompei``, ``Stabia``.
+6. Pick ``Pompei``.
+7. Click **Import**. Only the *Pompei* US records are loaded into
+   the graph; the other sites remain in the database, ignored by
+   this import.
+
+
 .. _graphml_warnings:
 
 GraphML Warnings
