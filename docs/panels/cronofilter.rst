@@ -3,6 +3,16 @@
 CronoFilter
 ===========
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - :doc:`em-doc:canvas` — how epochs (the building blocks of every
+     CronoFilter horizon) are formalised on the canvas.
+   - :doc:`em-doc:alternate_hypotheses` — Time Branches Groups, the
+     formal counterpart of the alternative chronological hypotheses this
+     panel lets users navigate.
+
 The CronoFilter panel manages custom chronological horizons (time periods) that can be used for temporal filtering and exported with Heriverse context data. The panel appears in the **EM** tab when **Landscape mode** is active.
 
 Panel Layout

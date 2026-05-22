@@ -1,6 +1,14 @@
 EMtools Structure
 =================
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - :doc:`em-doc:index` — landing page for the formal notation each EM
+     Tools panel implements. Individual panel pages link directly to the
+     relevant chapters (nodes, connectors, paradata, …).
+
 The addon is divided into several independent panels that can be moved
 within the Blender sidebar (right side of the 3D Viewport). Panels are
 grouped into three tab categories — **EM**, **EM Annotator**,

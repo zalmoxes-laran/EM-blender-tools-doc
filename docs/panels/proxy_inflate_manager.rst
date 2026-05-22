@@ -3,6 +3,13 @@
 Proxy Inflate Manager (Experimental)
 ====================================
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - :doc:`em-doc:data_funnel` — the proxy / RM granularity ladder this
+     panel operates on (inflating proxy stand-ins into 3D volume).
+
 The Proxy Inflate Manager adds thickness to proxy models using Blender's Solidify modifier. This is useful for giving volume to flat proxy geometry, both for visualization and for export workflows.
 
 .. warning::

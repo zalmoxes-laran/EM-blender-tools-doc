@@ -5,6 +5,13 @@
 RM Coloring / Proxy to RM Projection (Experimental)
 ===================================================
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - :doc:`em-doc:data_funnel` — the formal proxy → RM granularity
+     ladder this experimental projection step traverses.
+
 .. warning::
    This panel is experimental. Behavior, operator IDs and property names may
    change between releases. The page is built but kept out of the main

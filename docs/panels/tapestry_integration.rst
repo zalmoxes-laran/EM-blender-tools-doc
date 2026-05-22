@@ -3,6 +3,13 @@
 Tapestry Integration (Experimental)
 ===================================
 
+.. seealso::
+
+   :doc:`em-doc:ecosystem` — where Tapestry (an AI-powered
+   visualisation companion) sits relative to the formal EM language.
+   The Tapestry workflow has no counterpart in the EM language manual;
+   it is an EM-Tools integration with an external rendering service.
+
 The Tapestry Integration panel provides AI-powered photorealistic reconstruction capabilities. It connects to an external Tapestry server to submit rendering jobs that transform proxy-based scenes into photorealistic visualizations.
 
 .. warning::

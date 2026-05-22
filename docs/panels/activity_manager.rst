@@ -7,8 +7,8 @@ Activity Manager
 
    In the Extended Matrix language manual:
 
-   - `Activity NodeGroup <https://docs.extendedmatrix.org/en/1.5/activity.html>`_
-     — concept and modelling rules for activity groups.
+   - :doc:`em-doc:activity` — concept and modelling rules for activity
+     groups (Activity NodeGroup).
 
 .. _EM_Act_ManagerFIG:
 

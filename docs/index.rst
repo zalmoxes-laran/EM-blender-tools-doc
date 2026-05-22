@@ -96,7 +96,7 @@ What's New
    - See full :doc:`changelog` for details
 
 **Development tracking**
-   - Visit `dev.extendedmatrix.org <https://dev.extendedmatrix.org/dev-projects>`_ for progress and feature requests
+   - Visit `extendedmatrix.org <https://www.extendedmatrix.org>`_ and the `GitHub issues tracker <https://github.com/zalmoxes-laran/EM-blender-tools/issues>`_ for progress and feature requests
    - See the :doc:`roadmap` for future plans
 
 .. admonition:: Documentation status
@@ -166,7 +166,7 @@ Additional Resources
 - **3DSC docs**: `3D-survey-collection <https://docs.extendedmatrix.org/projects/3DSC>`_
 - **Heriverse docs**: `Heritage Science Metaverse <https://docs.extendedmatrix.org/projects/heriverse/en/latest/>`__
 - **ATON Framework**: `phoenixbf/aton on GitHub <https://github.com/phoenixbf/aton>`__
-- **Video tutorials**: `YouTube Channel <https://www.youtube.com/extendedmatrix>`_
+- **Video tutorials**: `YouTube Channel <https://www.youtube.com/@extendedmatrix>`_
 
 Indices and tables
 ------------------

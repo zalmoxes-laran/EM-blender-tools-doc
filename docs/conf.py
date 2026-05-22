@@ -37,10 +37,12 @@ todo_include_todos = True
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
-    # EM language manual (formal notation). The slug `/en/1.5/` is the
-    # RTD short version that tracks the 1.5.x branch on the EM-doc repo —
-    # `/en/1.5.0/` and `/en/1.5.0dev/` are stale and return 404.
-    'em-doc': ('https://docs.extendedmatrix.org/en/1.5/', None),
+    # EM language manual (formal notation). EM-tools 1.6 tracks EM-doc 1.6:
+    # the RTD slug `/en/1.6/` exposes a published `objects.inv` (verified
+    # 2026-05-22). `/en/1.5.0/` and `/en/1.5.0dev/` are stale and return
+    # 404. The 1.5 short slug still works for the 1.5.x branch of EM-doc
+    # but EM-tools-doc/1.6 should cross-reference EM-doc/1.6.
+    'em-doc': ('https://docs.extendedmatrix.org/en/1.6/', None),
 }
 intersphinx_disabled_domains = ['std']
 

@@ -7,10 +7,10 @@ Surface Areas
 
    In the Extended Matrix language manual:
 
-   - `Special Find (SF) nodes <https://docs.extendedmatrix.org/en/1.5/stratigraphic_nodes.html#sf-special-find-specialfindnode>`_
-     — the stratigraphic node type usually targeted by Surface Areas annotations.
-   - `Paradata nodes <https://docs.extendedmatrix.org/en/1.5/paradata_nodes.html>`_
-     — Property / Extractor / Document chain wired behind a surface annotation.
+   - :ref:`Special Find (SF) nodes <em-doc:sfnodes>` — the stratigraphic
+     node type usually targeted by Surface Areas annotations.
+   - :doc:`em-doc:paradata_nodes` — Property / Extractor / Document chain
+     wired behind a surface annotation.
 
 The **Surface Areas** panel lives in the ``EM Annotator`` sidebar tab and
 provides a four-step checklist for linking a drawn area on a

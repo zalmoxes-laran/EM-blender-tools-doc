@@ -4,15 +4,12 @@
 Multi-Temporal 3D Visualization Demo
 ====================================
 
-.. raw:: html
+.. todo::
 
-   <!-- Replace VIDEO_ID with the actual YouTube video ID for 14_em_multitemporal -->
-   <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
-   <iframe src="https://www.youtube.com/embed/VIDEO_ID_14_em_multitemporal"
-           style="position:absolute;top:0;left:0;width:100%;height:100%;"
-           frameborder="0" allowfullscreen></iframe>
-   </div>
-   <p><em>▶ Multi-Temporal 3D Visualization Demo (~~9 min)</em></p>
+   **Embed YouTube video** — placeholder slug ``14_em_multitemporal``.
+   Once the recording is uploaded, replace this todo with a
+   ``.. raw:: html`` iframe pointing at the real YouTube video ID.
+   Working title: *Multi-Temporal 3D Visualization Demo (~~9 min)*.
 
 | **Clip:** 14  |  **Duration:** ~9 min  |  **Recording segment:** 1:07:14 → ~1:16:00
 

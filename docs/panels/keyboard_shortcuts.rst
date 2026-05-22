@@ -3,6 +3,12 @@
 Keyboard Shortcuts
 ==================
 
+.. seealso::
+
+   :doc:`em-doc:ecosystem` — where EM Tools sits in the wider Extended
+   Matrix ecosystem; these shortcuts are EM-Tools-specific and not part
+   of the formal EM language.
+
 EMtools provides keyboard shortcuts for common operations in the **3D Viewport**. All shortcuts are context-aware and only work when relevant data is available.
 
 .. list-table:: Available Shortcuts

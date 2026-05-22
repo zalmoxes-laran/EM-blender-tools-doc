@@ -3,6 +3,14 @@
 Georeferencing
 ==============
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - :doc:`em-doc:location` — how spatial anchoring (CRS, shift values)
+     is described in the formal notation this panel materialises in
+     Blender.
+
 The **Georeferencing panel** (tab ``EM``, sidebar of the 3D Viewport) is
 the single place where you anchor your EM scene to a real-world
 coordinate reference system (CRS). It exposes four canonical values —

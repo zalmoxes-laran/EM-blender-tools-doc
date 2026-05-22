@@ -10,7 +10,7 @@ Build the stratigraphic proxies in Blender
 
 Once the stratigraphic reading of an object, an architecture or an
 excavation has been formalised through an Extended Matrix
-(`see how to draw one <https://docs.extendedmatrix.org/en/1.5/draw_the_matrix.html>`_),
+(`see how to draw one <https://docs.extendedmatrix.org/en/1.6/draw_the_matrix.html>`_),
 it is time to represent that stratigraphy in 3D space. Each US in the matrix
 gets its own **proxy** — a lightweight 3D placeholder that materialises the
 unit and is bound to the corresponding node in the graph.
@@ -20,7 +20,7 @@ Prerequisites
 
 * EM Tools installed in Blender — see :doc:`../installation`.
 * A ``.graphml`` file produced in yEd —
-  `see how to draw the matrix <https://docs.extendedmatrix.org/en/1.5/draw_the_matrix.html>`_.
+  `see how to draw the matrix <https://docs.extendedmatrix.org/en/1.6/draw_the_matrix.html>`_.
 * The reference data for modelling: a photogrammetric survey, an
   orthophoto, building plans and sections, drawings, written sources, or
   any combination of these.
@@ -113,7 +113,7 @@ you have just produced, see the :doc:`../panels/epochs_manager` reference.
 See also
 --------
 
-* `Draw the Extended Matrix <https://docs.extendedmatrix.org/en/1.5/draw_the_matrix.html>`_
+* `Draw the Extended Matrix <https://docs.extendedmatrix.org/en/1.6/draw_the_matrix.html>`_
   — drawing the ``.graphml`` that feeds this exercise.
 * :doc:`20-em-2d-3d-linking` — the video-tied walkthrough of the same
   binding step.

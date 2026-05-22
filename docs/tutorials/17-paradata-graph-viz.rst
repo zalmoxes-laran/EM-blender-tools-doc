@@ -4,15 +4,12 @@
 Paradata Manager and Graph Visualization
 ========================================
 
-.. raw:: html
+.. todo::
 
-   <!-- Replace VIDEO_ID with the actual YouTube video ID for 17_em_paradata_graphviz -->
-   <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
-   <iframe src="https://www.youtube.com/embed/VIDEO_ID_17_em_paradata_graphviz"
-           style="position:absolute;top:0;left:0;width:100%;height:100%;"
-           frameborder="0" allowfullscreen></iframe>
-   </div>
-   <p><em>▶ Paradata Manager and Graph Visualization (~~4 min)</em></p>
+   **Embed YouTube video** — placeholder slug ``17_em_paradata_graphviz``.
+   Once the recording is uploaded, replace this todo with a
+   ``.. raw:: html`` iframe pointing at the real YouTube video ID.
+   Working title: *Paradata Manager and Graph Visualization (~~4 min)*.
 
 | **Clip:** 17  |  **Duration:** ~4 min  |  **Recording segment:** 1:24:55 → ~1:29:30
 

@@ -7,10 +7,10 @@ Stratigraphy Manager
 
    In the Extended Matrix language manual:
 
-   - `Stratigraphic nodes <https://docs.extendedmatrix.org/en/1.5/stratigraphic_nodes.html>`_
-     — formal definition of US, USV, USVn, USD, SF and TSU node types.
-   - `Auxiliary stratigraphic nodes <https://docs.extendedmatrix.org/en/1.5/auxiliary_stratigraphic_nodes.html>`_
-     — Continuity and related modelling primitives.
+   - :doc:`em-doc:stratigraphic_nodes` — formal definition of US, USV,
+     USVn, USD, SF and TSU node types.
+   - :doc:`em-doc:auxiliary_stratigraphic_nodes` — Continuity and related
+     modelling primitives.
 
 This tool allows to explore and filter all the EM graph nodes. The panel is divided into a header with filter status, an expandable filter section, and a scrollable list of stratigraphic units.
 
@@ -132,7 +132,8 @@ When a stratigraphic unit acts as a **container** (a US, USD, or VSF containing 
 The containment relationship is mereological (part--whole): for example, a wall (US) containing a reused capital (SF), or a reconstructed roof (VSF) composed of tile fragments (SF).
 
 .. seealso::
-   The `Extended Matrix documentation on containment <https://extendedmatrix.readthedocs.io/en/latest/connectors.html#is-part-of-is-part-of>`_ for the formal specification.
+   :ref:`Is Part Of (is_part_of) <em-doc:ispartof>` in the Extended Matrix
+   language manual for the formal specification of containment.
 
 .. _instance_chain_filter:
 
@@ -154,7 +155,8 @@ Clicking the three dots icon filters the list to show **all instances in the cha
 For example: a capital that exists today on the ground (SF5000-C), existed in a previous epoch as a collapsed element (USD5000-B), and in the Roman era was in its original position (USM5000-A). All three are connected by dotted edges and form a single instance chain.
 
 .. seealso::
-   The `Extended Matrix documentation on instance chains <https://extendedmatrix.readthedocs.io/en/latest/connectors.html#instance-chains>`_ for the formal specification and naming conventions.
+   :ref:`Instance Chains <em-doc:instancechains>` in the Extended Matrix
+   language manual for the formal specification and naming conventions.
 
 Filter Interactions
 -------------------

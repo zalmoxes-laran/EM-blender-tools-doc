@@ -9,10 +9,10 @@ Document Manager
 
    In the Extended Matrix language manual:
 
-   - `Document node <https://docs.extendedmatrix.org/en/1.5/paradata_nodes.html#documentnode>`_
-     — formal definition of the DocumentNode entries surfaced here.
-   - `Source node <https://docs.extendedmatrix.org/en/1.5/source_node.html>`_
-     — upstream evidence the documents typically cite.
+   - :ref:`Document node <em-doc:documentnode>` — formal definition of
+     the DocumentNode entries surfaced here.
+   - :doc:`em-doc:source_node` — upstream evidence the documents typically
+     cite.
 
 The Document Manager panel lists all document nodes from the loaded graph and lets you navigate between each document and its supporting data: metadata, scene objects linking to it (RM, :ref:`rmdoc_manager`, RMSF), and the graph nodes it documents.
 

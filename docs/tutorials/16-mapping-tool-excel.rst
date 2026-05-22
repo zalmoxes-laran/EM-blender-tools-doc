@@ -6,15 +6,12 @@
 Bulk Import via the Excel Mapping Tool
 ======================================
 
-.. raw:: html
+.. todo::
 
-   <!-- Replace VIDEO_ID with the actual YouTube video ID for 16_em_mapping_tool -->
-   <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
-   <iframe src="https://www.youtube.com/embed/VIDEO_ID_16_em_mapping_tool"
-           style="position:absolute;top:0;left:0;width:100%;height:100%;"
-           frameborder="0" allowfullscreen></iframe>
-   </div>
-   <p><em>▶ Bulk Import via the Excel Mapping Tool (~~4 min)</em></p>
+   **Embed YouTube video** — placeholder slug ``16_em_mapping_tool``.
+   Once the recording is uploaded, replace this todo with a
+   ``.. raw:: html`` iframe pointing at the real YouTube video ID.
+   Working title: *Bulk Import via the Excel Mapping Tool (~~4 min)*.
 
 | **Clip:** 16  |  **Duration:** ~4 min  |  **Recording segment:** ~1:20:30 → 1:24:55
 

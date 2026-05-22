@@ -5,6 +5,13 @@
 Export Manager
 ==============
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - :doc:`em-doc:em_data` — the ``em_data.xlsx`` schema and the formal
+     data model the Tabular Export pipeline produces.
+
 .. _EM_Export_ManagerFIG:
 
 .. figure:: ../img/EM_Export_Manager.png

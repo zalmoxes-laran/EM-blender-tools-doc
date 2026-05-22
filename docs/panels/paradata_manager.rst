@@ -7,10 +7,10 @@ Paradata Manager
 
    In the Extended Matrix language manual:
 
-   - `Paradata nodes <https://docs.extendedmatrix.org/en/1.5/paradata_nodes.html>`_
-     — formal definition of Property, Extractor, Combiner and Document nodes.
-   - `Paradata NodeGroup <https://docs.extendedmatrix.org/en/1.5/paradata_group.html>`_
-     — how paradata is grouped per stratigraphic unit (DP-60).
+   - :doc:`em-doc:paradata_nodes` — formal definition of Property,
+     Extractor, Combiner and Document nodes.
+   - :doc:`em-doc:paradata_group` — how paradata is grouped per
+     stratigraphic unit (DP-60).
 
 .. _EM_Paradata_ManagerFIG:
 

@@ -3,6 +3,16 @@
 StratiMiner (Experimental)
 ==========================
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - :doc:`em-doc:em_data` — the formal ``em_data`` data model that
+     StratiMiner serialises and round-trips through Excel.
+   - :doc:`em-doc:draw_the_matrix` — the yEd-based authoring path
+     StratiMiner aims to short-circuit by letting authors stay in a
+     tabular tool.
+
 The **StratiMiner** panel drives the unified ``em_data.xlsx`` workflow for
 building an Extended Matrix graph from archaeological documents. It
 replaces the legacy two-file wizard (``stratigraphy.xlsx`` +

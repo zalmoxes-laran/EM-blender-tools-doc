@@ -7,10 +7,10 @@ EM Data Tree
 
    In the Extended Matrix language manual:
 
-   - `Extended Matrix — language manual <https://docs.extendedmatrix.org/en/1.5/index.html>`_
-     — overview of the formal notation feeding the ``.graphml`` files loaded here.
-   - `EM workspace preparation <https://docs.extendedmatrix.org/en/1.5/em_workspace_preparation.html>`_
-     — DosCo folder layout and iteration pattern.
+   - :doc:`em-doc:index` — overview of the formal notation feeding the
+     ``.graphml`` files loaded here.
+   - :doc:`em-doc:em_workspace_preparation` — DosCo folder layout and
+     iteration pattern (see also :ref:`em-doc:enrich-dosco-iterative`).
 
 .. _EMsetupFIG:
 
@@ -95,9 +95,8 @@ The ``Remove GraphML`` button allows to remove one or more EMs from the EM Data 
    disk and the graph node is preserved; if you re-iterate your
    DosCo (add new entries, update existing ones), reload from this
    panel to surface the changes. For the DosCo concept, folder layout
-   and iteration pattern, see `Iterating the DosCo
-   <https://docs.extendedmatrix.org/en/1.5/em_workspace_preparation.html#enrich-dosco-iterative>`_
-   in the Extended Matrix language manual.
+   and iteration pattern, see :ref:`Iterating the DosCo
+   <em-doc:enrich-dosco-iterative>` in the Extended Matrix language manual.
 
 In this panel (:numref:`Fig. %s <EMsetup_02FIG>`) users can also link the path to the *DosCo* folder, where sources are stored.
 To locate sources, users must follow the same guidelines previously outlined for the localization of the EM file.
@@ -528,7 +527,7 @@ populates a dropdown in the 3D GIS panel.
 .. seealso::
 
    `s3dgraphy mapping JSON authoring — Filterable columns
-   <https://docs.extendedmatrix.org/projects/s3dgraphy/en/1.6/importers/mapping_schema.html#filterable-columns-is-filter>`_
+   <https://docs.extendedmatrix.org/projects/s3dgraphy/en/latest/importers/mapping_schema.html#filterable-columns-is-filter>`_
    — how to mark a column as filterable when writing a mapping file
    (the producer-side view of the same feature).
 

@@ -3,6 +3,13 @@
 Server Panel (Experimental)
 ===========================
 
+.. seealso::
+
+   :doc:`em-doc:ecosystem` — where EM Tools and its remote-control
+   surface sit in the wider Extended Matrix ecosystem. The TCP server
+   has no counterpart in the formal EM language; it is an EM-Tools
+   integration utility.
+
 The Server Panel provides TCP connectivity for remote control of EMtools. It allows external applications to send commands to Blender via a TCP socket connection.
 
 The panel is located in the **EM Bridge** tab and is available in Advanced EM mode.

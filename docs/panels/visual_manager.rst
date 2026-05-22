@@ -5,6 +5,16 @@
 Visual Manager
 ==============
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - :doc:`em-doc:properties` — the formal ``Property`` definitions
+     this panel paints in the viewport (geometry, material, colour,
+     existence, …).
+   - :doc:`em-doc:canvas` — how epochs are formalised; the Epoch
+     visualisation mode mirrors this canvas layout.
+
 .. _EM_VM_panelFIG:
 
 .. figure:: ../img/EM_VM_panel.jpg

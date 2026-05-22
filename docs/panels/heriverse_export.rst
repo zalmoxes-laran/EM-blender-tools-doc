@@ -55,11 +55,9 @@ Prerequisites
 Before running an export, please verify that:
 
 - every Representation Model and Reality-Based geometry is assigned to
-  the correct **epoch(s)** through an Activity NodeGroup — see the EM
-  manual on
-  `Activity NodeGroups
-  <https://docs.extendedmatrix.org/en/1.5/activity.html>`__
-  for the underlying concept;
+  the correct **epoch(s)** through an Activity NodeGroup — see
+  :doc:`em-doc:activity` in the EM language manual for the underlying
+  concept;
 - 3D objects live in the appropriate Blender **collection** (``RM`` for
   Representation Models, ``RB`` for Reality-Based, ``Proxy`` for
   stratigraphic proxies);

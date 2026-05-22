@@ -5,9 +5,9 @@ Conservation Workflow (TSU)
 
    In the Extended Matrix language manual:
 
-   - `Transformation Stratigraphic Unit (TSU)
-     <https://docs.extendedmatrix.org/en/1.5/stratigraphic_nodes.html#transformation-stratigraphic-unit-transformationstratigraphicunit>`_
-     — formal definition of the TSU node type used throughout this workflow.
+   - :doc:`em-doc:stratigraphic_nodes` — formal definition of the
+     :term:`em-doc:Transformation Stratigraphic Unit (TSU)` node type used
+     throughout this workflow.
 
 The **Conservation Workflow** is the EM Tools workflow for documenting
 *states* and *transformations* of a built object — decay, restoration
@@ -137,6 +137,5 @@ format:
      standard US/USV in the stratigraphy table.
    - :doc:`proxy_box_creator` — annotation-style TSU proxies.
    - :doc:`surface_areale` — surface-style TSU proxies.
-   - `EM language docs — Transformation Stratigraphic Unit
-     <https://docs.extendedmatrix.org/en/1.5/stratigraphic_nodes.html#transformation-stratigraphic-unit-transformationstratigraphicunit>`_
-     for the formal definition.
+   - :doc:`em-doc:stratigraphic_nodes` — formal definition of the
+     :term:`em-doc:Transformation Stratigraphic Unit (TSU)` node.

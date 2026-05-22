@@ -5,6 +5,15 @@
 Graph Editor (Experimental)
 ===========================
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - :doc:`em-doc:nodes_intro` — overview of every node type the editor
+     can display.
+   - :doc:`em-doc:connectors` — the connector vocabulary (is_before,
+     has_same_time, is_part_of, …) used to draw the edges between nodes.
+
 The Graph Editor provides a node-based visualization of the Extended Matrix graph directly within Blender's Node Editor. It is composed of multiple sub-panels that control loading, filtering, appearance, and synchronization between the graph and the 3D viewport.
 
 The Graph Editor is available in the **Node Editor** space under the **EM** category when **Experimental Features** are enabled.

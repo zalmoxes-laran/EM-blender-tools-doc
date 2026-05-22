@@ -99,14 +99,14 @@ Tracking Progress
 
 Development progress is tracked on the project management platform:
 
-- **Development Projects**: `dev.extendedmatrix.org/dev-projects <https://dev.extendedmatrix.org/dev-projects>`_
+- **Development Projects**: `extendedmatrix.org <https://www.extendedmatrix.org>`_ and the `GitHub issue tracker <https://github.com/zalmoxes-laran/EM-blender-tools/issues>`_ (the dedicated ``dev.extendedmatrix.org`` hub is being rebuilt; this page will be updated once the new URL stabilises).
 
 Suggesting New Features
 -----------------------
 
 To suggest additions to the roadmap:
 
-1. Visit `dev.extendedmatrix.org/dev-projects <https://dev.extendedmatrix.org/dev-projects>`_
+1. Visit the `GitHub issue tracker <https://github.com/zalmoxes-laran/EM-blender-tools/issues>`_
 2. Check existing roadmap items
 3. Submit a new feature request with detailed use case and implementation ideas
 4. Participate in community discussion

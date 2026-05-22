@@ -3,6 +3,13 @@
 Export Statistics (Experimental)
 ================================
 
+.. seealso::
+
+   In the Extended Matrix language manual:
+
+   - :doc:`em-doc:em_data` — the formal ``em_data`` model whose
+     completeness and integrity this experimental panel summarises.
+
 .. warning::
    This panel is experimental and is not part of the stable authoring
    workflow. Behavior, operator IDs and property names may change between
