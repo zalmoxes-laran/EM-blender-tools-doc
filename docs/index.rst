@@ -77,7 +77,11 @@ Quick Start
 What's New
 ----------
 
-**Version 1.5 (development snapshot — building toward 1.5.0 stable)**
+**Version 1.6 (in early development)**
+   This branch tracks 1.6 development; new entries will be added as features land.
+   The feature set below carried over from the 1.5 release line.
+
+**Version 1.5 (stable release line)**
    - **Landscape mode**: manage multiple archaeological graphs simultaneously in a single Blender scene
    - **CronoFilter**: chronological horizons manager for landscape mode with horizon-based filtering and coloring
    - **Stratigraphy Manager**: complete rewrite (formerly US/USV Manager) with containment filters, instance chain tracking, and associated documents
@@ -98,12 +102,11 @@ What's New
 .. admonition:: Documentation status
    :class: important
 
-   This documentation describes EM Tools **1.5 (development snapshot)** and is rebuilt continuously
-   from the ``main`` branch. The downloadable PDF carries the same release string on its cover
-   (``Extended Matrix tool 1.5.0-dev``). If you land on a page whose header says ``1.4`` you are
-   reading the previous stable release; switch the version selector at the bottom-left of the page
-   to the version you actually need. Issues and suggestions: please open them on
-   `GitHub issues <https://github.com/zalmoxes-laran/EM-blender-tools/issues>`__.
+   This documentation describes EM Tools **1.6 (in development)** and is rebuilt continuously
+   from the ``1.6`` branch. The downloadable PDF carries the same release string on its cover
+   (``Extended Matrix tool 1.6.0.dev0``). If you need the current stable release, switch the
+   version selector at the bottom-left of the page to ``1.5.0``. Issues and suggestions:
+   please open them on `GitHub issues <https://github.com/zalmoxes-laran/EM-blender-tools/issues>`__.
 
 Contents
 --------

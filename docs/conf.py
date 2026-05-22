@@ -8,13 +8,13 @@ author = 'Emanuel Demetrescu'
 
 # Sphinx convention: version is the short X.Y, release is the full string
 # (including pre-release tags). Keeping these in sync with the addon
-# release naming on GitHub (e.g. em_tools-v1.5.0-dev.140-...) so that the
+# release naming on GitHub (e.g. em_tools-v1.6.0-dev.NNN-...) so that the
 # PDF cover, HTML header and downloadable bundle agree.
-version = '1.5'
-release = '1.5.0-dev'
+version = '1.6'
+release = '1.6.0.dev0'
 
 # Explicit titles so the HTML <title> and the PDF cover both carry the
-# correct release string and don't drift back to a stale "1.4" cover.
+# correct release string and don't drift back to a stale "1.5" cover.
 html_title = f'Extended Matrix tool {release} documentation'
 html_short_title = f'EM Tools {release}'
 
