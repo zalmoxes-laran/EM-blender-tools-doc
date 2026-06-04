@@ -635,6 +635,182 @@ database:
    this import.
 
 
+.. _pyarchinit_postgres_backend:
+
+PostgreSQL / PostGIS backend (3D GIS Import, 1.6+)
+--------------------------------------------------
+
+Starting with **EM Tools 1.6**, the pyArchInit 3D GIS import path
+can read directly from a **live PostgreSQL / PostGIS database** in
+addition to the historical SQLite file mode. This is the backend
+real archaeological projects use in the field — multi-user editing,
+QGIS-friendly geometry storage, server-side backups — so connecting
+to it without exporting a SQLite snapshot first removes a whole step
+from the daily authoring loop.
+
+.. admonition:: Contributed by Enzo Cocca
+   :class: note
+
+   The PostgreSQL / PostGIS backend was contributed by **Enzo Cocca**
+   (`@enzococca <https://github.com/enzococca>`__) via
+   `EM-blender-tools PR #28
+   <https://github.com/zalmoxes-laran/EM-blender-tools/pull/28>`__,
+   landing the *Sub-2* milestone of the umbrella tracking
+   `issue #27 <https://github.com/zalmoxes-laran/EM-blender-tools/issues/27>`__
+   (*PyArchInit Postgres backend + reverse export*). The companion
+   piece on the s3dgraphy side is
+   `s3dgraphy PR #12 <https://github.com/zalmoxes-laran/s3Dgraphy/pull/12>`__.
+
+.. figure:: ../img/gif/pyarchinit-postgres-import.gif
+   :align: center
+   :width: 90%
+   :alt: Animated demo of the PostgreSQL / PostGIS pyArchInit import in EM Tools 1.6.
+
+   *Connecting EM Tools 1.6 to a live pyArchInit PostgreSQL database
+   and importing 3D-GIS data without an intermediate SQLite export.
+   Credit: Enzo Cocca.*
+
+Switching to PostgreSQL mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the 3D GIS panel (see :ref:`EMsetup_04abcFIG`) the connection
+source is now a two-way switch: **SQLite | PostgreSQL**.
+
+- **SQLite** — the historical behaviour. A ``.sqlite`` file is read
+  through the existing reader; nothing changes for projects that
+  rely on a local SQLite export.
+- **PostgreSQL** — new in 1.6. The panel expands to show connection
+  fields for a live PostgreSQL / PostGIS server.
+
+When PostgreSQL is selected, the following fields appear:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 22 78
+
+   * - Field
+     - What to put in it
+   * - **Host**
+     - The PostgreSQL server hostname or IP (for example
+       ``db.example.org`` or ``localhost``).
+   * - **Port**
+     - The TCP port the server listens on (default ``5432``).
+       Leave empty to use the default.
+   * - **Database**
+     - The database name that holds the pyArchInit schema
+       (typically ``pyarchinit_db`` or a project-specific name).
+   * - **User**
+     - The PostgreSQL role to authenticate as. Must have at least
+       **SELECT** on the pyArchInit US table and the geometry table —
+       the read path is forced read-only at the connection level, so
+       no other grants are required for import.
+   * - **Password**
+     - The password for the role. Stored *only in memory* and never
+       written to the ``.blend`` file (see :ref:`pg-security` below).
+   * - **Schema**
+     - Optional PostgreSQL schema name if the pyArchInit tables live
+       outside ``public``. Leave empty to use the server's
+       ``search_path``.
+
+The **Mapping** picker, the **Filter rows by:** dropdowns, and the
+**Import** button keep working exactly as in
+:ref:`pyarchinit_row_filtering` — row filtering is backend-agnostic
+and applies to PostgreSQL imports too. The SQL ``WHERE`` clause is
+still parameterised on the server side.
+
+.. _pg-password-keychain:
+
+Saving the password to the OS keychain
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Typing the database password every time is tedious for production
+projects, so the panel exposes two extra controls next to the
+**Password** field:
+
+- **Save to keychain** — stores the password in the operating
+  system's native credential store (macOS Keychain, GNOME Keyring,
+  Windows Credential Manager). The next time you open Blender and
+  switch to PostgreSQL mode, the password field is auto-populated
+  from the keychain.
+- **Forget** — removes the credentials from the keychain.
+
+If the host platform has no working keychain backend (a typical
+case is a headless Linux build of Blender), the password lives only
+in memory for the current Blender session: it works for the next
+import but is forgotten when Blender exits. The panel surfaces a
+short message when this happens, so you know to retype the password
+on the next session rather than wondering why **Save to keychain**
+appeared to do nothing.
+
+.. _pg-security:
+
+Security posture
+~~~~~~~~~~~~~~~~
+
+A few facts about how the new backend treats credentials. None of
+these require any configuration on your side — they are how the
+code is written — but they are worth knowing if you are deploying
+EM Tools on shared lab machines or sharing ``.blend`` files
+between collaborators:
+
+- The password field is declared with Blender's ``SKIP_SAVE`` flag
+  and ``subtype='PASSWORD'``. Effect: **the password is never
+  serialised into the ``.blend`` file**, even if you tick
+  *Save to keychain* and then save the scene. Reopening the
+  ``.blend`` on another machine starts with an empty password
+  field.
+- The connection URL is **percent-encoded** before being passed to
+  the PostgreSQL driver. Special characters in passwords
+  (``@``, ``/``, ``:``, ``?``, …) cannot corrupt the URL or be
+  mis-parsed.
+- Whenever EM Tools writes provenance attributes onto imported
+  nodes (the ``source_file`` field that records *where this US came
+  from*), the connection string is **redacted** — both the user and
+  the password are stripped before persistence. The graph keeps a
+  readable database hint (``postgres://<redacted>@db.example.org/pyarchinit_db``)
+  without ever embedding credentials.
+- Connection failures **deliberately do not include the connection
+  URL** in their error popups, so screenshotting a stack trace
+  cannot leak the password.
+- The connection is opened **read-only** with ``autocommit=on``
+  (a server-side guarantee, not just a client convention), so even
+  a bug in EM Tools cannot accidentally write to the pyArchInit
+  database during a 3D GIS import.
+
+What this does *not* protect against is a malicious local user with
+filesystem access to your home directory and the OS keychain —
+that's the operating system's problem, not the addon's. If your
+threat model includes that scenario, do not use *Save to keychain*;
+just retype the password every session.
+
+Switching between PostgreSQL and SQLite
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The two backends coexist: at any moment exactly one source is
+active in the 3D GIS panel. Switching from one to the other:
+
+- Resets the panel state cleanly. Row-filter dropdowns are
+  re-discovered against the new source on the next mapping or
+  filter expansion.
+- Does **not** modify the graph that is already loaded in the
+  scene. Switching the source picks the data for the *next* import;
+  it does not delete anything that was already imported.
+
+A pragmatic recipe: keep a SQLite export of last week's snapshot
+alongside the live PostgreSQL connection. Reproducing a result on
+an archived snapshot is then a one-click backend switch.
+
+Reverse export (Sub-3, planned)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PR #28 ships the **read** side of the PostgreSQL connection (Sub-2
+of issue #27). The companion **write** side — pushing edits made in
+EM Tools back to pyArchInit — is the *Sub-3* milestone of the same
+umbrella issue and is in flight at the time of writing. It will get
+its own documentation page when it lands, with a similar demo GIF
+and the same provenance / redaction guarantees as the read path.
+
+
 .. _graphml_warnings:
 
 GraphML Warnings
