@@ -648,6 +648,19 @@ QGIS-friendly geometry storage, server-side backups — so connecting
 to it without exporting a SQLite snapshot first removes a whole step
 from the daily authoring loop.
 
+.. admonition:: Scope — 3D GIS mode only (for now)
+   :class: important
+
+   Everything described in this section applies specifically to the
+   **3D GIS mode** of the EM Setup panel (the ``Switch to 3D GIS``
+   workflow described above). In **pure EM mode** the data
+   ingestion goes through a different code path that does not yet
+   use the PostgreSQL/PostGIS backend introduced here — pure-EM
+   projects still consume their source data through the existing EM
+   importers. Bringing the same backend into pure EM mode is on the
+   roadmap but is **not** part of this release. Until then, the
+   one-click "live database" experience is a 3D GIS feature.
+
 .. admonition:: Contributed by Enzo Cocca
    :class: note
 
