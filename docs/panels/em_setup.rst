@@ -954,21 +954,116 @@ PR #29 ships the row-level write path. Two pieces still
 follow-up work:
 
 - **``rapporti`` (physical stratigraphic relations)** —
-  currently *not* populated by the reverse export. The full
-  round-trip behaviour lives in
-  `s3dgraphy #16 <https://github.com/zalmoxes-laran/s3Dgraphy/issues/16>`__
-  (canonical edges + reciprocity + paradox detection) and the
-  matching yEd palette work in
-  `EM-blender-tools #30 <https://github.com/zalmoxes-laran/EM-blender-tools/issues/30>`__
+  populated by the reverse export as of the s3dgraphy
+  canonical-edges series (``s3dgraphy_v1.6dev``, commits
+  ``a934c7b..2823095``) and the matching yEd palette change
   (``physical_relationships`` packed node attribute on US-type
-  nodes in the EM 1.6 yEd palette). Until both land, an
-  exported row keeps the ``rapporti`` value already in the
-  PyArchInit DB and does not overwrite it.
+  nodes, see :ref:`pyarchinit_physical_relationships` below).
+  Tracking issues:
+  `s3dgraphy #16 <https://github.com/zalmoxes-laran/s3Dgraphy/issues/16>`__,
+  `EM-blender-tools #30 <https://github.com/zalmoxes-laran/EM-blender-tools/issues/30>`__.
+  EM Tools picks up the field automatically when the bundled
+  s3dgraphy version is bumped past ``2823095``; older bundles
+  keep the previous behaviour (the row's existing
+  ``rapporti`` value in the PyArchInit DB is preserved
+  untouched).
 
 - **Inventario materiali / Special-find writeback** — out of
   scope for this first iteration. The write path is currently
   US-table focused (plus epochs when *Create missing epochs*
   is on).
+
+.. _pyarchinit_physical_relationships:
+
+The ``physical_relationships`` packed attribute (EM 1.6, US-type nodes)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Extended Matrix reserves yEd edges for the **temporal** axis (the
+Harris-Matrix-style precedence / equivalence layer). Physical
+stratigraphic relationships (``copre`` / ``coperto da`` / ``taglia``
+/ ``riempie`` / ``si appoggia a`` / ``uguale a`` / ``si lega a`` and
+their reciprocals) cannot ride on edges without polluting the Matrix
+layout. Starting with EM 1.6 the palette declares a per-US-node
+**packed string attribute** called ``physical_relationships`` that
+carries them losslessly.
+
+.. admonition:: Edges = temporal · packed field = physical
+   :class: important
+
+   This is the deliberate architectural separation. Anyone
+   re-proposing a *physical-relationship edge* in yEd should be
+   pointed at this section and at
+   `EM-blender-tools #30 <https://github.com/zalmoxes-laran/EM-blender-tools/issues/30>`__.
+
+Format
+""""""
+
+The field is the same list-of-lists Python literal used by
+PyArchInit's ``us_table.rapporti`` column, **verbatim**:
+
+.. code-block:: text
+
+   [["Copre", "12", "1", "Pompei"], ["Taglia", "18", "1", "Pompei"], ["Si appoggia a", "7", "1", "Pompei"]]
+
+Each entry is ``[label, target_us, area, sito]``. Labels accept both
+Italian (``copre`` / ``taglia`` / …) and English (``overlies`` /
+``cuts`` / …) on read; the serialiser emits verbose Italian (or
+shorthand tokens ``>`` / ``<`` / ``>>`` / ``<<`` for non-canonical
+unit types — see ``s3dgraphy.sync.rapporti`` for the rule set).
+
+Where it lives
+""""""""""""""
+
+Three serialisations cohabit, all driven by the same s3dgraphy code:
+
+- **In memory (s3dgraphy property graph)** — first-class canonical
+  edges (``overlies``, ``cuts``, ``fills``, ``abuts``,
+  ``is_bonded_to``, ``is_physically_equal_to`` and reciprocals).
+  This is the **single source of truth** the rest of EM Tools
+  consumes.
+- **In yEd GraphML (EM 1.6 palette)** — the ``physical_relationships``
+  node attribute. The s3dgraphy GraphML exporter writes it; the
+  importer reads it as a fallback when the richer
+  ``_s3d_physical_relations`` graph-level JSON side channel is
+  absent (typical for files hand-authored in yEd or transited
+  through a non-s3dgraphy pipeline).
+- **In PyArchInit (``us_table.rapporti`` column)** — the same
+  list-of-lists. The reverse export populates the column from the
+  canonical edges; on read, ``GraphProjector`` turns it back into
+  canonical edges.
+
+The three serialisations are **byte-identical with each other**
+when the graph between them is unmutated — that's the design
+guarantee that makes round-trips lossless.
+
+Authoring it in yEd
+"""""""""""""""""""
+
+In the EM 1.6 yEd palette (``ExtendedMatrix`` repo) every US-type
+template node exposes ``physical_relationships`` as a free-text
+node attribute, default empty. Authors who care about physical
+relationships type them in directly, in the format above.
+
+For graphs sourced from PyArchInit the field is filled
+automatically by the importer — no manual authoring needed.
+
+Common workflows
+""""""""""""""""
+
+- **PyArchInit → EM (read)** — the ``us_table.rapporti`` column is
+  loaded by :class:`GraphProjector`, the entries become canonical
+  edges in s3dgraphy, and the exporter then writes them out as the
+  ``physical_relationships`` attribute when producing a GraphML.
+- **yEd-authored EM → PyArchInit (write)** — the importer parses
+  the ``physical_relationships`` field into canonical edges, the
+  reverse-export operator serialises them back into the
+  ``us_table.rapporti`` column. Edits made in yEd round-trip
+  losslessly to the database.
+- **yEd → yEd (no DB)** — the s3dgraphy GraphML exporter also
+  writes a graph-level ``_s3d_physical_relations`` JSON side
+  channel (with per-edge author / document attributes), which
+  takes precedence on re-import. The per-node packed string is
+  the legacy / interoperability fallback.
 
 
 .. _graphml_warnings:
