@@ -825,19 +825,26 @@ or PostgreSQL), via ``s3dgraphy.sync.GraphIngestor``. A **dry-run
 preview** reports the planned inserts, updates and conflicts before
 any data is written.
 
-The connection is **shared** with the 3D GIS import panel (see
-:ref:`pyarchinit_postgres_backend` above): the same connection
-fields, the same OS keychain entry, the same redaction guarantees.
-Reading and writing the same PyArchInit DB is one configuration,
-not two.
-
-.. admonition:: Scope — 3D GIS mode only (for now)
+.. admonition:: Scope — runs in EM Advanced mode (reuses the 3D GIS connection)
    :class: important
 
-   The reverse export shares the *3D GIS mode* connection. Pure EM
-   mode does not (yet) push back to PyArchInit through this
-   path; bringing the unified backend into pure EM is on the
-   roadmap. Until then, the round-trip surface is a 3D GIS feature.
+   The reverse export lives in the **EM Advanced workflow**: you have
+   a full s3dgraphy graph loaded in the scene (typically authored in
+   yEd via GraphML and refined inside Blender), and you push it back
+   to the PyArchInit database. The connection settings themselves
+   (host / port / database / user / password / keychain) are
+   **shared** with the 3D GIS import panel described in
+   :ref:`pyarchinit_postgres_backend` above — so a round-trip reads
+   and writes the same PyArchInit DB with one configuration. You
+   import geometries into the scene via the *3D GIS mode* panel and
+   you write the enriched graph back via the *EM Advanced mode*
+   Export panel; the credentials don't get re-asked in between.
+
+   Pure 3D GIS mode (without an EM graph in the scene) does not have
+   a reverse-export surface — there's no graph to push. The
+   unification of import + export under a single workflow mode is
+   on the roadmap; until then this is the EM-Advanced-with-shared-3D-GIS-credentials
+   shape.
 
 .. admonition:: Contributed by Enzo Cocca
    :class: note
