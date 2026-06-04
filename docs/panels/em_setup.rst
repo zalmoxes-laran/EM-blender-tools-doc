@@ -813,15 +813,155 @@ A pragmatic recipe: keep a SQLite export of last week's snapshot
 alongside the live PostgreSQL connection. Reproducing a result on
 an archived snapshot is then a one-click backend switch.
 
-Reverse export (Sub-3, planned)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _pyarchinit_reverse_export:
 
-PR #28 ships the **read** side of the PostgreSQL connection (Sub-2
-of issue #27). The companion **write** side — pushing edits made in
-EM Tools back to pyArchInit — is the *Sub-3* milestone of the same
-umbrella issue and is in flight at the time of writing. It will get
-its own documentation page when it lands, with a similar demo GIF
-and the same provenance / redaction guarantees as the read path.
+Reverse export to PyArchInit DB (Export panel, 1.6+)
+----------------------------------------------------
+
+EM Tools 1.6 also includes the **write** side of the PyArchInit
+connection: an *Export to PyArchInit DB* provider in the Export
+panel that pushes the active EM graph back into the database (SQLite
+or PostgreSQL), via ``s3dgraphy.sync.GraphIngestor``. A **dry-run
+preview** reports the planned inserts, updates and conflicts before
+any data is written.
+
+The connection is **shared** with the 3D GIS import panel (see
+:ref:`pyarchinit_postgres_backend` above): the same connection
+fields, the same OS keychain entry, the same redaction guarantees.
+Reading and writing the same PyArchInit DB is one configuration,
+not two.
+
+.. admonition:: Scope — 3D GIS mode only (for now)
+   :class: important
+
+   The reverse export shares the *3D GIS mode* connection. Pure EM
+   mode does not (yet) push back to PyArchInit through this
+   path; bringing the unified backend into pure EM is on the
+   roadmap. Until then, the round-trip surface is a 3D GIS feature.
+
+.. admonition:: Contributed by Enzo Cocca
+   :class: note
+
+   The reverse-export provider was contributed by **Enzo Cocca**
+   (`@enzococca <https://github.com/enzococca>`__) via
+   `EM-blender-tools PR #29
+   <https://github.com/zalmoxes-laran/EM-blender-tools/pull/29>`__,
+   landing the *Sub-3* milestone of the umbrella tracking
+   `issue #27 <https://github.com/zalmoxes-laran/EM-blender-tools/issues/27>`__
+   (*PyArchInit Postgres backend + reverse export*). The companion
+   piece on the s3dgraphy side is
+   `s3dgraphy PR #11 <https://github.com/zalmoxes-laran/s3Dgraphy/pull/11>`__
+   (``s3dgraphy.sync.GraphIngestor`` move) plus the upstream-gap
+   follow-up tracked in
+   `s3dgraphy #15 <https://github.com/zalmoxes-laran/s3Dgraphy/issues/15>`__.
+
+.. figure:: ../img/gif/pyarchinit-reverse-export.gif
+   :align: center
+   :width: 90%
+   :alt: Animated demo of the EM-to-PyArchInit reverse export in EM Tools 1.6.
+
+   *Pushing the active EM graph back into a PyArchInit database
+   from the Export panel — dry-run preview first, then the actual
+   write. Credit: Enzo Cocca.*
+
+Where the panel lives
+~~~~~~~~~~~~~~~~~~~~~
+
+Open the **Export** sidebar tab in the EM Tools UI. The new
+**PyArchInit DB** section sits alongside the existing Heriverse,
+Tabular and RDF export providers. Two controls (besides the
+connection inherited from the 3D GIS import panel):
+
+- **Site** — the PyArchInit site name (``sito``) the graph rows
+  are written under. Required.
+- **Create missing epochs** — when on, the export auto-creates
+  ``periodizzazione_table`` rows for any EM epochs that are not
+  already present in the PyArchInit DB. When off, an unknown
+  epoch is reported as a conflict and the row containing it is
+  skipped.
+
+Two action buttons:
+
+- **Preview (dry run)** — runs the ingestor in read-only mode and
+  reports planned inserts / updates / conflicts. Never mutates the
+  database. Recommended as the first step of any reverse export.
+- **Export to PyArchInit DB** — the real write. Wraps the same
+  ``populate_list`` call but with ``dry_run=False``. The summary
+  popup is the same shape as the dry-run, with the actual
+  applied-row counts instead of the planned ones.
+
+The ``node_uuid`` prerequisite
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``s3dgraphy.sync.GraphIngestor`` matches s3dgraphy nodes to
+PyArchInit rows by ``node_uuid``, a column that the database
+must carry on the three reverse-export-target tables
+(``us_table``, ``inventario_materiali_table``,
+``periodizzazione_table``). On a recently-updated PyArchInit
+install, the column is already there. On an older install, the
+export operator handles the gap:
+
+- **Preview (dry-run) path** — never mutates the schema. If the
+  column is missing, the popup explains how to bring the
+  database up to date from the PyArchInit side and aborts.
+- **Real-export path** — attempts a best-effort, idempotent
+  migration (``add node_uuid`` + partial unique index + UUID
+  backfill, via SQLAlchemy, SQLite and PostgreSQL both
+  supported) and then retries the export. If the migration
+  itself fails (no DDL privileges on a managed Postgres
+  install, for example), the export aborts with the same
+  user-facing message.
+
+The upstream owner of the ``node_uuid`` column is PyArchInit
+itself; the EM Tools best-effort port is a stop-gap, tracked
+upstream in
+`s3dgraphy #15 <https://github.com/zalmoxes-laran/s3Dgraphy/issues/15>`__.
+
+Security posture (same shape as the read side)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The reverse export inherits the same credential discipline as
+the import path described in :ref:`pg-security`:
+
+- Password lives on a ``SKIP_SAVE`` ``PROPERTIES`` field
+  (``pyarchinit_pg_password``) — never serialised to
+  ``.blend`` files.
+- The connection URL is **redacted** before any provenance
+  attribute is written into the graph; only the credential-free
+  ``postgresql://host:port/db`` form lands in the
+  ``source_file`` field of imported nodes.
+- The export-summary popup and the operator's error reports
+  defensively strip ``user:password@`` from any postgres URL
+  substrings in the message, so an upstream library that
+  decides to embed the connection URL in an exception cannot
+  leak credentials through the popup.
+- The new ``s3dgraphy.sync`` runtime dependency stack
+  (SQLAlchemy + ``typing_extensions``) is bundled by the
+  EM Tools build pipeline — no user-side ``pip install``
+  step.
+
+Limitations and follow-ups
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PR #29 ships the row-level write path. Two pieces still
+follow-up work:
+
+- **``rapporti`` (physical stratigraphic relations)** —
+  currently *not* populated by the reverse export. The full
+  round-trip behaviour lives in
+  `s3dgraphy #16 <https://github.com/zalmoxes-laran/s3Dgraphy/issues/16>`__
+  (canonical edges + reciprocity + paradox detection) and the
+  matching yEd palette work in
+  `EM-blender-tools #30 <https://github.com/zalmoxes-laran/EM-blender-tools/issues/30>`__
+  (``physical_relationships`` packed node attribute on US-type
+  nodes in the EM 1.6 yEd palette). Until both land, an
+  exported row keeps the ``rapporti`` value already in the
+  PyArchInit DB and does not overwrite it.
+
+- **Inventario materiali / Special-find writeback** — out of
+  scope for this first iteration. The write path is currently
+  US-table focused (plus epochs when *Create missing epochs*
+  is on).
 
 
 .. _graphml_warnings:
