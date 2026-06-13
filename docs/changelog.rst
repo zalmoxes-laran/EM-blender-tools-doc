@@ -82,6 +82,39 @@ Unreleased (in development)
      and ``SurfaceArealeSettings``.
    - ``GENERIC`` placeholder from the Surface Areas US type picker.
 
+**Added — Visual Manager + EM Setup wording polish (2026-06)**
+   - **"Layouts" replaces "CAMS"** as the name of the standard
+     collection holding camera + label setups for 2D plate
+     authoring. The legacy name was a Blender-ism that confused
+     archaeologists; "Layouts" reflects what the collection
+     actually holds. New projects created via
+     ``Create Standard Collections`` get a ``Layouts`` collection;
+     every lookup across the addon prefers the new name and
+     falls back to ``CAMS`` so projects authored against earlier
+     1.6 dev builds keep working without a manual migration.
+     See :ref:`Visual_Manager_bulk_visibility` for the bulk
+     visibility controls that operate over this collection.
+   - **RM sub-collections ``RB`` and ``SB``** are created as
+     children of the ``RM`` collection by
+     ``Create Standard Collections``:
+
+     - ``RB`` = reality-based — photogrammetry, laser scan, drone
+       imagery, and other reconstructions derived from a captured
+       surface.
+     - ``SB`` = source-based — hand-modelled reconstructions
+       built from textual / iconographic / archaeological sources.
+
+     Routing is left to the user (drag meshes between
+     sub-collections in the outliner). A future patch may
+     auto-route on ``promote_to_rm``.
+   - **"Proxy Alpha" slider renamed to "Proxy Transparency"** in
+     the Visual Manager. The internal property identifier
+     (``scene.em_tools.proxy_display_alpha``) is preserved so
+     saved .blend files and existing operator wiring keep
+     working — only the user-visible label changes. The
+     description string now references the 0–1 range with
+     "fully transparent" / "fully opaque" wording for clarity.
+
 **Fixed — Visual Manager show/hide-all pairs (2026-06)**
    - **"Show All RMs" no-op** when any RM had been hidden via the
      outliner eye icon or the ``H`` key — the operator set

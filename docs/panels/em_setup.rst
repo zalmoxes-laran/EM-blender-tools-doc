@@ -374,7 +374,16 @@ In the first case (``Convert 1.x->1.5`` button) EMtools will normalise
 older GraphML files authored with the 1.x palette to the 1.5 visual
 conventions — see :ref:`convert-legacy-em-graph` below for details.
 
-Within this section, EMtools includes also a button, ``Create Standard Collections``, that allows to automatically create the set of default collections (Proxy, RM, CAMS) related to a reconstruction process with Extended Matrix.
+Within this section, EMtools includes also a button, ``Create Standard Collections``, that allows to automatically create the set of default Blender collections used by a reconstruction workflow with Extended Matrix. The collections are:
+
+- ``Proxy`` — holds proxy meshes (volumetric placeholders for each US / USV / SF in the graph).
+- ``RM`` — holds Representation Models (the 3D reconstructions that visualise each US / USV).
+
+  - ``RB`` — sub-collection under ``RM`` for **reality-based** RMs: photogrammetry, laser scan, drone-imagery and other reconstructions derived from a captured surface.
+  - ``SB`` — sub-collection under ``RM`` for **source-based** RMs: hand-modelled reconstructions built from textual, iconographic or archaeological sources.
+
+  *New in EM Tools 1.6.0-dev.8.* The two sub-collections are created empty; the user moves meshes into the appropriate one by drag-and-drop in the outliner. A future patch may auto-route on ``promote_to_rm``.
+- ``Layouts`` — holds camera + label setups for authoring 2D plates and publication figures. *Renamed from ``CAMS`` in EM Tools 1.6.0-dev.8.* The previous name was a Blender-ism (cameras for renders) that obscured what the collection actually holds; "Layouts" reflects the workflow purpose. Lookups across the addon prefer the new name and fall back to ``CAMS`` so projects authored against earlier builds keep working without a manual migration step.
 
 By pressing ``Manage Proxies' Prefixes`` button, EMtools will automatically rename Proxies according to the GraphML ID (**NB**: this step is mandatory to mutually connect GraphML and Proxies. User must select geometries before applying the tool).
 

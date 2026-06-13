@@ -47,12 +47,12 @@ Within the ``Display mode`` section, users can filter the visualization of the g
 
 ``EM`` will visualize Proxies with a monochromatic material that will match their node (US, USV/s, USV/n, SF, USD, serSU, serUSD, etc..; :numref:`Fig. %s <EM_VM_Proxy_cam_label_01-03FIG>`).
 
-Within the panel (:numref:`Fig. %s <EM_VM_Proxy_cam_label_01-03FIG>`) user can also control the ``alpha`` value of the Proxies' material (0 = completely transparent; 1 = no alpha).
+Within the panel (:numref:`Fig. %s <EM_VM_Proxy_cam_label_01-03FIG>`) user can also control the ``Proxy Transparency`` value of the Proxies' material (0 = fully transparent; 1 = fully opaque). *Renamed from "Proxy Alpha" in EM Tools 1.6.0-dev.8 — the underlying property identifier is unchanged so saved .blend files keep working.*
 Other display options allow user to visualize ONLY selected Proxies with different modes (``bounding box``, ``wireframe``, ``solid``, ``solid&wireframe``).
 
 The ``Label Tools`` section allows user to automatically create a label related to the selected proxies.
 
-Firstly, to start the labelling process users must create the **CAMS** collection and move inside an already existing **camera** (or a new one), then by pressing the ``Refresh Camera List`` button the tool will automaticcally visualize the camera and display information.
+Firstly, to start the labelling process users must create the **Layouts** collection (renamed from ``CAMS`` in EM Tools 1.6.0-dev.8 — lookups still accept the legacy name) and move inside an already existing **camera** (or a new one), then by pressing the ``Refresh Camera List`` button the tool will automatically visualize the camera and display information.
 
 Once the camera has been oriented (**NB**: in order to easily orient the camera on the desired proxy or Proxies, user has different solution: manual orientation, by using default command of Blender, or using the add-on ``Store View``, which is already in Blender) and one or more Proxies has been selected, by pressing the ``Create Labels for Selected`` button a new label will appear.
 
@@ -108,7 +108,7 @@ Display Controls
 
 Below the display mode section, a row of controls is available:
 
-- **Alpha slider**: controls the transparency of the Proxies' material (0 = fully transparent, 1 = fully opaque)
+- **Proxy Transparency slider** (renamed from "Proxy Alpha" in 1.6.0-dev.8): controls the transparency of the Proxies' material (0 = fully transparent, 1 = fully opaque)
 - **Shading buttons**: switch between ``Bounding Box``, ``Wireframe``, ``Solid``, and ``Solid & Wireframe`` display modes for selected proxies
 - **Bulk visibility controls**: four show/hide pairs that toggle every object of a given role — see :ref:`Visual_Manager_bulk_visibility` below
 - **Material override button**: applies a default material to objects not matched by the EM graph
