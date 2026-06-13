@@ -100,8 +100,53 @@ Below the display mode section, a row of controls is available:
 
 - **Alpha slider**: controls the transparency of the Proxies' material (0 = fully transparent, 1 = fully opaque)
 - **Shading buttons**: switch between ``Bounding Box``, ``Wireframe``, ``Solid``, and ``Solid & Wireframe`` display modes for selected proxies
-- **Bulk visibility controls**: show/hide all Proxies, all RM models, or all Special Finds at once
+- **Bulk visibility controls**: four show/hide pairs that toggle every object of a given role — see :ref:`Visual_Manager_bulk_visibility` below
 - **Material override button**: applies a default material to objects not matched by the EM graph
+
+.. _Visual_Manager_bulk_visibility:
+
+Bulk Visibility Controls
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+On the right side of the Display Controls row, four pairs of icon
+buttons let you flip the visibility of every object in a given role
+in a single click. The pairs, left to right:
+
+- **Proxies** — show / hide every proxy mesh registered in the
+  Stratigraphy Manager list.
+- **Representation Models (RMs)** — show / hide every RM mesh,
+  curve and Cesium-tileset wrapper registered as an RM. Three
+  sources are unioned: the RM Manager list, the legacy ``RM``
+  Blender collection, and every RM Container (so a mesh that was
+  added to a container before an active epoch was set still
+  participates).
+- **Special Finds (SF)** — show / hide every Special Find mesh in
+  the ``SF`` Blender collection.
+- **RMDocs** — show / hide every RMDoc quad in the ``RMDoc``
+  Blender collection plus its associated camera, kept in
+  lock-step so toggling never leaves a dangling camera visible
+  without its quad.
+
+Each button operates on **all three of Blender's visibility flags
+simultaneously**: the per-view-layer eye icon (the ``H`` key in the
+viewport), the "Disable in Viewports" monitor icon, and the
+"Disable in Renders" camera icon. This matters when you want to
+recover models you previously hid via the eye icon — a single
+"Show All" click flips every flag, so anything you hid through
+*any* of Blender's three mechanisms comes back. The same symmetry
+applies on the Hide side.
+
+.. note::
+
+   *Changed in EM Tools 1.5.4 / 1.6.0-dev.7.* Before this patch
+   the RM, SF, and RMDoc show/hide pairs touched only two of the
+   three visibility flags, so any object hidden via the ``H`` key
+   or the outliner eye icon stayed hidden after a "Show All"
+   click. The RM pair also iterated only the RM list and the
+   legacy ``RM`` collection — meshes that lived in an RM Container
+   without an ``rm_list`` entry were invisible to the operator.
+   Both shortcomings are now fixed; the four pairs behave
+   consistently.
 
 Color Scheme Save/Load
 ----------------------
