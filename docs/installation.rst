@@ -1,308 +1,106 @@
-Installation and Development
-============================
+Installation
+============
 
-This section covers both user installation and developer setup for EM Tools.
+EM Tools is a Blender extension. The recommended install path is the
+**drag-and-drop card** on the Extended Matrix website, which sets up
+the EM Blender repository for you and installs the extension in one
+gesture. This page also covers the offline / manual path for users
+on restricted networks, the development setup, and the yEd palette
+note (since the palette is part of the EM language toolchain, not of
+this manual).
 
-User Installation
------------------
+.. contents::
+   :local:
+   :depth: 1
 
-System Requirements
-^^^^^^^^^^^^^^^^^^^
 
-* Blender 4.4 or later
-* Operating System: Windows (x64), macOS (ARM / Apple Silicon), macOS (Intel x64), Linux (x64)
-* At least 4GB RAM (8GB recommended)
-* 500MB free disk space
+Quick install (recommended)
+---------------------------
 
-.. note::
-   macOS Intel (x64) is supported up to Blender 4.5 (the last version available for Intel Macs).
-   From Blender 5.0 onwards, only macOS ARM (Apple Silicon) is supported.
+Open the install card at
+`extendedmatrix.org/tools/em-tools <https://www.extendedmatrix.org/tools/em-tools/#install>`__.
+The card picks the right build for your OS and Blender version, and
+exposes a drag-and-drop handle:
 
-.. important::
-   Different ``.zip`` release files are available for different combinations of **Blender version** and **operating system**.
-   Make sure to download the correct file for your setup. For example:
+1. **Drag the handle into the Blender window**. The first drop adds
+   the *Extended Matrix* repository to Blender's Extensions list.
+2. **Drop a second time**. EM Tools installs from the repository.
+3. **Tick the checkbox** next to *EM Tools* in the Extensions panel
+   to enable it. The EM Tools panels appear in the 3D Viewport
+   sidebar.
 
-   - ``em_tools-v1.5.0-dev.140-blender5.1-windows-x64.zip`` for Blender 5.1 on Windows
-   - ``em_tools-v1.5.0-dev.140-blender5.0-macos-arm64.zip`` for Blender 5.0 on macOS Apple Silicon
-   - ``em_tools-v1.5.0-dev.140-blender4.5-macos-x64.zip`` for Blender 4.5 on macOS Intel
+Future EM Tools releases arrive as automatic updates from the
+repository — no further action needed.
 
-   Release files with ``-dev.`` in the name are development builds. Stable releases (when available) will not have the ``-dev`` suffix.
 
-Installing from Extension Package
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+System requirements
+-------------------
 
-The recommended way to install EM Tools is through the official Blender extension system:
+- **Blender** 4.4 LTS or later.
+- **OS**: Windows (x64), macOS (Apple Silicon / arm64), macOS (Intel
+  x64, Blender 4.4 / 4.5 only — Blender 5.x dropped Intel binaries),
+  Linux (x64).
+- 4 GB RAM (8 GB recommended), 500 MB free disk for the extension
+  and its bundled wheels.
 
-1. **Download the Extension**
+The extension installs all Python dependencies automatically.
 
-   - Visit the `GitHub Releases page <https://github.com/zalmoxes-laran/EM-blender-tools/releases>`_
-   - Download the ``.zip`` file matching your Blender version and operating system
 
-2. **Install in Blender**
+Offline / manual install
+------------------------
 
-   - Open Blender
-   - Navigate to ``Edit → Preferences... → Get Extensions``
-   - Click the ``Install from Disk...`` button
-   - Browse to the downloaded ``.zip`` file and select it
-   - Press the ``Install from Disk`` button
-   - The extension will be installed automatically
+For restricted networks, mirrored installations, or if you prefer to
+pin a specific build:
 
-3. **Enable the Extension**
+1. Visit the
+   `GitHub Releases page <https://github.com/zalmoxes-laran/EM-blender-tools/releases>`_
+   and download the ``.zip`` matching your Blender version and OS.
+   Different ``.zip`` builds exist per OS × Blender ABI; the
+   filename encodes the combination (for example
+   ``em_tools-v1.5.3-macosx-arm64-blender51.zip`` for Blender 5.1 on
+   Apple Silicon).
+2. In Blender, open ``Edit → Preferences → Get Extensions → Install
+   from Disk…`` and select the downloaded ``.zip``.
+3. Tick the box next to *EM Tools* to enable it.
 
-   - Find *EM Tools* in the add-ons list
-   - Check the box next to it to enable
-   - The EM Tools panels will automatically appear in the 3D Viewport sidebar
+The extension installs Python dependencies automatically; no manual
+``pip install`` is needed.
 
-.. note::
-   The extension automatically installs all required Python dependencies.
-   No manual dependency installation is needed.
-
-Importing the EM Palette in yEd
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-EM Tools reads ``.graphml`` files that use a specific set of node types
-(stratigraphic units, sources, paradata, connectors, …). To author or
-edit those files in `yEd <https://www.yworks.com/products/yed>`_ you
-need to load the **EM palette** — a small ``.graphml`` file that adds
-the EM nodes to yEd's right-hand drag-and-drop panel.
-
-1. **Download the palette** from the
-   `palette release page <https://www.extendedmatrix.org/download>`_
-   (file: ``EM_palette_<version>.graphml``).
-2. **Open yEd** and choose ``Edit → Manage Palette…``.
-3. In the *Manage Palette* dialog click **Import Section…** and select
-   the ``.graphml`` palette you downloaded.
-4. Tick the new section so it is **visible** and close the dialog.
-
-The EM palette will now appear in the right-hand panel of yEd as a new
-section. Drag any node from there onto the canvas to author an EM graph
-that EM Tools can load directly into Blender.
-
-.. todo::
-   Add screenshots — *Edit → Manage Palette*, the *Import Section* dialog,
-   and the palette visible in the right-hand panel after import.
-
-.. tip::
-   The full walkthrough including video is in
-   :doc:`tutorials/12-install-yed-blender`.
 
 Updating EM Tools
-^^^^^^^^^^^^^^^^^
-
-When a new version is available:
-
-1. Uninstall the previous version of EM Tools from Blender (if installed)
-2. Restart Blender to ensure all old files are cleared
-3. Download the new ``.zip`` file from the `GitHub Releases page <https://github.com/zalmoxes-laran/EM-blender-tools/releases>`_ or the `Download section of the Extended Matrix web site <https://www.extendedmatrix.org/download>`_
-4. Install it using the process previously described
-5. Blender will automatically update the existing installation
-
-Development Setup
 -----------------
 
-This section is for developers who want to contribute to EM Tools or modify it for their needs.
+* **Quick install path**: Blender follows the *Extended Matrix*
+  repository for you; updates arrive automatically on Blender's
+  next ``Check for Updates`` cycle (configurable under ``Get
+  Extensions → ⚙ → Online``).
+* **Offline / manual path**: download the new ``.zip``, uninstall
+  the previous version in Blender's Extensions panel, restart
+  Blender, and re-install from disk.
 
-Prerequisites
-^^^^^^^^^^^^^
 
-* Blender 4.4 or later
-* Python 3.13 (same version as Blender 4.4+)
-* Git
-* Visual Studio Code (recommended)
-* Blender Development extension for VSCode
+Importing the EM palette in yEd
+-------------------------------
 
-Setting Up the Development Environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The yEd palette is part of the **EM language** toolchain, not of EM
+Tools. The canonical walkthrough lives in the EM language manual:
 
-1. **Clone the Repository**
+* `Setting up the yEd palette
+  <https://docs.extendedmatrix.org/en/1.5/mini_tutorials/setup_yed_palette.html>`__
+  — concept page, palette download link, and step-by-step yEd
+  ``Edit → Manage Palette → Import Section…`` walkthrough.
 
-   .. code-block:: bash
+The palette is required only when you author or edit an EM graph in
+yEd. EM Tools itself reads any standard EM ``.graphml`` regardless of
+whether the authoring used yEd, the unified ``em_data.xlsx`` flow, or
+AI-assisted generation via StratiMiner.
 
-      git clone https://github.com/zalmoxes-laran/EM-blender-tools.git
-      cd EM-blender-tools
 
-2. **Install Development Dependencies**
+Development setup
+-----------------
 
-   Run the setup script to download all required Python wheels:
+Contributors and developers should follow :doc:`development_setup`
+instead — it covers the dev-venv setup, the wheel pipeline used by
+``em.sh``, and the s3dgraphy editable-install pattern for working
+against the in-development library.
 
-   .. code-block:: bash
-
-      python scripts/setup_development.py
-
-   This script will:
-
-   - Create a ``wheels`` directory
-   - Download all required dependencies for your platform
-   - Ensure compatibility with Blender's Python version
-
-3. **Configure for Development**
-
-   Switch to development mode:
-
-   .. code-block:: bash
-
-      python scripts/switch_dev_mode.py dev
-
-   This creates a simplified manifest file optimized for VSCode development.
-
-4. **Open in Visual Studio Code**
-
-   .. code-block:: bash
-
-      code .
-
-5. **Configure VSCode**
-
-   Ensure your ``.vscode/settings.json`` contains:
-
-   .. code-block:: json
-
-      {
-          "blender.addon.sourceDirectory": ".",
-          "blender.addon.reloadOnSave": true,
-          "blender.executable": "/path/to/blender"
-      }
-
-6. **Start Development**
-
-   - Press ``Cmd+Shift+P`` (Mac) or ``Ctrl+Shift+P`` (Windows/Linux)
-   - Run ``Blender: Start``
-   - The addon will load with hot reload enabled
-
-Development Workflow
-^^^^^^^^^^^^^^^^^^^^
-
-Daily Development
-"""""""""""""""""
-
-1. Make your code changes
-2. Save files - the addon will automatically reload in Blender
-3. Test your changes in the running Blender instance
-
-.. note::
-   You may see "already registered" warnings during hot reload.
-   These are normal and can be ignored.
-
-Creating a Release
-""""""""""""""""""
-
-1. **Switch to Production Mode**
-
-   .. code-block:: bash
-
-      python scripts/switch_dev_mode.py prod
-
-2. **Update Version**
-
-   - Update version in ``blender_manifest.toml``
-   - Update version in ``__init__.py`` (bl_info)
-
-3. **Create Git Tag**
-
-   .. code-block:: bash
-
-      git tag v1.5.0
-      git push origin v1.5.0
-
-4. **Automatic Build**
-
-   GitHub Actions will automatically:
-
-   - Download wheels for all platforms
-   - Create ``.zip`` packages for each Blender version and platform
-   - Create a GitHub release
-
-Project Structure
-^^^^^^^^^^^^^^^^^
-
-.. code-block:: text
-
-   EM-blender-tools/
-   ├── __init__.py              # Main addon entry point
-   ├── blender_manifest.toml    # Extension manifest
-   ├── wheels/                  # Dependencies (git-ignored)
-   ├── scripts/                 # Development utilities
-   │   ├── setup_development.py
-   │   ├── switch_dev_mode.py
-   │   └── requirements_wheels.txt
-   ├── s3Dgraphy/              # Core library
-   ├── import_operators/       # Import functionality
-   ├── export_operators/       # Export functionality
-   └── docs/                   # Documentation
-
-Important Files
-^^^^^^^^^^^^^^^
-
-``blender_manifest.toml``
-"""""""""""""""""""""""""
-
-The extension manifest file that defines:
-
-- Metadata (name, version, author)
-- Dependencies (Python wheels)
-- Blender version requirements
-- Platform compatibility
-
-``requirements_wheels.txt``
-"""""""""""""""""""""""""""
-
-Lists all Python dependencies with specific versions:
-
-.. code-block:: text
-
-   pandas==2.2.3
-   numpy==1.26.4
-   networkx==3.4.2
-   ...
-
-Development Scripts
-^^^^^^^^^^^^^^^^^^^
-
-``setup_development.py``
-""""""""""""""""""""""""
-
-Downloads all required Python wheels for your platform:
-
-.. code-block:: bash
-
-   python scripts/setup_development.py
-
-``switch_dev_mode.py``
-""""""""""""""""""""""
-
-Switches between development and production configurations:
-
-.. code-block:: bash
-
-   # For development with VSCode
-   python scripts/switch_dev_mode.py dev
-
-   # For production builds
-   python scripts/switch_dev_mode.py prod
-
-Troubleshooting
-^^^^^^^^^^^^^^^
-
-Common Issues
-"""""""""""""
-
-**Import Errors**
-   - Ensure all wheels are downloaded: ``python scripts/setup_development.py``
-   - Check that you're using Python 3.13
-   - Verify Blender is version 4.4 or later
-
-**VSCode Development Issues**
-   - Make sure you're in development mode: ``python scripts/switch_dev_mode.py dev``
-   - Check VSCode settings point to correct Blender executable
-   - Try restarting VSCode and Blender
-
-**Manifest Errors**
-   - Development mode uses a simplified manifest
-   - Production builds require the full manifest with wheel declarations
-
-Getting Help
-""""""""""""
-
-- Join the `Telegram community <https://t.me/UserGroupEM>`_
-- Open an issue on `GitHub <https://github.com/zalmoxes-laran/EM-blender-tools/issues>`_
-- Email: emanuel.demetrescu@cnr.it
