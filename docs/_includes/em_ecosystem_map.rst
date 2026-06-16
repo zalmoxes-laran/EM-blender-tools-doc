@@ -23,7 +23,6 @@ component sits.
      - The *Blender add-on* that connects an EM graph to 3D content —
        proxies, representation models, exports.
      - `EM Tools manual <https://docs.extendedmatrix.org/projects/EM-tools/>`_
-       *(this manual)*
    * - **s3dgraphy**
      - The *Python library* that powers EM Tools — graph data
        structures, GraphML / XLSX / SQLite import/export, JSON for
@@ -55,4 +54,3 @@ there if you are not sure which manual to open first.
    language, EM Tools, s3dgraphy, 3DSC, Heriverse). Wherever you
    land, you can orient yourself in the broader ecosystem from this
    table.
-
