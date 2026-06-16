@@ -4,15 +4,12 @@
 3D Survey Collection: Level of Detail in Blender
 ================================================
 
-.. raw:: html
+.. todo::
 
-   <!-- Replace VIDEO_ID with the actual YouTube video ID for 03_3dsc_lod_concept -->
-   <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
-   <iframe src="https://www.youtube.com/embed/VIDEO_ID_03_3dsc_lod_concept"
-           style="position:absolute;top:0;left:0;width:100%;height:100%;"
-           frameborder="0" allowfullscreen></iframe>
-   </div>
-   <p><em>▶ 3D Survey Collection: Level of Detail in Blender (~~6 min)</em></p>
+   **Embed YouTube video** — placeholder slug ``03_3dsc_lod_concept``.
+   Once the recording is uploaded, replace this todo with a
+   ``.. raw:: html`` iframe pointing at the real YouTube video ID.
+   Working title: *3D Survey Collection: Level of Detail in Blender (~~6 min)*.
 
 | **Clip:** 03  |  **Duration:** ~6 min  |  **Recording segment:** 11:43 → ~18:00
 

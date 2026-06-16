@@ -6,15 +6,12 @@
 Installing EM Tools: yEd and the Blender Add-on
 ===============================================
 
-.. raw:: html
+.. todo::
 
-   <!-- Replace VIDEO_ID with the actual YouTube video ID for 12_em_install_tools -->
-   <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
-   <iframe src="https://www.youtube.com/embed/VIDEO_ID_12_em_install_tools"
-           style="position:absolute;top:0;left:0;width:100%;height:100%;"
-           frameborder="0" allowfullscreen></iframe>
-   </div>
-   <p><em>▶ Installing EM Tools: yEd and the Blender Add-on (~~5 min)</em></p>
+   **Embed YouTube video** — placeholder slug ``12_em_install_tools``.
+   Once the recording is uploaded, replace this todo with a
+   ``.. raw:: html`` iframe pointing at the real YouTube video ID.
+   Working title: *Installing EM Tools: yEd and the Blender Add-on (~~5 min)*.
 
 | **Clip:** 12  |  **Duration:** ~5 min  |  **Recording segment:** 57:29 → ~1:03:00
 

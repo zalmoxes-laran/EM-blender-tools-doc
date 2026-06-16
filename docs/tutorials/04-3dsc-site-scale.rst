@@ -4,15 +4,12 @@
 Site-Scale LOD and Data Preparation
 ===================================
 
-.. raw:: html
+.. todo::
 
-   <!-- Replace VIDEO_ID with the actual YouTube video ID for 04_3dsc_site_scale -->
-   <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
-   <iframe src="https://www.youtube.com/embed/VIDEO_ID_04_3dsc_site_scale"
-           style="position:absolute;top:0;left:0;width:100%;height:100%;"
-           frameborder="0" allowfullscreen></iframe>
-   </div>
-   <p><em>▶ Site-Scale LOD and Data Preparation (~~4 min)</em></p>
+   **Embed YouTube video** — placeholder slug ``04_3dsc_site_scale``.
+   Once the recording is uploaded, replace this todo with a
+   ``.. raw:: html`` iframe pointing at the real YouTube video ID.
+   Working title: *Site-Scale LOD and Data Preparation (~~4 min)*.
 
 | **Clip:** 04  |  **Duration:** ~4 min  |  **Recording segment:** ~18:00 → ~22:00
 

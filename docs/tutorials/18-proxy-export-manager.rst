@@ -6,15 +6,12 @@
 Creating Proxies and Exporting Your Dataset
 ===========================================
 
-.. raw:: html
+.. todo::
 
-   <!-- Replace VIDEO_ID with the actual YouTube video ID for 18_em_proxy_export -->
-   <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
-   <iframe src="https://www.youtube.com/embed/VIDEO_ID_18_em_proxy_export"
-           style="position:absolute;top:0;left:0;width:100%;height:100%;"
-           frameborder="0" allowfullscreen></iframe>
-   </div>
-   <p><em>▶ Creating Proxies and Exporting Your Dataset (~~4 min)</em></p>
+   **Embed YouTube video** — placeholder slug ``18_em_proxy_export``.
+   Once the recording is uploaded, replace this todo with a
+   ``.. raw:: html`` iframe pointing at the real YouTube video ID.
+   Working title: *Creating Proxies and Exporting Your Dataset (~~4 min)*.
 
 | **Clip:** 18  |  **Duration:** ~4 min  |  **Recording segment:** ~1:29:30 → 1:33:29
 

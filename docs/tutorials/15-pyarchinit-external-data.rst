@@ -6,15 +6,12 @@
 Auxiliary Resources: pyArchInit and External Data Connections
 =============================================================
 
-.. raw:: html
+.. todo::
 
-   <!-- Replace VIDEO_ID with the actual YouTube video ID for 15_em_pyarchinit -->
-   <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
-   <iframe src="https://www.youtube.com/embed/VIDEO_ID_15_em_pyarchinit"
-           style="position:absolute;top:0;left:0;width:100%;height:100%;"
-           frameborder="0" allowfullscreen></iframe>
-   </div>
-   <p><em>▶ Auxiliary Resources: pyArchInit and External Data Connections (~~4 min)</em></p>
+   **Embed YouTube video** — placeholder slug ``15_em_pyarchinit``.
+   Once the recording is uploaded, replace this todo with a
+   ``.. raw:: html`` iframe pointing at the real YouTube video ID.
+   Working title: *Auxiliary Resources: pyArchInit and External Data Connections (~~4 min)*.
 
 | **Clip:** 15  |  **Duration:** ~4 min  |  **Recording segment:** ~1:16:00 → ~1:20:30
 
