@@ -16,14 +16,32 @@ The extension is developed by E. Demetrescu at CNR-ISPC (Rome, former CNR-ITABC)
 
    *EM Tools at a glance: the five moments your work will move through, from importing the graph and the 3D content to exporting a publishable reconstruction. The panels in the addon follow this order.*
 
+EM, EM Tools, 3DSC: who is who
+------------------------------
 
-.. admonition:: Where this manual sits in the EM ecosystem
-   :class: hint
+A new user often meets three names at once. The distinction matters because each one solves a different problem:
 
-   You are reading the **EM Tools** manual — the Blender add-on. For
-   the broader Extended Matrix ecosystem (the formal language, the
-   s3dgraphy library, 3DSC, Heriverse), see
-   :ref:`em-ecosystem-map` at the bottom of this page.
+.. list-table::
+   :header-rows: 1
+   :widths: 22 38 40
+
+   * - Name
+     - What it is
+     - Where to learn it
+   * - **Extended Matrix (EM)**
+     - The *formal language* used to document stratigraphy and reconstruction processes. Drawn in yEd or produced from ``em_data.xlsx``.
+     - `extendedmatrix.org docs <https://docs.extendedmatrix.org>`_
+   * - **EM Tools**
+     - The *Blender add-on* that connects an EM graph to 3D content (this manual).
+     - You are here.
+   * - **3DSC**
+     - A complementary Blender environment for high-quality 3D survey processing that can feed EM Tools.
+     - `3D-survey-collection docs <https://docs.extendedmatrix.org/projects/3DSC>`_
+   * - **Heriverse**
+     - The *Heritage Science Metaverse* — web-based publication and collaborative VR for EM-aware scenes. The natural endpoint of what you author here.
+     - `Heriverse docs <https://docs.extendedmatrix.org/projects/heriverse/en/latest/>`__
+
+If you are unsure which one you need: start from EM (the language) if you have *evidence to organize*; come to EM Tools if you have *3D content to annotate*; reach for 3DSC if you have *raw survey data to clean and align*; open Heriverse when your work is *ready to be published on the web*.
 
 Start here
 ----------
@@ -93,53 +111,33 @@ What's New
 Contents
 --------
 
-The TOC below is organised by intent (Diátaxis-flavoured): *Get
-started* is where to land if this is your first time; *Daily use* is
-the task-oriented how-to walkthroughs you reach for during a project;
-*Reference* is the lookup material you keep open in a second tab while
-working; *Workflows & concepts* is the explanatory material that
-tells you *why* the system is shaped the way it is. The s3dgraphy and
-ExtendedMatrix-doc manuals follow the same grouping — same shape
-across the ecosystem.
-
 .. toctree::
    :maxdepth: 2
-   :caption: Get started
+   :caption: Getting Started
 
    installation
    usage_examples
 
 .. toctree::
    :maxdepth: 2
-   :caption: Daily use (how-to)
-
-   tutorials/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Reference
+   :caption: User Guide
 
    panels/index
-   api_reference
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Workflows & concepts
-
    workflows
    creating_em
    export_guide
 
 .. toctree::
    :maxdepth: 2
-   :caption: Developer setup
+   :caption: Developer Guide
 
-   development_setup
+   api_reference
    contributing
+   development_setup
 
 .. toctree::
    :maxdepth: 2
-   :caption: Project information
+   :caption: Project Information
 
    roadmap
    changelog
@@ -147,11 +145,17 @@ across the ecosystem.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Community & support
+   :caption: Community
 
    support
    faq
    showcase
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Tutorials
+
+   tutorials/index
 
 Additional Resources
 --------------------
@@ -175,6 +179,3 @@ Indices and tables
    :hidden:
 
    EMstructure
-
-.. include:: _includes/em_ecosystem_map.rst
-
