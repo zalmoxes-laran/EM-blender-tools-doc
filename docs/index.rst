@@ -93,33 +93,53 @@ What's New
 Contents
 --------
 
+The TOC below is organised by intent (Diátaxis-flavoured): *Get
+started* is where to land if this is your first time; *Daily use* is
+the task-oriented how-to walkthroughs you reach for during a project;
+*Reference* is the lookup material you keep open in a second tab while
+working; *Workflows & concepts* is the explanatory material that
+tells you *why* the system is shaped the way it is. The s3dgraphy and
+ExtendedMatrix-doc manuals follow the same grouping — same shape
+across the ecosystem.
+
 .. toctree::
    :maxdepth: 2
-   :caption: Getting Started
+   :caption: Get started
 
    installation
    usage_examples
 
 .. toctree::
    :maxdepth: 2
-   :caption: User Guide
+   :caption: Daily use (how-to)
+
+   tutorials/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Reference
 
    panels/index
+   api_reference
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Workflows & concepts
+
    workflows
    creating_em
    export_guide
 
 .. toctree::
    :maxdepth: 2
-   :caption: Developer Guide
+   :caption: Developer setup
 
-   api_reference
-   contributing
    development_setup
+   contributing
 
 .. toctree::
    :maxdepth: 2
-   :caption: Project Information
+   :caption: Project information
 
    roadmap
    changelog
@@ -127,17 +147,11 @@ Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Community
+   :caption: Community & support
 
    support
    faq
    showcase
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Tutorials
-
-   tutorials/index
 
 Additional Resources
 --------------------
