@@ -1,0 +1,116 @@
+name: Sphinx build check
+
+# Build the Sphinx docs on every push and PR. Fail loud if:
+#   - any canonical include file (notably docs/_includes/em_ecosystem_map.rst)
+#     is missing or moved without a redirect;
+#   - the cross-references the manual depends on are broken;
+#   - the RST source emits warnings that we treat as errors.
+#
+# Rationale (2026-06-16): plumbing-based commits via the FUSE-mounted
+# Cowork workspace can leave the local working tree out of sync with
+# the just-updated git ref. A subsequent local commit-and-push from
+# the user's terminal then captures the stale working-tree content
+# and looks like a revert. The history above this commit on the 1.6
+# branch (cd6abf1 + ac33556, both with message "update", both with
+# the same revert diff signature) is the symptom. This CI check is
+# the safety net: if the include file or the thin installation.rst
+# disappear from a branch, the build fails and we see it immediately.
+
+on:
+  push:
+    branches:
+      - 1.5.0
+      - 1.6
+      - main
+    paths:
+      - 'docs/**'
+      - '.github/workflows/sphinx-build.yml'
+  pull_request:
+    paths:
+      - 'docs/**'
+      - '.github/workflows/sphinx-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sphinx-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install Sphinx + theme + extensions
+        run: |
+          python -m pip install --upgrade pip
+          # Install whatever the manual declares; fall back to a known-
+          # good baseline for the EM-tools doc set if requirements.txt
+          # is missing.
+          if [ -f docs/requirements.txt ]; then
+            pip install -r docs/requirements.txt
+          else
+            pip install sphinx sphinx-rtd-theme sphinx-design sphinxcontrib-bibtex
+          fi
+
+      - name: Canonical-file presence check
+        # Guard against the silent-revert pattern (see workflow header).
+        # If a future commit accidentally drops the canonical include
+        # or empties out the installation.rst this step fails BEFORE
+        # the long Sphinx build, giving a clear error.
+        run: |
+          set -euo pipefail
+          required_files=(
+            "docs/_includes/em_ecosystem_map.rst"
+            "docs/installation.rst"
+            "docs/index.rst"
+          )
+          missing=0
+          for f in "${required_files[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "::error file=$f::Required canonical file is missing"
+              missing=1
+            fi
+          done
+          # Sanity-check that the include is referenced by index.rst
+          # (catches the case where the file exists but the include
+          # directive was removed).
+          if ! grep -q 'include:: _includes/em_ecosystem_map.rst' docs/index.rst; then
+            echo "::error file=docs/index.rst::Canonical include directive (em_ecosystem_map.rst) is missing from index.rst"
+            missing=1
+          fi
+          # Sanity-check that the thin install form is in place
+          # (the heading "Quick install" only exists in the new form;
+          # the old long form had "User Installation" instead).
+          if ! grep -q '^Quick install' docs/installation.rst; then
+            echo "::warning file=docs/installation.rst::installation.rst does not contain the 'Quick install' heading expected by the post-restructure thin form. If this is intentional (1.4.x line, for example), this warning is fine; otherwise the file likely reverted to the pre-restructure long form."
+          fi
+          if [ "$missing" = "1" ]; then
+            exit 1
+          fi
+          echo "✅ All canonical files present and referenced."
+
+      - name: Sphinx build (HTML, warnings-as-errors)
+        run: |
+          # -W: treat warnings as errors
+          # --keep-going: report all errors, not just the first
+          # -n: nitpicky mode (broken cross-refs become errors)
+          # -q: quiet (only show warnings + errors)
+          sphinx-build -W --keep-going -n -q -b html docs docs/_build/html
+
+      - name: Upload built HTML on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sphinx-html-${{ github.ref_name }}
+          path: docs/_build/html
+          retention-days: 7
