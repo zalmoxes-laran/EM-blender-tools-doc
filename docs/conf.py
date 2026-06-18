@@ -3,8 +3,8 @@
 # -- Project information
 
 project = 'Extended Matrix tool'
-copyright = '2024–2026, Emanuel Demetrescu (CNR-ISPC)'
-author = 'Emanuel Demetrescu'
+copyright = '2024–2026, Emanuel Demetrescu (CNR-ISPC), Simone Berto'
+author = 'Emanuel Demetrescu, Simone Berto'
 
 # Sphinx convention: version is the short X.Y, release is the full string
 # (including pre-release tags). Keeping these in sync with the addon
