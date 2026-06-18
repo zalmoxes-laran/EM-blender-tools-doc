@@ -36,3 +36,11 @@ epub_show_urls = 'footnote'
 
 # Enable numref
 numfig = True
+# -- PDF (LaTeX) cover -------------------------------------------------
+# Credit the documentation author explicitly on the PDF cover.
+latex_documents = [
+    ('index', 'ExtendedMatrixTool.tex',
+     f'{project} Documentation',
+     'Documentation written by Emanuel Demetrescu',
+     'manual'),
+]
