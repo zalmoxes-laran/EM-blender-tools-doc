@@ -3,8 +3,8 @@
 # -- Project information
 
 project = 'Extended Matrix tool'
-copyright = '2024, Emanuel Demetrescu'
-author = 'Emanuel Demetrescu'
+copyright = '2024, Simone Berto'
+author = 'Simone Berto'
 
 release = '1.4'
 version = '1.4.0'
