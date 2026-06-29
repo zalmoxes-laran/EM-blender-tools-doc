@@ -9,6 +9,14 @@ Keyboard Shortcuts
    Matrix ecosystem; these shortcuts are EM-Tools-specific and not part
    of the formal EM language.
 
+   For the *foundational* Blender shortcuts (navigation, selection,
+   transform, edit mode, loop cut, extrude, knife, duplicate,
+   parameters panel, modifiers, render) — see the Golden Twelve card
+   admonition below. The EM-Tools-specific shortcuts on this page are
+   composed *on top of* the Golden Twelve.
+
+.. include:: ../_includes/golden_twelve_card.rst
+
 EMtools provides keyboard shortcuts for common operations in the **3D Viewport**. All shortcuts are context-aware and only work when relevant data is available.
 
 .. list-table:: Available Shortcuts

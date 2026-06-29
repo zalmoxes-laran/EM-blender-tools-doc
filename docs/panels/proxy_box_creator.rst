@@ -12,6 +12,12 @@ Proxy Box Creator
    - :doc:`em-doc:paradata_nodes` — Document, Extractor, Combiner and
      PropertyNode types in the chain.
 
+   Foundational Blender modelling shortcuts (the building blocks
+   *under* every proxy you author here):
+
+   - :ref:`Keyboard_Shortcuts` — Golden Twelve admonition + the
+     EM-Tools-specific shortcut table on the same page.
+
 The Proxy Box Creator builds a proxy mesh (a 7-point bounding volume) for a
 Stratigraphic Unit and wires the full paradata chain behind it — Document
 instance → Extractors → Combiner → PropertyNode ("Proxy Geometry") — all

@@ -13,6 +13,8 @@ this manual).
    :local:
    :depth: 1
 
+.. include:: _includes/golden_twelve_card.rst
+
 
 Quick install (recommended)
 ---------------------------
