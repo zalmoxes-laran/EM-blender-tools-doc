@@ -1,1 +1,6 @@
 sphinx_rtd_theme
+# sphinx-design provides the `.. badge::` / `.. dropdown::` / `.. tab-set::`
+# directives used in the tutorial pages (clip_03, clip_04, clip_12 …).
+# Without it, `badge::` raises ERROR "Unknown directive type" and the
+# strict CI build (sphinx-build -W --keep-going -n) fails.
+sphinx-design

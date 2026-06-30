@@ -27,6 +27,10 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
+    # sphinx-design — provides .. badge::, .. dropdown::, .. tab-set::
+    # used in the tutorial pages (clip_03, clip_04, clip_12, ...).
+    # Without it, those directives raise ERROR "Unknown directive type".
+    'sphinx_design',
 ]
 
 # Surface .. todo:: directives in the rendered docs so they are easy
@@ -50,6 +54,13 @@ templates_path = ['_templates']
 # To re-enable a page, remove it from this list and reference it from a toctree.
 exclude_patterns = [
     '_build',
+    # `_includes/` is the canonical home of reusable RST snippets pulled
+    # in via `.. include:: _includes/<file>.rst` from other pages.
+    # If Sphinx also discovers them as STANDALONE docs, every label
+    # they declare gets parsed twice and surfaces as `duplicate label`
+    # — turning the strict CI red. Excluding the whole directory from
+    # the build keeps the includes consumable but unindexed.
+    '_includes/**',
 ]
 
 # -- Options for HTML output
