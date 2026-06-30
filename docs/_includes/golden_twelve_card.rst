@@ -26,6 +26,6 @@
 
    Cite as: Demetrescu, E. (2026). *The Golden Twelve: Reference
    Card for 3D Cultural Heritage Modelling* (v1.0). Zenodo.
-   `doi:10.5281/zenodo.21029013 <https://zenodo.org/records/21029013>`__
+   `doi:10.5281/zenodo.21068528 <https://zenodo.org/records/21068528>`__
    (CC-BY-SA 4.0). A companion paper is in submission to
    *Digital Applications in Archaeology and Cultural Heritage*.
