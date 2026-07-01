@@ -3,6 +3,8 @@
 Proxy Box Creator
 =================
 
+.. include:: ../_includes/golden_twelve_card.rst
+
 .. seealso::
 
    In the Extended Matrix language manual:

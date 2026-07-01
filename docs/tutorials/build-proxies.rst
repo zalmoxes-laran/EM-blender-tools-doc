@@ -1,6 +1,8 @@
 Build the stratigraphic proxies in Blender
 ==========================================
 
+.. include:: ../_includes/golden_twelve_card.rst
+
 .. _howto_build_proxies:
 
 .. note::

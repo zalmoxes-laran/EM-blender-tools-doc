@@ -3,6 +3,8 @@
 Placing 2D Drawings as 3D References
 ====================================
 
+.. include:: ../_includes/golden_twelve_card.rst
+
 A common authoring step is to import a 2D drawing — a section, a
 plan, an excavation orthophoto — into Blender and bring it to the
 correct **position**, **orientation** and **scale** so that proxies,

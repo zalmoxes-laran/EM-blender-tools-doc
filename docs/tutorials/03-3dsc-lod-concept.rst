@@ -4,6 +4,8 @@
 3D Survey Collection: Level of Detail in Blender
 ================================================
 
+.. include:: ../_includes/golden_twelve_card.rst
+
 .. todo::
 
    **Embed YouTube video** — placeholder slug ``03_3dsc_lod_concept``.

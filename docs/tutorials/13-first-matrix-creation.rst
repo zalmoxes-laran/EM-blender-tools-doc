@@ -6,6 +6,8 @@
 Creating Your First Extended Matrix
 ===================================
 
+.. include:: ../_includes/golden_twelve_card.rst
+
 .. todo::
 
    **Embed YouTube video** — placeholder slug ``13_em_first_matrix``.
