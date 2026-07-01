@@ -3,6 +3,8 @@ Build the stratigraphic proxies in Blender
 
 .. _howto_build_proxies:
 
+.. include:: ../_includes/golden_twelve_card.rst
+
 .. note::
 
    This how-to is adapted from *Exercise 3 — 3D modelling the stratigraphy*
