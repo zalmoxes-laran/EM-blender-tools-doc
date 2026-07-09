@@ -41,6 +41,6 @@ numfig = True
 latex_documents = [
     ('index', 'ExtendedMatrixTool.tex',
      f'{project} Documentation',
-     'Documentation written by Emanuel Demetrescu',
+     'Documentation written by Simone Berto',
      'manual'),
 ]
