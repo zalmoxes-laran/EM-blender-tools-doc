@@ -1075,20 +1075,55 @@ Common workflows
   the legacy / interoperability fallback.
 
 
-.. _graphml_warnings:
+.. _em_warnings:
 
-GraphML Warnings
-----------------
+EM Warnings
+-----------
 
-When a GraphML file is imported, EMtools validates its structure and content. Any issues are surfaced in a collapsible **GraphML Warning** box below the graph entry.
+.. versionchanged:: 1.6
+   Renamed from *GraphML Warnings*. The box is fed by the graph, not by the file
+   format, so it now reports on an ``.em.json`` exactly as it did on a
+   ``.graphml``. Warnings are also **recomputed every time a graph is loaded**
+   rather than stored: they describe the state of the graph, so a problem you
+   fix disappears on reload, and one you introduce shows up without a
+   re-import.
 
-Common warnings:
+When a graph is loaded, EMtools reports what it could not resolve in a
+collapsible **EM Warnings** box below the graph entry, with the total in the
+header. Above it sits a one-line **version banner** — for example
+``em.json · em.json schema 2 · EM 1.6.0`` — naming the version the document
+declares and the one reading it. Fields the document does not declare are left
+out: a ``.graphml`` has no schema of its own, and that absence is itself
+informative.
 
-- **Missing site ID** — the swimlane header does not contain the mandatory ``ID:`` field (for example ``Great Temple [ID:GT16]``). Fix this in yEd before reloading.
-- **Placeholder epoch dates** — an epoch still contains the ``xx`` placeholder in its start/end fields. Replace with real dates.
-- **Structural issues** — malformed nodes, dangling edges, unknown node types reported by the importer. Each message indicates the offending node ID.
+Warnings are **grouped by problem**, largest group first, each expandable. A
+real dataset produces one line per node, per group, per edge — a hundred
+near-identical rows nobody reads — so the panel aggregates them and shows the
+first few of each family, followed by ``… and N more of the same``. Collapsed,
+the box still shows a one-line summary of the two biggest families.
 
-The warnings are read-only: they describe what the importer detected. To clear them, fix the ``.graphml`` file in yEd and reload with the ``File Refresh`` button in the EM Data Tree list. The ``Data Funnel guide`` button links to the Extended Matrix manual section with authoring best-practices.
+The families:
+
+- **Nodes with no recognised EM type** — the shape and colour match no node
+  type, so the node and every connection touching it stay untyped.
+- **Groups with no EM role** — a box with no palette colour: kept as an
+  organisational container, carrying no meaning.
+- **Connections degraded to generic_connection** — the relation drawn is not one
+  the datamodel allows between those two endpoints. Where exactly one relation
+  *would* fit, the message names it.
+- **Node types this version does not know** — the document declares a type this
+  build's datamodel has never heard of. A version gap, not an authoring mistake.
+- **Graph header** — missing site ``ID:`` in the swimlane header (for example
+  ``Great Temple [ID:GT16]``), or epochs still carrying the ``xx`` placeholder
+  in their start/end fields.
+
+Nothing here is guessed or corrected for you: an ambiguous drawing has no single
+reading, and inventing one would put a wrong statement in the graph. The
+warnings are read-only. To clear them, fix the **source** graph — in yEd for a
+``.graphml``, or in the authoring panels for an ``.em.json`` — and reload with
+the ``File Refresh`` button in the EM Data Tree list. The ``Data Funnel guide``
+button links to the Extended Matrix manual section with authoring
+best-practices.
 
 
 .. _graphml_merge_conflict:
