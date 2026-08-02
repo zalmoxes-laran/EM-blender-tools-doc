@@ -30,29 +30,29 @@ Panel Layout
 
 **Summary Bar** (when documents exist):
 
-- Masters count (key documents)
+- Canonicals count (key documents)
 - Dated documents count
 - Documents with 3D representation count
 
 **Filter Row**:
 
-- ``Show only masters`` toggle: filters to display only master documents
+- ``Canonicals Only`` toggle: filters to display only canonical documents
 - ``Show only with 3D`` toggle: filters to documents that have a 3D representation
 
 **Document List**:
 
 Each row displays:
 
-- **Certainty icon** (for master documents): color-coded by certainty level (red = direct, orange = reconstructed, yellow = hypothetical, gray = unknown)
-- **Name**: with date if available for master documents
+- **Certainty icon** (for canonical documents): color-coded by certainty level (red = direct, orange = reconstructed, yellow = hypothetical, gray = unknown)
+- **Name**: with date if available for canonical documents
 - **3D state icons**: mesh icon if it has a quad, camera icon (clickable) if it has a camera
 - **Description**
 
 **Detail Panel** (when a document is selected):
 
-- Document name and badge (Master or Instance)
+- Document name and badge (Canonical or Instance)
 - Description (if available)
-- Chronology section (for masters): start date and linked epoch
+- Chronology section (for canonicals): start date and linked epoch
 - Source type: Analytical (context-based) or Comparative (analogue-based)
 - Completeness indicators: checkmarks for Description, Date, URL, 3D
 
@@ -79,7 +79,7 @@ Workflow
 **Syncing documents from the graph:**
 
 1. Click ``Sync from Graph`` to populate the document list from the EM graph
-2. Use the filter toggles to narrow the view to masters or documents with 3D representations
+2. Use the filter toggles to narrow the view to canonicals or documents with 3D representations
 
 **Creating a 3D representation for a document:**
 

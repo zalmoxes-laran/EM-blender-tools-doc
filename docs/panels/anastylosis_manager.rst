@@ -118,7 +118,7 @@ Panel Layout
   the shared Add-US dialog with the type **locked to SpecialFind**).
   Placeholder ``[---]`` when no SF is linked.
 - **🔍 Doc** + **Doc name** — magnifying-glass opens the Document
-  picker (search the catalog or create a new master via
+  picker (search the catalog or create a new canonical via
   ``+ Add New Document...``). Placeholder ``[---]`` when no Document
   is linked. The picker writes a ``has_representation_model_doc`` edge
   in the graph, so any tool that reads paradata from the RMSF (Surface
@@ -168,7 +168,7 @@ Workflow
      SpecialFind. After confirm the new SF is automatically linked to
      this RMSF row.
 5. **(Recommended) Link to a Document** — click 🔍 Doc, search the
-   catalog, or click ``+ Add New Document...`` to mint a fresh master.
+   catalog, or click ``+ Add New Document...`` to mint a fresh canonical.
    Without a Document the RMSF cannot feed Surface Areas / Proxy Box
    knowledge-extraction tools.
 6. **(Optional) Switch LOD** — click a LOD number on the row or in

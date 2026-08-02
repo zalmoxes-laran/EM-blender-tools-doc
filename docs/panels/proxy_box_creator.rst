@@ -54,7 +54,7 @@ You have three ways to set the anchor:
   ``has_representation_model`` edge, and records the anchor.
 - **Search** (magnifying-glass icon): opens the shared
   ``draw_document_picker_with_create_button`` widget — search the existing
-  document catalog or click **+ Add New Document...** to open the Master
+  document catalog or click **+ Add New Document...** to open the Canonical
   Document creation dialog. After the dialog closes, the newly-created
   document is the anchor.
 - **Clear** (``X`` icon): drops the anchor without touching the scene.

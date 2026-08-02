@@ -45,8 +45,8 @@ unlocks only when every step is met.
 If the mesh isn't an RM yet, a hint row appears with a **Promote** button
 that registers the mesh in the currently-active RM container — no
 need to switch panels. If the RM has no Document linked, the row expands
-into a document picker (search existing or create a new master via the
-shared :ref:`Add Master Document <document_manager>` dialog).
+into a document picker (search existing or create a new canonical via the
+shared :ref:`Add Canonical Document <document_manager>` dialog).
 
 **2. Extractor** — single row with the extractor method picker.
 
