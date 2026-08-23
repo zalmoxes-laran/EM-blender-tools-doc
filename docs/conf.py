@@ -84,3 +84,14 @@ latex_documents = [
      'Documentation written by Emanuel Demetrescu and Simone Berto',
      'manual'),
 ]
+
+# -- AI Act Article 50 transparency footer -----------------------------
+# A short notice appended to every page via ``rst_epilog``, pointing to
+# the project's AI usage policy at extendedmatrix.org/ai-usage/. This
+# documentation qualifies for the human-review-and-editorial-
+# responsibility exception in Art. 50(4) of Regulation (EU) 2024/1689
+# (AI Act); the footer is added for traceability. The include file is
+# under ``_includes/`` which is already excluded from the build above.
+rst_epilog = """
+.. include:: /_includes/ai_usage_notice.rst
+"""
