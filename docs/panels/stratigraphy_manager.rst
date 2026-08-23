@@ -132,7 +132,7 @@ When a stratigraphic unit acts as a **container** (a US, USD, or VSF containing 
 The containment relationship is mereological (part--whole): for example, a wall (US) containing a reused capital (SF), or a reconstructed roof (VSF) composed of tile fragments (SF).
 
 .. seealso::
-   The `Extended Matrix documentation on containment <https://extendedmatrix.readthedocs.io/en/latest/connectors.html#is-part-of-is-part-of>`_ for the formal specification.
+   The `Extended Matrix documentation on containment <https://docs.extendedmatrix.org/en/1.5/connectors.html#is-part-of-is-part-of>`_ for the formal specification.
 
 .. _instance_chain_filter:
 
@@ -154,7 +154,7 @@ Clicking the three dots icon filters the list to show **all instances in the cha
 For example: a capital that exists today on the ground (SF5000-C), existed in a previous epoch as a collapsed element (USD5000-B), and in the Roman era was in its original position (USM5000-A). All three are connected by dotted edges and form a single instance chain.
 
 .. seealso::
-   The `Extended Matrix documentation on instance chains <https://extendedmatrix.readthedocs.io/en/latest/connectors.html#instance-chains>`_ for the formal specification and naming conventions.
+   The `Extended Matrix documentation on instance chains <https://docs.extendedmatrix.org/en/1.5/connectors.html#instance-chains>`_ for the formal specification and naming conventions.
 
 Filter Interactions
 -------------------

@@ -19,10 +19,10 @@ CSV), see :doc:`export_manager`.
 
 .. seealso::
 
-   - `Heriverse docs <https://docs.extendedmatrix.org/projects/heriverse/en/latest/>`__
+   - `Heriverse docs <https://docs.extendedmatrix.org/projects/heriverse/en/1.5/>`__
      — full documentation of the Heriverse publishing platform.
    - `Publishing a reconstruction via Heriverse
-     <https://docs.extendedmatrix.org/projects/heriverse/en/latest/user_dashboard.html#publish-via-heriverse>`__
+     <https://docs.extendedmatrix.org/projects/heriverse/en/1.5/user_dashboard.html#publish-via-heriverse>`__
      — the upload step (creating a Heriverse scene and pushing the
      exported bundle online).
    - :doc:`export_manager` — for Tabular export (em_data.xlsx, CSV).
@@ -230,7 +230,7 @@ creating a Heriverse scene from your user dashboard and pushing the
 exported bundle online — is documented on the Heriverse side:
 
 `Publishing a reconstruction via Heriverse
-<https://docs.extendedmatrix.org/projects/heriverse/en/latest/user_dashboard.html#publish-via-heriverse>`__.
+<https://docs.extendedmatrix.org/projects/heriverse/en/1.5/user_dashboard.html#publish-via-heriverse>`__.
 
 Troubleshooting
 ---------------

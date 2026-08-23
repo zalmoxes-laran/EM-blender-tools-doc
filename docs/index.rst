@@ -157,7 +157,7 @@ Additional Resources
 - **Extended Matrix website**: `extendedmatrix.org <https://www.extendedmatrix.org>`_
 - **EM language docs**: `docs.extendedmatrix.org <https://docs.extendedmatrix.org>`_
 - **3DSC docs**: `3D-survey-collection <https://docs.extendedmatrix.org/projects/3DSC>`_
-- **Heriverse docs**: `Heritage Science Metaverse <https://docs.extendedmatrix.org/projects/heriverse/en/latest/>`__
+- **Heriverse docs**: `Heritage Science Metaverse <https://docs.extendedmatrix.org/projects/heriverse/en/1.5/>`__
 - **ATON Framework**: `phoenixbf/aton on GitHub <https://github.com/phoenixbf/aton>`__
 - **Video tutorials**: `YouTube Channel <https://www.youtube.com/extendedmatrix>`_
 
