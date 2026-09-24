@@ -86,7 +86,7 @@ What's New
 
    This documentation describes EM Tools **1.6 (in development)** and is rebuilt continuously
    from the ``1.6`` branch. The downloadable PDF carries the same release string on its cover
-   (``Extended Matrix tool 1.6.0.dev0``). If you need the current stable release, switch the
+   (``Extended Matrix tool 1.6.0-dev.9``). If you need the current stable release, switch the
    version selector at the bottom-left of the page to ``1.5.0``. Issues and suggestions:
    please open them on `GitHub issues <https://github.com/zalmoxes-laran/EM-blender-tools/issues>`__.
 

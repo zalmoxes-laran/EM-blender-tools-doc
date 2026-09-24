@@ -11,7 +11,7 @@ author = 'Emanuel Demetrescu, Simone Berto'
 # release naming on GitHub (e.g. em_tools-v1.6.0-dev.NNN-...) so that the
 # PDF cover, HTML header and downloadable bundle agree.
 version = '1.6'
-release = '1.6.0.dev0'
+release = '1.6.0-dev.9'  # deve seguire blender_manifest.toml di EM-blender-tools
 
 # Explicit titles so the HTML <title> and the PDF cover both carry the
 # correct release string and don't drift back to a stale "1.5" cover.
