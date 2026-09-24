@@ -37,7 +37,7 @@ Where this fits — the Extended Matrix ecosystem
      - The *Python library* that powers EM Tools — graph data
        structures, GraphML / XLSX / SQLite import/export, JSON for
        web platforms. Usable standalone outside Blender.
-     - `s3dgraphy manual <https://docs.extendedmatrix.org/projects/s3dgraphy/>`_
+     - `s3dgraphy manual <https://docs.extendedmatrix.org/projects/s3dgraphy/en/v1.5/>`_
    * - **3DSC**
      - A complementary Blender add-on for high-quality *3D survey*
        processing (photogrammetry, LOD, Cesium tilesets) that feeds
