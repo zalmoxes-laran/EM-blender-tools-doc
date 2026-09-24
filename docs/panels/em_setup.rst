@@ -536,7 +536,7 @@ populates a dropdown in the 3D GIS panel.
 .. seealso::
 
    `s3dgraphy mapping JSON authoring — Filterable columns
-   <https://docs.extendedmatrix.org/projects/s3dgraphy/en/latest/importers/mapping_schema.html#filterable-columns-is-filter>`_
+   <https://docs.extendedmatrix.org/projects/s3dgraphy/en/v1.6/importers/mapping_schema.html#filter-columns-1-6>`_
    — how to mark a column as filterable when writing a mapping file
    (the producer-side view of the same feature).
 
