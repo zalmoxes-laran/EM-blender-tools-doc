@@ -244,11 +244,11 @@ Before pressing the *Open on EMviq* button  (:numref:`Fig. %s <EMviq_01FIG>`) us
 
 .. _EMviq_02FIG:
 
-.. figure:: img/EMviq_02.jpg
+.. figure:: img/EMviq_02.png
    :width: 600
    :align: center 
 
-   `Example <https://aton.ispc.cnr.it/s/sberto/dataset_demo>`_ of a 3D scene shared online with Hathor
+   `Example <https://aton.ispc.cnr.it/s/sberto/20260904-371b4cfeddaa>`_ of a 3D scene shared online with Hathor
 
 
 
@@ -275,11 +275,11 @@ To edit and save all the changes user must:
 
 .. _EMviq_03FIG:
 
-.. figure:: img/EMviq_03.jpg
+.. figure:: img/EMviq_03.png
    :width: 600
    :align: center 
 
-   The `dataset demo <https://aton.ispc.cnr.it/a/emviq/?s=sberto/dataset_demo>`_ 3D scene, previously displayed in Hathor, now shared online with EMviq
+   The `dataset demo <https://aton.ispc.cnr.it/a/emviq/?s=sberto/20260904-371b4cfeddaa>`_ 3D scene, previously displayed in Hathor, now shared online with EMviq
 
 
 
