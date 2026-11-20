@@ -3,7 +3,7 @@
 # -- Project information
 
 project = 'Extended Matrix tool'
-copyright = '2024–2026, Emanuel Demetrescu (CNR-ISPC), Simone Berto'
+copyright = '2024–2026, Consiglio Nazionale delle Ricerche (CNR) — Istituto di Scienze del Patrimonio Culturale'
 author = 'Emanuel Demetrescu, Simone Berto'
 
 # Sphinx convention: version is the short X.Y, release is the full string
